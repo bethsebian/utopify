@@ -9,5 +9,4 @@ class CartItemsController < ApplicationController
 		redirect_to '/items'
 	end
 
-
 end

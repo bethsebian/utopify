@@ -15,7 +15,7 @@ class Cart
 	end
 
 	def items
-		contents.map {|item_id, qty| [Item.find(item_id), qty]}
+		contents.map { |item_id, qty| [Item.find(item_id), qty] }
 	end
 
 	def total_price
