@@ -12,6 +12,8 @@
       <%= item.travesty.title %>
       <br>
       <%= image_tag item.image_url, height: '300', width: '300', id: "#{item.id}_item" %>
+      <br>
+      <%= button_to "Add to cart", cart_items_path(item_id: item.id)  %>
     </li>
 <% end %>
 </ul>
