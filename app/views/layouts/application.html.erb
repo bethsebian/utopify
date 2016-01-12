@@ -8,6 +8,12 @@
 </head>
 <body>
 
+  <%= link_to "My Cart:", cart_path %> <%= @cart.count_of %>
+
+  <% flash.each do |type, message| %>
+    <%= content_tag :div, message %>
+  <% end %>
+
 <%= yield %>
 
 </body>

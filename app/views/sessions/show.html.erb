@@ -1,0 +1,19 @@
+<h1> Cart Contents: </h1>
+
+<ul>
+<% @cart_items.each do |item, count| %>
+  <li>
+  <%= item.title %>
+  <br>
+  <%= item.description %>
+  <br>
+  <%= item.price %>
+  <br>
+  <%= item.travesty.title %>
+  <br>
+  <%= image_tag item.image_url, height: '300', width: '300', id: "#{item.id}_item" %>
+  <br>
+  <%= "Count: #{count}" %>
+  </li>
+<% end %>
+</ul>
