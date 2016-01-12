@@ -24,12 +24,11 @@ RSpec.feature "visitor can add items to cart" do
     item = Item.create(title: "oil barrel", description: "holds oil", price: 10, travesty_id: travesty.id, image_url: "http://cdn1.theinertia.com/wp-content/uploads/2010/12/oil-barrel-1.jpg")
     item_2 = Item.create(title: "Black rhino hunting license", travesty_id: travesty_2.id, description: "get em while they're here, mother not included", price: 20000, image_url: "http://www.robertwinslowphoto.com/Animals/African-and-Asian-Animals-1/Rhinos-Black/i-D7cp8SC/0/O/A-755H-08W8C.jpg")
 
-    # add cart items (2) manually
-
-    visit 'cart_path'
+	  session[:cart] = {item.id.to_s => 1, item_2.id.to_s => 1}
 
     expect(page).to have_content("My Cart: 2")
-    expect(page).to have_content("My Cart: 1")
+
+    click_on "My Cart"
 
     expect(page).to have_content(item_1.title)
     expect(page).to have_content(item.description)
