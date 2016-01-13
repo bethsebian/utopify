@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
 
-  resources :items, only: [:index]
+  resources :items, only: [:index, :show]
 
   get '/dashboard', to: 'users#show'
 
@@ -14,5 +14,5 @@ Rails.application.routes.draw do
 
   get '/cart', to: 'carts#show'
 
-  resources :cart_items, only: [:create]
+  resources :cart_items, only: [:create, :destroy]
 end

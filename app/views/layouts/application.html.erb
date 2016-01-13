@@ -14,8 +14,12 @@
 
   <div class="container-fluid" style="padding: 50px" >
 
-    <% flash.each do |type, message| %>
-    <%= content_tag :div, message %>
+    <% flash.each do |type, hash| %>
+      <% if type == "success" %>
+        <%= render partial: "layouts/flash_card", locals: {message: hash["message"], color: hash["color"]} %>
+      <% else %>
+        <%= render partial: "layouts/flash_card", locals: {message: hash, color: "white"} %>
+      <% end %>
     <% end %>
 
     <%= yield %>

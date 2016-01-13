@@ -1,8 +1,9 @@
 <tr>
+  <td><%= image_tag item[0].image_url, height: '300', width: '300', id: "#{item[0].id}_item" %></td>
   <td><%= item[0].title %></td>
   <td><%= item[0].description %></td>
-  <td><%= item[0].price %></td>
-  <td><%= image_tag item[0].image_url, height: '300', width: '300', id: "#{item[0].id}_item" %></td>
   <td><%= item[0].travesty.title %></td>
+  <td><%= item[0].price %></td>
   <td><%= "Amount: #{item[1]}" %></td>
+  <td><%= link_to "Remove", cart_item_path(item[0]), method: :delete %></td>
 </tr>
