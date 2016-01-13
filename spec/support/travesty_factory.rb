@@ -13,14 +13,15 @@ class TravestyFactory
     [travesties.compact, items.compact]
   end
 
-  def self.create_travesty(travesty)
+  def self.create_travesty(number)
     travesties = []
     items = []
-    travesty_titles.each_with_index do |title, index|
-      travesty = Travesty.create(travesty_params(index)) if title == travesty
+    (number).times do |index|
+      travesty = Travesty.create(travesty_params(index))
+      travesties << travesty
       items = ItemFactory.create_items(travesty)
     end
-    [travesty, items.compact]
+    [travesties, items.compact]
   end
 
   def self.travesty_titles

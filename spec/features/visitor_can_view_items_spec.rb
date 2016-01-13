@@ -4,7 +4,7 @@ RSpec.feature "visitor can view items" do
   scenario "index displays all current items for visitor" do
 
     db_repo = FactoryJordan.new
-    db_repo.create_travesty("Environmental Disasters")
+    db_repo.create_travesty(1)
     travesty = db_repo.travesties
     item_1 = db_repo.items[0]
     item_2 = db_repo.items[1]
