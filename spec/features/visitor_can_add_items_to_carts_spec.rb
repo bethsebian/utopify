@@ -6,8 +6,6 @@ RSpec.feature "visitor can add items to cart" do
     db_repo = FactoryJordan.new
     db_repo.create_travesty("Environmental Disasters")
 
-    item_1 = db_repo.items[0]
-
     visit '/items'
 
     expect(page).to have_content("My Cart: 0")

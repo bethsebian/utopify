@@ -12,7 +12,6 @@ class CartItemsController < ApplicationController
 
 	def destroy
 		@item = Item.find(params[:id])
-		# binding.pry
 		flash_link = "#{view_context.link_to @item.title, item_path(@item)}"
 		flash[:success] = {color: "green", message: "Successfully removed #{flash_link} from your cart."}
 		@cart.contents.delete(params[:id])

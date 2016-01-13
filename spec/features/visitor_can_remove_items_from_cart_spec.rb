@@ -6,8 +6,6 @@ RSpec.feature "visitor can remove items from cart" do
     db_repo = FactoryJordan.new
     db_repo.create_travesty("Environmental Disasters")
 
-    item_1 = db_repo.items[0]
-
     visit '/items'
 
     first(:button, 'Add to cart').click
@@ -19,7 +17,6 @@ RSpec.feature "visitor can remove items from cart" do
 
     first(:link, "Remove").click
 
-    save_and_open_page
     expect(current_path).to eq(cart_path)
     find_link('Oil Barrel Dump').visible?
     expect(page).to have_content("Successfully removed Oil Barrel Dump from your cart.")
