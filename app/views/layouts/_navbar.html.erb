@@ -1,0 +1,14 @@
+<div class="navbar-fixed">
+  <nav id="nav_f" class="dark grey" role="navigation">
+    <div class="nav-wrapper">
+      <h1 class="brand-logo center"><a href="/">Apocalypsify</a></h1>
+      <ul class="right hide-on-med-and-down">
+        <li><%= link_to "My Cart: #{cart.count_of}", cart_path%></li>
+      </ul>
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="/cart">My Cart</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+    </div>
+  </nav>
+</div>
