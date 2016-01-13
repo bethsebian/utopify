@@ -13,4 +13,19 @@ class Cart
 	def count_of
 		contents.length
 	end
+
+	def items
+		contents.map { |item_id, qty| [Item.find(item_id), qty] }
+	end
+
+	def line_total_price(item)
+		(Item.find(item.id).price) * contents[item.id.to_s]
+	end
+
+	def total_price
+		contents.sum do |item_id_string, qty|
+			item_object = Item.find(item_id_string.to_i)
+			line_total_price(item_object)
+		end
+	end
 end
