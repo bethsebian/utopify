@@ -4,7 +4,7 @@ class ItemFactory
     items = item_titles.map.with_index do |item, index|
        Item.create(item_params(index, travesty.id)) if (travesty_correspondant[index] == travesty.title)
     end
-    items
+    items.compact
   end
 
   def self.item_params(index, travesty_id)

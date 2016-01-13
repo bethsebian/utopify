@@ -10,17 +10,17 @@ class TravestyFactory
       travesties << travesty
       items << ItemFactory.create_items(travesty)
     end
-    [travesties, items]
+    [travesties.compact, items.compact]
   end
 
   def self.create_travesty(travesty)
     travesties = []
     items = []
     travesty_titles.each_with_index do |title, index|
-      travesty = Travesty.create(travesty_params(index)) if title == travesty.title
+      travesty = Travesty.create(travesty_params(index)) if title == travesty
       items = ItemFactory.create_items(travesty)
     end
-    [travesty, items]
+    [travesty, items.compact]
   end
 
   def self.travesty_titles
