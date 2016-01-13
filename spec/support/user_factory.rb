@@ -2,17 +2,17 @@ class UserFactory
 
   def self.create_users(number)
     users = (number).times do |index|
-       User.create(user_params(index))
+      User.create(user_params(index))
     end
     users
   end
 
   def self.user_params(index)
-    item_params = {first_name: first_names[index],
-                   last_name: last_names[index],
-                   username: usernames[index],
-                   password: passwords,
-                   password_digest: passwords}
+    { first_name: first_names[index],
+      last_name: last_names[index],
+      username: usernames[index],
+      password: passwords,
+      password_digest: passwords }
   end
 
   def self.first_names
@@ -30,14 +30,14 @@ class UserFactory
   end
 
   def self.usernames
-    ['jlawlz',
-     'homedepot',
-     'luvbieber23',
-     'dchebg']
+    ["jlawlz",
+     "homedepot",
+     "luvbieber23",
+     "dchebg"]
   end
 
   def self.passwords
-    'password'
+    "password"
   end
 
-  end
+end
