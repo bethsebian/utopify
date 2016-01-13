@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
+  root 'home#index'
+
+  resources :users, only: [:new, :create]
+
   resources :items, only: [:index]
+
+  get '/dashboard', to: 'users#show'
 
   resources :travesties, only: [:show], param: :slug do
     resources :items, only: [:index]
@@ -10,14 +16,3 @@ Rails.application.routes.draw do
 
   resources :cart_items, only: [:create]
 end
-
-
-
-# # config/routes.rb
-#
-# resources :posts, param: :slug
-#
-# # app/controllers/posts_controller.rb
-#
-# # ...
-# # ...

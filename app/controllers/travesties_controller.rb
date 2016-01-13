@@ -1,7 +1,7 @@
 class TravestiesController < ApplicationController
 
   def show
-    @travesty = Travesty.find_by(title: params[:slug])
+    @travesty = Travesty.find(params[:slug])
   end
 
 end

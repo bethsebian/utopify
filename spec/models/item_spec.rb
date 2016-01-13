@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Item, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "creates an item" do
+    item = Item.create
+
+    expect(Item.all.count).to eq(1)
+  end
 end

@@ -9,7 +9,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render partial: "layouts/navbar", locals: {cart: @cart} %>
+
+  <%= render partial: "layouts/navbar", locals: {cart: @cart, user: @user} %>
 
   <div class="container-fluid" style="padding: 50px" >
 
