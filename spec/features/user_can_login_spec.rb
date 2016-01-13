@@ -9,7 +9,8 @@ RSpec.feature "user can login from home" do
 
     click_link "Create Account"
 
-    fill_in "Name:", with: "Jordan"
+    fill_in "First Name:", with: "Jordan"
+    fill_in "Last Name:", with: "Lawler"
     fill_in "Username:", with: "jlawlz"
     fill_in "Password:", with: "password"
     fill_in "Password Confirmation", with: "password"
