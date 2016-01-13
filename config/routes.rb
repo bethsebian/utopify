@@ -10,14 +10,3 @@ Rails.application.routes.draw do
 
   resources :cart_items, only: [:create]
 end
-
-
-
-# # config/routes.rb
-#
-# resources :posts, param: :slug
-#
-# # app/controllers/posts_controller.rb
-#
-# # ...
-# # ...

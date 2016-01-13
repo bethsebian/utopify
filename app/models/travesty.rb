@@ -6,4 +6,7 @@ class Travesty < ActiveRecord::Base
     self.slug = title.parameterize
   end
 
+  def items
+    Item.where(travesty_id: id)
+  end
 end
