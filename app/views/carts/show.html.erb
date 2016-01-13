@@ -1,7 +1,7 @@
 <h1> Cart Contents: </h1>
 
 <ul>
-<% @cart_items.each do |item, count| %>
+<% @cart.items.each do |item, count| %>
   <li>
   <%= item.title %>
   <br>
@@ -18,4 +18,4 @@
 <% end %>
 </ul>
 
-<h2><%= "Total Price: $#{@total_price}.00" %></h2>
+<h2><%= "Total Price: $#{@cart.total_price}.00" %></h2>

@@ -6,7 +6,8 @@ RSpec.feature "visitor can view travesty index" do
     travesty_2 = Travesty.create(title: "Endangered Species Culling")
     item = Item.create(title: "Oil Barrel",
                        description: "Spills Oil",
-                       price: 10, travesty_id: travesty.id,
+                       price: 10,
+                       travesty_id: travesty.id,
                        image_url: "http://cdn1.theinertia.com/wp-content/uploads/2010/12/oil-barrel-1.jpg")
     item_2 = Item.create(title: "6-pack Plastic Ring Dump",
                          description: "10,000 uncut plastic rings dumped into the majestic Pacific",

@@ -28,8 +28,6 @@ RSpec.feature "visitor can view items in cart" do
 
     click_on "My Cart"
 
-    save_and_open_page
-
     expect(page).to have_content(item.title)
     expect(page).to have_content(item.description)
     expect(page).to have_content(item.price)
