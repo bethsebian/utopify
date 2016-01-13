@@ -1,5 +1,19 @@
 <h1> Cart Contents: </h1>
-
+<table class="bordered striped highlight centered responsive-table">
+  <thead>
+    <tr>
+      <th data-field="Title">Title</th>
+      <th data-field="Description">Description</th>
+      <th data-field="Price">Price ($)</th>
+      <th data-field="Image">Image</th>
+      <th data-field="Travesty">Travesty</th>
+      <th data-field="Amount">Amount</th>
+    </th>
+  </tr>
+</thead>
+<tbody>
 <%= render partial: "cart_items", collection: @cart.items, as: :item %>
+</tbody>
+</table>
 
 <h2><%= "Total Price: $#{@cart.total_price}.00" %></h2>
