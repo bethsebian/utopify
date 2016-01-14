@@ -14,7 +14,7 @@
  *= require_self
  */
 
- @font-face {
+@font-face {
         font-family: 'Jungle';
         src: url('/jungle/JungleBold.ttf');
         src: url('/jungle/JungleClean.ttf');

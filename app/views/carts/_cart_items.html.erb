@@ -4,6 +4,14 @@
   <td><%= item[0].description %></td>
   <td><%= item[0].travesty.title %></td>
   <td><%= item[0].price %></td>
-  <td><%= "Amount: #{item[1]}" %></td>
+  <td id="<%= "item_#{item[0].id}_qty" %>" >
+    <%= form_for(:cart_items, url: 'update_quantity') do |f| %>
+      <%= f.label :quantity %>
+      <%= f.text_field :quantity, value: item[1] %>
+      <%= f.hidden_field :item_id, value: item[0].id %>
+      <%= f.submit "Update quantity"%>
+    <% end %>
+  </td>
+  <td id= "<%= "item_#{item[0].id}_line_ttl" %>" > <%= @cart.line_total_price(item[0]) %></td>
   <td><%= link_to "Remove", cart_item_path(item[0]), method: :delete %></td>
 </tr>
