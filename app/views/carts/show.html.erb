@@ -8,13 +8,13 @@
       <th data-field="Travesty">Travesty</th>
       <th data-field="Price">Price ($)</th>
       <th data-field="Quantity">Quantity</th>
-      <th data-field="LineTotal">Line Totalt</th>
+      <th data-field="LineTotal">Line Total</th>
       <th data-field="Remove Item">Remove Item</th>
     </th>
   </tr>
 </thead>
 <tbody>
-<%= render partial: "cart_items", collection: @cart.items, as: :item %>
+  <%= render partial: "cart_items", collection: @cart.items, as: :item %>
 </tbody>
 </table>
 

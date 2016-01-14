@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link href='http://dl.dafont.com/dl/?f=jungle' rel='stylesheet' type='text/css'>
-
   <title>apocalypsify</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
@@ -15,11 +13,11 @@
   <div class="container-fluid" style="padding: 50px" >
 
     <% flash.each do |type, hash| %>
-      <% if type == "success" || type == "error" %>
-        <%= render partial: "layouts/flash_card", locals: {message: hash["message"], color: hash["color"]} %>
-      <% else %>
-        <%= render partial: "layouts/flash_card", locals: {message: hash, color: "white"} %>
-      <% end %>
+    <% if type == "success" || type == "error" %>
+    <%= render partial: "layouts/flash_card", locals: {message: hash["message"], color: hash["color"]} %>
+    <% else %>
+    <%= render partial: "layouts/flash_card", locals: {message: hash, color: "white"} %>
+    <% end %>
     <% end %>
 
     <%= yield %>
