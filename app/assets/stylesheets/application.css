@@ -13,14 +13,58 @@
  *= require_tree .
  *= require_self
  */
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
 
- @font-face {
-        font-family: 'Jungle';
-        src: url('/jungle/JungleBold.ttf');
-        src: url('/jungle/JungleClean.ttf');
-        src: url('/jungle/JungleRuff.ttf');
+.nav_custom {
+  border-style: solid;
+  color: #EAB035;
+  background-color: #151515;
+  border-width: 5px 0px 5px 0px;
 }
 
 .jungle {
-  font-family: 'Jungle', 'Arial';
+  font-family: 'Jungle';
 }
+
+@font-face {
+  font-family: 'Jungle';
+  src: url('/assets/JungleClean.ttf')
+}
+ #container {
+   height:369px;
+   width:90vw;
+   font-family:Tahoma;
+   margin: 20px auto;}
+ #carousel {
+   height:369px;
+   width:90vw;
+   border:1px
+   solid #000;
+   overflow:hidden; }
+ #carousel ul {
+   list-style-type:none;
+   margin-top:4px;
+   margin-left:0;
+   left:0;
+   padding-left:1px;}
+ #carousel li {
+   display: inline;
+ }
+ #carousel ul li{
+   width:300px;
+   height:369px;
+   margin: 1px 0 0 1px;
+   border:1px solid #ccc;
+   float:left; }
+ #navPrev {
+   float:left;
+ }
+ #navNext {
+   float:right;
+ }
+
+ .disable{
+     opacity: 0.5
+ }

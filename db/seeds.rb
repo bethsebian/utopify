@@ -22,10 +22,10 @@ Item.create(title: "HairDryer Icecap Melting Team",
 
 Item.create(title: "Black Rhino hunting license",
             travesty_id: travesty_2.id,
-            description: "Get em while they're here, mother not included.",
+            description: "Mother not included.",
             price: 20000,
             image_url: "http://www.robertwinslowphoto.com/Animals/African-and-Asian-Animals-1/Rhinos-Black/i-D7cp8SC/0/O/A-755H-08W8C.jpg")
-            
+
 Item.create(title: "Bowhead Whale hunting license",
             travesty_id: travesty_2.id,
             description: "Enough fat to light 10 million candles",
