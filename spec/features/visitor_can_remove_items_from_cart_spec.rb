@@ -4,7 +4,7 @@ RSpec.feature "visitor can remove items from cart" do
   scenario "cart shows no items in cart after removal" do
 
     db_repo = FactoryJordan.new
-    db_repo.create_travesty("Environmental Disasters")
+    db_repo.create_travesty(1)
 
     visit '/items'
 

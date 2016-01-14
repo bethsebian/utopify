@@ -1,8 +1,9 @@
 class UserFactory
 
   def self.create_users(number)
-    users = (number).times do |index|
-      User.create(user_params(index))
+    users = []
+    (number).times do |index|
+      users << User.create(user_params(index))
     end
     users
   end
@@ -12,7 +13,7 @@ class UserFactory
       last_name: last_names[index],
       username: usernames[index],
       password: passwords,
-      password_digest: passwords }
+      password_confirmation: passwords }
   end
 
   def self.first_names

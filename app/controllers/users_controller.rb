@@ -7,15 +7,15 @@ class UsersController < ApplicationController
   def create
     @user = User.create(set_user)
     if @user.save
-      session[:user_id] = [@user.id]
-      redirect_to dashboard_path(@user)
+      session[:user_id] = @user.id
+      redirect_to dashboard_path
     else
       redirect_to new_user_path
     end
   end
 
   def show
-    @user = User.find(params[:format])
+    @user = User.find(session[:user_id])
   end
 
   private

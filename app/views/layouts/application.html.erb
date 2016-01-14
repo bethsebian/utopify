@@ -15,7 +15,7 @@
   <div class="container-fluid" style="padding: 50px" >
 
     <% flash.each do |type, hash| %>
-      <% if type == "success" %>
+      <% if type == "success" || type == "error" %>
         <%= render partial: "layouts/flash_card", locals: {message: hash["message"], color: hash["color"]} %>
       <% else %>
         <%= render partial: "layouts/flash_card", locals: {message: hash, color: "white"} %>

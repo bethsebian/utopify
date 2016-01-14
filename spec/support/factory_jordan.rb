@@ -12,7 +12,7 @@ class FactoryJordan
   end
 
   def create_users(number)
-    params = UserFactory.create(number)
+    params = UserFactory.create_users(number)
     @users = params
   end
 

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "user can login from home" do
+RSpec.feature "user can create account from home" do
   scenario "I see my dashboard" do
 
     visit '/'
@@ -18,7 +18,7 @@ RSpec.feature "user can login from home" do
 
     user = User.find_by(username: 'jlawlz')
 
-    expect(current_path).to eq dashboard_path(user)
+    expect(current_path).to eq dashboard_path
 
     expect(page).to have_content "Logged in as Jordan"
     expect(page).to_not have_content "Login"
