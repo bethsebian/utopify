@@ -22,9 +22,10 @@ Item.create(title: "HairDryer Icecap Melting Team",
 
 Item.create(title: "Black Rhino hunting license",
             travesty_id: travesty_2.id,
-            description: "Get em while they're here, mother not included.",
+            description: "Mother not included.",
             price: 20000,
             image_url: "rhino_black.jpg")
+
 
 Item.create(title: "Bowhead Whale hunting license",
             travesty_id: travesty_2.id,

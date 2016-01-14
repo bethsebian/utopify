@@ -1,10 +1,13 @@
-<h1>Items Index</h1>
-
-<!-- create partial for orders that then calls partial for items -->
 <div id="container">
     <div id="carousel">
         <ul>
-            <%= render partial: "item", collection: @items %>
+            <li>item one</li>
+            <li>item two</li>
+            <li>item three</li>
+            <li>item four</li>
+            <li>item five</li>
+            <li>item six</li>
+            <li>item seven</li>
         </ul>
     </div>
 <a id="navPrev" href="#" class="disable">Previous</a>
@@ -17,6 +20,7 @@
 var speed = 600,
 scroller = $('#carousel ul'),
 total = 0;
+
 
 scroller.width(function() {
         scroller.children().each(function(i, val) {
