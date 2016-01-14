@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "user can view past orders" do
   scenario "sees index of orders" do
-
+    pending
     db_repo = FactoryJordan.new
     user = db_repo.create_users(1)[0]
 
