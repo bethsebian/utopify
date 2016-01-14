@@ -19,10 +19,9 @@ Rails.application.routes.draw do
     resources :items, only: [:index]
   end
   resources :users, only: [:new, :create]
-  
+
   get '/cart', to: 'carts#show'
   get '/orders', to: 'orders#index'
 
   resources :cart_items, only: [:create, :destroy]
->>>>>>> order_implementation
 end
