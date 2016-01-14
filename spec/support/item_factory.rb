@@ -42,15 +42,15 @@ class ItemFactory
   end
 
   def self.item_urls
-    ["http://www.commodityonline.com/images/20548329231406548227.jpg",
-     "http://www.pakitproducts.com/GetImage.ashx?Path=~%2FAssets%2Fperforated_rings8.jpg&maintainAspectRatio=true&maxHeight=400&maxWidth=400",
-     "http://media.treehugger.com/assets/images/2011/10/pacific-garbage-patch.jpg",
-     "http://cdn2-b.examiner.com/sites/default/files/styles/image_content_width/hash/d5/42/d54226cc953531480326a45b66672fdf.jpg?itok=GvTz81SK",
-     "https://40.media.tumblr.com/e70e267450adf42a0b8306d54810d764/tumblr_moswzrBtAB1qk91wgo1_1280.jpg",
-     "http://www.nunatsiaqonline.ca/pub/photos/bowhead.JPG",
-     "http://www.animaroo.com/assets/sites/animaroo.com/img/breeds/img/timber-wolf_medium.jpg?1355978537",
-     "https://upload.wikimedia.org/wikipedia/commons/6/66/Polar_Bear_-_Alaska_(cropped).jpg"]
-  end
+    ["app/assets/images/oil_barrel.jpg",
+      "app/assets/images/turtle_ocean.jpg",
+      "app/assets/images/trash_island.jpg",
+      "app/assets/images/water_contamination.jpg",
+      "app/assets/images/rhino_black.jpg",
+      "app/assets/images/whale_hunting.jpg",
+      "app/assets/images/timber_wolves.jpg",
+      "app/assets/images/polar_bear.jpg"]
+    end
 
   def self.travesty_correspondant
     ["Environmental Disasters",
