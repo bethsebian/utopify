@@ -1,3 +1,5 @@
 <h1>Items Index</h1>
 
-<%= render partial: "item", collection: @items %>
+<%= render partial: "item", collection: @orders.items %>
+
+<!-- create partial for orders that then calls partial for items -->
