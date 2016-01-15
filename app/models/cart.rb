@@ -21,15 +21,8 @@ class Cart
 		end
 	end
 
-	def line_total_price(item)
-		(Item.find(item.id).price) * contents[item.id.to_s]
-	end
-
 	def total_price
-		contents.sum do |item_id_string, qty|
-			item_object = Item.find(item_id_string.to_i)
-			line_total_price(item_object)
-		end
+		items.map { |item| item.line_total_price }.reduce(:+)
 	end
 
 	def update_quantity(qty_update_data)

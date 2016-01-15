@@ -1,5 +1,6 @@
 class CartItem
-	attr_reader :object, :id, :title, :description, :price, :image_url, :travesty_title, :qty
+	attr_reader :object, :id, :title, :description, :image_url, :travesty_title
+	attr_accessor :price, :qty
 
 	def initialize(item_id, qty)
 		@object = Item.find(item_id)
