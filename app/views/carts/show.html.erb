@@ -17,5 +17,6 @@
   <%= render partial: "partials/cart_items", collection: @cart.items, as: :item %>
 </tbody>
 </table>
-
-<h2><%= "Total Price: " %><%= number_to_currency(@cart.total_price) %></h2>
+<div class="right">
+  <h2><%= "Total Price: " %><%= number_to_currency(@cart.total_price) %></h2>
+</div>
