@@ -3,7 +3,7 @@
   <td><%= item[0].title %></td>
   <td><%= item[0].description %></td>
   <td><%= item[0].travesty.title %></td>
-  <td><%= item[0].price %></td>
+  <td><%= number_to_currency(item[0].price) %></td>
   <td id="<%= "item_#{item[0].id}_qty" %>" >
     <%= form_for(:cart_items, url: 'update_quantity') do |f| %>
       <%= f.label :quantity %>

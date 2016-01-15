@@ -1,5 +1,5 @@
 <li>
-<div class="row">
+  <div class="row">
     <div class="card">
       <div class="card-image">
         <%= image_tag item.image_url, height: '200', width: '300', id: "#{item.id}_item" %>
@@ -7,7 +7,7 @@
       </div>
       <div class="card-content center">
         <p><%= item.description %></p>
-        <p>Price: $<%= item.price %></p>
+        <p><%= number_to_currency(item.price) %></p>
         <p>Travesty: <%= item.travesty.title %></p>
       </div>
       <div class="card-action center">
