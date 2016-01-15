@@ -18,4 +18,4 @@
 </tbody>
 </table>
 
-<h2><%= "Total Price: $#{@cart.total_price}.00" %></h2>
+<h2><%= "Total Price: " %><%= number_to_currency(@cart.total_price) %></h2>
