@@ -10,7 +10,7 @@
         <p><%= number_to_currency(item.price) %></p>
         <p>Travesty: <%= item.travesty.title %></p>
       </div>
-      <div class="card-action center">
+      <div class="card-action center" id='<%= "#{item.id}_add_button" %>' >
         <%= button_to "Add to cart", cart_items_path(item_id: item.id), id: "#{item.id}_add_button"  %>
       </div>
     </div>

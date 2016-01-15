@@ -15,17 +15,23 @@ class Cart
 	end
 
 	def items
-		contents.map { |item_id, qty| [Item.find(item_id), qty] }
-	end
-
-	def line_total_price(item)
-		(Item.find(item.id).price) * contents[item.id.to_s]
+		contents.map do |item_id, qty|
+			cart_item = CartItem.new(item_id, qty)
+			CartDecorator.new(cart_item)
+		end
 	end
 
 	def total_price
-		contents.sum do |item_id_string, qty|
-			item_object = Item.find(item_id_string.to_i)
-			line_total_price(item_object)
-		end
+		items.map { |item| item.line_total_price }.reduce(:+)
+	end
+
+	def update_quantity(qty_update_data)
+		item_id = qty_update_data["item_id"]
+		new_qty = qty_update_data["quantity"].to_i
+		contents[item_id] = new_qty
+	end
+
+	def delete_item(item_id)
+		contents.delete(item_id)
 	end
 end

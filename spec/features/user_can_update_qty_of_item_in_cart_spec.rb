@@ -7,7 +7,10 @@ RSpec.feature "visitor can update quantity of items in cart" do
     item_1 = db_repo.items[0][0]
 
     visit '/items'
-    first(:button, 'Add to cart').click
+
+    within "div##{item_1.id}_add_button" do
+      first(:button, 'Add to cart').click
+    end
 
   	visit '/cart'
 
