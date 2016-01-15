@@ -18,16 +18,16 @@ RSpec.feature "Visitor navigates to travesty page" do
 
       expect(page).to have_content(item_1.title)
       expect(page).to have_content(item_1.description)
-      expect(page).to have_content(item_1.price)
+      expect(page).to have_content("$1,250.00")
       expect(page).to have_content(item_2.title)
       expect(page).to have_content(item_2.description)
-      expect(page).to have_content(item_2.price)
+      expect(page).to have_content("$750.00")
 
       visit travesty_path(travesty_2)
 
       expect(page).to have_content(item_3.title)
       expect(page).to have_content(item_3.description)
-      expect(page).to have_content(item_3.price)
+      expect(page).to have_content("$4,523.00")
       expect(page).to have_content(item_4.title)
       expect(page).to have_content(item_4.description)
       expect(page).to have_content(item_4.price)
@@ -36,14 +36,14 @@ RSpec.feature "Visitor navigates to travesty page" do
 
     scenario "when they enter friendly travesty slug" do
       visit "/travesties/#{travesty_1.slug}"
-
+# binding.pry
       expect(page).to have_content(travesty_1.title)
       expect(page).to have_content(item_1.title)
       expect(page).to have_content(item_1.description)
-      expect(page).to have_content(item_1.price)
+      expect(page).to have_content("$1,250.00")
       expect(page).to have_content(item_2.title)
       expect(page).to have_content(item_2.description)
-      expect(page).to have_content(item_2.price)
+      expect(page).to have_content("$750.00")
     end
   end
 end
