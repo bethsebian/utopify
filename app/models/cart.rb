@@ -15,7 +15,10 @@ class Cart
 	end
 
 	def items
-		contents.map { |item_id, qty| [Item.find(item_id), qty] }
+		contents.map do |item_id, qty|
+			cart_item = CartItem.new(item_id, qty)
+			CartDecorator.new(cart_item)
+		end
 	end
 
 	def line_total_price(item)
