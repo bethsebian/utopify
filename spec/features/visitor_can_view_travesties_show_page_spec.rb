@@ -30,7 +30,6 @@ RSpec.feature "Visitor navigates to travesty page" do
       expect(page).to have_content("$4,523.00")
       expect(page).to have_content(item_4.title)
       expect(page).to have_content(item_4.description)
-      expect(page).to have_content(item_4.price)
       expect(page).to have_content("$8,765.00")
     end
 
