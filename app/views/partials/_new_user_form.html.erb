@@ -1,3 +1,4 @@
+<ul id="new_user">
 <%= form_for(user, url: users_path) do |f| %>
   <%= f.label :first_name, "First Name:" %>
   <%= f.text_field :first_name %>
@@ -18,3 +19,4 @@
     <%= f.submit "Create Account" %>
   </div>
 <% end %>
+</ul>
