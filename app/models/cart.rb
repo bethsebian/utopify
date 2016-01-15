@@ -28,4 +28,14 @@ class Cart
 			line_total_price(item_object)
 		end
 	end
+
+	def update_quantity(qty_update_data)
+		item_id = qty_update_data["item_id"]
+		new_qty = qty_update_data["quantity"].to_i
+		contents[item_id] = new_qty
+	end
+
+	def delete_item(item_id)
+		contents.delete(item_id)
+	end
 end

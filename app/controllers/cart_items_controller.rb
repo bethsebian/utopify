@@ -14,7 +14,13 @@ class CartItemsController < ApplicationController
 		@item = Item.find(params[:id])
 		flash_link = "#{view_context.link_to @item.title, item_path(@item)}"
 		flash[:success] = {color: "green", message: "Successfully removed #{flash_link} from your cart."}
-		@cart.contents.delete(params[:id])
+		@cart.delete_item(params[:id])
 		redirect_to cart_path
+	end
+
+	def update
+		@cart.update_quantity(params[:qty_update_data])
+		redirect_to items_path if @cart.contents.empty?
+		redirect_to cart_path if @cart.contents
 	end
 end
