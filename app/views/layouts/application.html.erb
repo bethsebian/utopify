@@ -3,7 +3,7 @@
 <head>
   <link href='http://dl.dafont.com/dl/?f=jungle' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
-
+  <link href='https://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
   <title>apocalypsify</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
@@ -13,7 +13,7 @@
 
   <%= render partial: "partials/navbar", locals: {cart: @cart, user: @user} %>
 
-  <div class="container-fluid" style="padding: 50px" >
+  <div class="container-fluid">
 
     <% flash.each do |type, hash| %>
       <%= render partial: "partials/flash_card", locals: {message: hash["message"], color: hash["color"]} %>

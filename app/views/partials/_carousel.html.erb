@@ -1,0 +1,10 @@
+<div id="container">
+    <div id="carousel">
+        <ul>
+          <%= render partial: "partials/sponsor", locals: {img: "bp.jpg", title: "Proud Sponsor"} %>
+          <%= render partial: "partials/item", collection: @items %>
+        </ul>
+    </div>
+<a id="navPrev" class="disable">Previous</a>
+<a id="navNext" class="disable">Next</a>
+</div>

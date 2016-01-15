@@ -14,21 +14,26 @@
  *= require_self
  */
 
-video#bgvid {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -100;
-    -ms-transform: translateX(-50%) translateY(-50%);
-    -moz-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
-    background: url(polina.jpg) no-repeat;
-    background-size: cover;
+ #gif-body {
+   padding-top: 420px;
+ }
+
+ #gif-overlay {
+   background-color: rgba(10, 10, 10, 0.5);
+   background-size: cover;
+   position: absolute;
+   width:  100vw;
+   height: 420px;
+ }
+
+ #gif-container {
+  width:  100vw;
+  height: 420px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  background-image: url(http://i.imgur.com/WTrMmzJ.jpg);
 }
 
 body {
@@ -65,36 +70,64 @@ nav .brand-logo {
   font-family: 'Jungle';
   src: url('/assets/JungleClean.ttf')
 }
+
+div#bp_ad {
+    position: absolute;
+    left: 0px;
+    z-index: 999;
+    width: 300px;
+}
+
+#sponsor-content {
+  height: 69px;
+  font-family:Cabin;
+  font-size: 30px;
+}
+
+
  #container {
    height:369px;
-   width:90vw;
+   width:100vw;
    font-family:Tahoma;
-   margin: 20px auto;}
+   margin: 20px auto;
+ }
+
  #carousel {
    height:369px;
-   width:90vw;
-   border:1px
-   solid #000;
-   overflow:hidden; }
+   width:100vw;
+   overflow:visible;
+}
+
+#carousel-sponsor {
+  height:369px;
+  width:200px;
+  overflow:hidden;
+}
+
  #carousel ul {
    list-style-type:none;
    margin-top:4px;
    margin-left:0;
    left:0;
    padding-left:1px;}
+
  #carousel li {
    display: inline;
  }
+
  #carousel ul li{
    width:300px;
    height:369px;
    margin: 1px 0 0 1px;
-   border:1px solid #ccc;
    float:left; }
+
  #navPrev {
-   float:left;
+   padding-top: 1vh;
+   padding-left: 21vw;
  }
+
  #navNext {
+   padding-top: 1vh;
    float:right;
  }
 
