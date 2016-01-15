@@ -13,19 +13,52 @@
  *= require_tree .
  *= require_self
  */
+
+video#bgvid {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(polina.jpg) no-repeat;
+    background-size: cover;
+}
+
 body {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
 .nav_custom {
-  border-style: solid;
-  color: #EAB035;
-  background-color: #151515;
-  border-width: 5px 0px 5px 0px;
+  background-color: #E66C2C;
+  height: 125px;
+}
+
+nav ul a {
+  font-size: 1.3rem;
+  padding: 30px;
+}
+
+h1 {
+    margin: 3.0rem 0 1.68rem 0;
 }
 
 .jungle {
   font-family: 'Jungle';
+  font-size: 45px;
+}
+
+.brand-logo a {
+  font-size: 45px;
+}
+
+nav .brand-logo {
 }
 
 @font-face {
