@@ -1,8 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature "visitor can view travesty index" do
-  scenario "visitor sees all items for a travesty" do
-
+RSpec.feature "Visitor navigates to travesty page" do
+  describe "sees expected travesty content" do
     db_repo = FactoryJordan.new
     db_repo.create_all
 
@@ -14,22 +13,36 @@ RSpec.feature "visitor can view travesty index" do
     item_3 = travesty_2.items[2]
     item_4 = travesty_2.items[3]
 
-    visit travesty_path(travesty_1)
+    scenario "when they enter travesty id slug" do
+      visit travesty_path(travesty_1)
 
-    expect(page).to have_content(item_1.title)
-    expect(page).to have_content(item_1.description)
-    expect(page).to have_content(item_1.price)
-    expect(page).to have_content(item_2.title)
-    expect(page).to have_content(item_2.description)
-    expect(page).to have_content(item_2.price)
+      expect(page).to have_content(item_1.title)
+      expect(page).to have_content(item_1.description)
+      expect(page).to have_content(item_1.price)
+      expect(page).to have_content(item_2.title)
+      expect(page).to have_content(item_2.description)
+      expect(page).to have_content(item_2.price)
 
-    visit travesty_path(travesty_2)
+      visit travesty_path(travesty_2)
 
-    expect(page).to have_content(item_3.title)
-    expect(page).to have_content(item_3.description)
-    expect(page).to have_content(item_3.price)
-    expect(page).to have_content(item_4.title)
-    expect(page).to have_content(item_4.description)
-    expect(page).to have_content(item_4.price)
+      expect(page).to have_content(item_3.title)
+      expect(page).to have_content(item_3.description)
+      expect(page).to have_content(item_3.price)
+      expect(page).to have_content(item_4.title)
+      expect(page).to have_content(item_4.description)
+      expect(page).to have_content(item_4.price)
+    end
+
+    scenario "when they enter friendly travesty slug" do
+      visit "/travesties/#{travesty_1.slug}"
+
+      expect(page).to have_content(travesty_1.title)
+      expect(page).to have_content(item_1.title)
+      expect(page).to have_content(item_1.description)
+      expect(page).to have_content(item_1.price)
+      expect(page).to have_content(item_2.title)
+      expect(page).to have_content(item_2.description)
+      expect(page).to have_content(item_2.price)
+    end
   end
 end
