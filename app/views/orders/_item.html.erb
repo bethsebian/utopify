@@ -7,7 +7,7 @@
       </div>
       <div class="card-content center">
         <p><%= item.description %></p>
-        <p>Price: $<%= item.price %></p>
+        <p>Price:<%= number_to_currency(item.price) %></p>
         <p>Travesty: <%= item.travesty.title %></p>
       </div>
       <div class="card-action center">

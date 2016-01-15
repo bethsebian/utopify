@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session.clear
-    flash[:notice] = "Goodbye"
+    flash[:notice] = {color: "white", message: "Goodbye"}
     redirect_to '/'
   end
 
