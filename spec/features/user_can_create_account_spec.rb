@@ -14,7 +14,9 @@ RSpec.feature "user can create account from home" do
     fill_in "Username:", with: "jlawlz"
     fill_in "Password:", with: "password"
     fill_in "Password Confirmation", with: "password"
-    click_on "Create Account"
+    within "#new_user_submit" do
+      click_on "Create Account"
+    end
 
     user = User.find_by(username: 'jlawlz')
 
