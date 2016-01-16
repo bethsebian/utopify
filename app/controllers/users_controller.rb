@@ -17,7 +17,6 @@ class UsersController < ApplicationController
   def show
     if session[:user_id]
       @user = User.find(session[:user_id])
-      redirect_to dashboard_path
     else
       redirect_to root_path
     end

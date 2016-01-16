@@ -11,7 +11,7 @@ class Cart
   end
 
 	def count_of
-		contents.values.reduce(:+)
+		contents.values.reduce(:+) || 0
 	end
 
 	def items
