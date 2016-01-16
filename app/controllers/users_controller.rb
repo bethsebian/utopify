@@ -10,6 +10,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to dashboard_path
     else
+      flash.now[:error] = {message: @user.errors.full_messages.join(", "), color: "red"}
       redirect_to new_user_path
     end
   end
