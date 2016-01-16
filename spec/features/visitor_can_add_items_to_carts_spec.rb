@@ -8,7 +8,6 @@ RSpec.feature "visitor can add items to cart" do
 
     visit '/items'
 
-    save_and_open_page
     expect(page).to have_content("My Cart: 0")
 
     first(:button, 'Add to cart').click
