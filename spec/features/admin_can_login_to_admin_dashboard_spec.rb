@@ -10,8 +10,8 @@ RSpec.feature "Admin can login" do
 
     visit login_path
 
-    fill_in "Username", with: "admin"
-    fill_in "Password", with: "admin"
+    fill_in "Username", with: admin.username
+    fill_in "Password", with: admin.password
 
     click_button "Submit"
 
@@ -28,13 +28,13 @@ RSpec.feature "Admin can login" do
 
     visit login_path
 
-    fill_in "Username", with: "default_user"
-    fill_in "Password", with: "default"
+    fill_in "Username", with: user.username
+    fill_in "Password", with: user.password
 
     click_button "Submit"
 
     expect(current_path).to_not eq admin_dashboard_path
-    expect(page).to_not have_content "Admin Dashboard"
     expect(current_path).to eq dashboard_path
+    expect(page).to_not have_content "Admin Dashboard"
   end
 end
