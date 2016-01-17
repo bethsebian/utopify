@@ -23,7 +23,7 @@ RSpec.feature "user can create account from home" do
 
     expect(current_path).to eq dashboard_path
 
-    expect(page).to have_content "Logged in as Jordan"
+    expect(page).to have_content "Jordan"
     expect(page).to_not have_content "Login"
     expect(page).to have_content "Logout"
   end

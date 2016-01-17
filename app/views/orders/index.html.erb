@@ -1,47 +1,17 @@
-<%= render partial: "item", collection: @orders, as: :order %>
-
-<div id="container">
-    <div id="carousel">
-        <ul>
-            <li>item one</li>
-            <li>item two</li>
-            <li>item three</li>
-            <li>item four</li>
-            <li>item five</li>
-            <li>item six</li>
-            <li>item seven</li>
-        </ul>
-    </div>
-<a id="navPrev" href="#" class="disable">Previous</a>
-<a id="navNext" href="#">Next</a>
+<h1> Past Orders: </h1>
+<table class="bordered striped highlight centered responsive-table">
+  <thead>
+    <tr>
+      <th data-field="Status">Status</th>
+      <th data-field="TotalPrice">Total Price</th>
+      <th data-field="CreatedAt">Date Ordered</th>
+    </th>
+  </tr>
+</thead>
+<tbody>
+  <%= render partial: "orders", collection: @user.orders, as: :order %>
+</tbody>
+</table>
+<div class="right">
+  <h2><%= "Total Price: " %><%= number_to_currency(@cart.total_price) %></h2>
 </div>
-
-
-
-<script type="text/javascript">
-//Define the animation speed for the Carousel
-var speed = 600,
-scroller = $('#carousel ul'),
-total = 0;
-
-
-scroller.width(function() {
-        scroller.children().each(function(i, val) {
-            var el = $(this);
-            total = total + (el.outerWidth() + parseInt(el.css("marginLeft")));
-        });
-        return total;
-    });
-var distance = ($('#carousel').outerWidth()-total);
-
-$('#navNext').click(function(){
-    $(this).addClass('disable');
-    $('#navPrev').removeClass('disable');
-    scroller.animate({marginLeft:distance}, speed);});
-
-$('#navPrev').click(function(){
-    $(this).addClass('disable');
-    $('#navNext').removeClass('disable');
-    scroller.animate({marginLeft:'1px'}, speed);});
-
-</script type="text/javascript">
