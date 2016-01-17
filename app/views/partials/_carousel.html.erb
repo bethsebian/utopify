@@ -1,0 +1,13 @@
+
+<div id="container">
+    <div id="carousel">
+        <ul>
+          <%= render partial: "partials/sponsor", locals: {img: "bp.jpg", title: "Proud Sponsor"} %>
+          <%= render partial: "partials/item", collection: @items %>
+        </ul>
+    </div>
+<a id="navPrev" class="material-icons">fast_rewind</a>
+
+
+<a id="navNext" class="material-icons">fast_forward</a>
+</div>
