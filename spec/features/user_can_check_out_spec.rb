@@ -40,8 +40,6 @@ RSpec.feature "visitor can check out with items in cart" do
     fill_in "Password", with: "password"
     click_button "Submit"
 
-		expect(session[:current_user]).to eq user
-		# ApplicationController.any_instance.stub(:current_user).and_return(user)
 		visit '/cart'
 		click_on 'Checkout'
 
@@ -50,13 +48,13 @@ RSpec.feature "visitor can check out with items in cart" do
 		expect(current_path).to eq orders_path
 
 		expect(page).to have_content("Order was successfully placed")
-		within "td#order_#{order.id}_status" do
+		within "td#order_status" do
 			expect(page).to have_content order.status
 		end
-		within "td#order_#{order.id}_total_price" do
+		within "td#order_total_price" do
 			expect(page).to have_content order.total_price
 		end
-		within "td#order_#{order.id}_created_at" do
+		within "td#order_created_at" do
 			expect(page).to have_content order.created_at
 		end
 	end
