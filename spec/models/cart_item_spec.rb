@@ -2,15 +2,14 @@ require 'rails_helper'
 
 RSpec.describe CartItem, type: :model do
   it "sums line total prices for item in cart" do
-		db_repo = FactoryJordan.new
-    db_repo.create_travesty(1)
-    item_1 = db_repo.items[0]
+		travesty = create(:travesty_with_items)
+    item_1 = travesty.items.first
 
 		cart_item = CartItem.new(item_1.id, 2)
 
-    expect(cart_item.line_total_price).to eq(200)
+    expect(cart_item.line_total_price).to eq(item_1.price * 2)
 
     cart_item.qty = 3
-    expect(cart_item.line_total_price).to eq(300)
+    expect(cart_item.line_total_price).to eq(item_1.price * 3)
   end
 end

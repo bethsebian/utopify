@@ -66,15 +66,15 @@ RSpec.describe Cart, type: :model do
 
   it "sums total price all items in cart" do
     cart = Cart.new(nil)
-    db_repo = FactoryJordan.new
-    db_repo.create_travesty(1)
-    item_1 = db_repo.items[0]
-    item_2 = db_repo.items[1]
+
+    travesty = create(:travesty_with_items)
+
+    item_1, item_2 = travesty.items[0..1]
 
     cart.add_item(item_1.id)
     cart.add_item(item_1.id)
     cart.add_item(item_2.id)
 
-    expect(cart.total_price).to eq(500)
+    expect(cart.total_price).to eq((item_1.price * 2) + (item_2.price))
   end
 end

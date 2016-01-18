@@ -1,85 +1,46 @@
 require 'rails_helper'
 
 RSpec.feature "Visitor navigates to travesty page" do
-  scenario "sees expected travesty content" do
-    travesty_1 = Travesty.create(
-      title: "Environmental Disasters"
-    )
 
-    travesty_2 = Travesty.create(
-      title: "Endangered Species Culling"
-    )
+  describe "sees expected travesty content" do
 
-    item_1 = travesty_1.items.create(
-      title: "Title_1",
-      description: "Description_1",
-      price: 101,
-      image_url: "app/assets/images/water_contamination.jpg",
-    )
-    item_2 = travesty_1.items.create(
-      title: "Title_2",
-      description: "Description_2",
-      price: 202,
-      image_url: "app/assets/images/water_contamination.jpg",
-    )
-    item_3 = travesty_2.items.create(
-      title: "Title_3",
-      description: "Description_3",
-      price: 303,
-      image_url: "app/assets/images/water_contamination.jpg",
-    )
-    item_4 = travesty_2.items.create(
-      title: "Title_4",
-      description: "Description_4",
-      price: 404,
-      image_url: "app/assets/images/water_contamination.jpg",
-    )
+    scenario "when they enter travesty id slug" do
+      travesties = create_list(:travesty_with_items, 2)
 
-    visit travesty_path(travesty_1)
+      items = (item_1, item_2, item_3, item_4 = travesties[0].items)
+      items_2 = (item_5, item_6, item_7, item_8 = travesties[1].items)
 
-    expect(page).to have_content(item_1.title)
-    expect(page).to have_content(item_1.description)
-    expect(page).to have_content("$101.00")
-    expect(page).to have_content(item_2.title)
-    expect(page).to have_content(item_2.description)
-    expect(page).to have_content("$202.00")
+      visit travesty_path(travesties[0])
 
-    visit travesty_path(travesty_2)
+      4.times do |t|
+        expect(page).to have_content(items[t].title)
+        expect(page).to have_content(items[t].description)
+        # expect(page).to have_content("$1,250.00")
+      end
 
-    expect(page).to have_content(item_3.title)
-    expect(page).to have_content(item_3.description)
-    expect(page).to have_content("$303.00")
-    expect(page).to have_content(item_4.title)
-    expect(page).to have_content(item_4.description)
-    expect(page).to have_content("$404.00")
-  end
+      visit travesty_path(travesties[1])
 
-  scenario "when they enter friendly travesty slug" do
+      4.times do |t|
+        expect(page).to have_content(items_2[t].title)
+        expect(page).to have_content(items_2[t].description)
+        # expect(page).to have_content("$1,250.00")
+      end
+    end
 
-    travesty_1 = Travesty.create(
-      title: "Environmental Disasters"
-    )
+    scenario "when they enter friendly travesty slug" do
 
-    item_1 = travesty_1.items.create(
-      title: "Title_1",
-      description: "Description_1",
-      price: 101,
-      image_url: "app/assets/images/water_contamination.jpg",
-    )
-    item_2 = travesty_1.items.create(
-      title: "Title_2",
-      description: "Description_2",
-      price: 202,
-      image_url: "app/assets/images/water_contamination.jpg",
-    )
+      travesties = create_list(:travesty_with_items, 2)
 
-    visit "/travesties/#{travesty_1.slug}"
-    expect(page).to have_content(travesty_1.title)
-    expect(page).to have_content(item_1.title)
-    expect(page).to have_content(item_1.description)
-    expect(page).to have_content("$101.00")
-    expect(page).to have_content(item_2.title)
-    expect(page).to have_content(item_2.description)
-    expect(page).to have_content("$202.00")
+      items = (item_1, item_2, item_3, item_4 = travesties[0].items)
+      items_2 = (item_5, item_6, item_7, item_8 = travesties[1].items)
+
+      visit "/travesties/#{travesties[0].slug}"
+
+      4.times do |t|
+        expect(page).to have_content(items[t].title)
+        expect(page).to have_content(items[t].description)
+        # expect(page).to have_content("$1,250.00")
+      end
+    end
   end
 end

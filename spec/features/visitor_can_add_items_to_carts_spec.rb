@@ -3,8 +3,7 @@ require 'rails_helper'
 RSpec.feature "visitor can add items to cart" do
   scenario "cart shows number of items in cart" do
 
-    db_repo = FactoryJordan.new
-    db_repo.create_travesty(1)
+    travesties = create_list(:travesty_with_items, 1)
 
     visit '/items'
 

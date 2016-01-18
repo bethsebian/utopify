@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.feature "visitor can remove items from cart" do
   scenario "cart shows no items in cart after removal" do
 
-    db_repo = FactoryJordan.new
-    db_repo.create_travesty(1)
+    travesties = create_list(:travesty_with_items, 1)
+    items = (item_1, item_2, item_3, item_4 = travesties[0].items)
 
     visit '/items'
 
@@ -18,8 +18,8 @@ RSpec.feature "visitor can remove items from cart" do
     first(:link, "Remove").click
 
     expect(current_path).to eq(cart_path)
-    find_link('Oil Barrel Dump').visible?
-    expect(page).to have_content("Successfully removed Oil Barrel Dump from your cart.")
+    find_link(item_1.title).visible?
+    expect(page).to have_content("Successfully removed #{item_1.title} from your cart.")
     expect(page).to have_css(".flash_green_card")
     expect(page).to_not have_content("My Cart: 1")
     expect(page).to have_content("My Cart: 0")

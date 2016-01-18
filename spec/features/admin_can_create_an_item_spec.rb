@@ -3,8 +3,7 @@ require 'rails_helper'
 RSpec.feature "Admin can create an item" do
   scenario "Admin can see new item in travesty page" do
 
-    db_repo = FactoryJordan.new
-    db_repo.create_travesty(1)
+    travesty = create(:travesty_with_items)
 
     admin = User.create(first_name: "mister",
                         last_name: "admin",
@@ -21,7 +20,7 @@ RSpec.feature "Admin can create an item" do
     fill_in "Description", with: "There will be no investigation, cause they'll all be dead!"
     fill_in "Image URL", with: "http://www.survivalreadyblog.com/uploads/1/4/1/2/1412634/7530107_orig.jpg"
     fill_in "item_price", with: "50"
-    select "Environmental Disasters", from: "item[travesty_id]"
+    select travesty.title, from: "item[travesty_id]"
     click_on "Create Item"
 
     item = Item.find_by(title: "Aresenicify Water Sources")

@@ -3,8 +3,12 @@ require 'rails_helper'
 RSpec.feature "user can logout account from navbar" do
   scenario "I see home page" do
 
-    db_repo = FactoryJordan.new
-    user = db_repo.create_users(1)[0]
+    User.create(
+                first_name: "Jordan",
+                last_name: "Lawler",
+                username: "jlawlz",
+                password: "password"
+                )
 
     visit '/'
 

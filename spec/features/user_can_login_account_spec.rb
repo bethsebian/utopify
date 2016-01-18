@@ -3,8 +3,12 @@ require 'rails_helper'
 RSpec.feature "user can login account from home" do
   scenario "I see my dashboard" do
 
-    db_repo = FactoryJordan.new
-    user = db_repo.create_users(1)[0]
+    User.create(
+                first_name: "Jordan",
+                last_name: "Lawler",
+                username: "jlawlz",
+                password: "password"
+                )
 
     visit '/'
 
