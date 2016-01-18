@@ -1,35 +1,18 @@
-<%= render partial: "partials/gif_upper" %>
-
-<div id='gif-body'>
-
-<!-- create partial for orders that then calls partial for items -->
-<%= render partial: "partials/carousel", locals: {items: @items} %>
-
-</div>
-
-  <script type="text/javascript">
-  //Define the animation speed for the Carousel
-  var speed = 600,
-  scroller = $('#carousel ul'),
-  total = 0;
-
-  scroller.width(function() {
-          scroller.children().each(function(i, val) {
-              var el = $(this);
-              total = total + (el.outerWidth() + parseInt(el.css("marginLeft")));
-          });
-          return total;
-      });
-  var distance = ($('#carousel').outerWidth()-total);
-
-  $('#navNext').click(function(){
-      $(this).addClass('disable');
-      $('#navPrev').removeClass('disable');
-      scroller.animate({marginLeft:distance}, speed);});
-
-  $('#navPrev').click(function(){
-      $(this).addClass('disable');
-      $('#navNext').removeClass('disable');
-      scroller.animate({marginLeft:'1px'}, speed);});
-
-  </script type="text/javascript">
+<h1> Admin Items Index: </h1>
+<table class="bordered striped highlight centered responsive-table">
+  <thead>
+    <tr>
+      <th data-field="Image">Image</th>
+      <th data-field="Title">Title</th>
+      <th data-field="Description">Description</th>
+      <th data-field="Travesty">Travesty</th>
+      <th data-field="Price">Price</th>
+      <th data-field="Quantity">Quantity</th>
+      <th data-field="Delete">Delete Item</th>
+    </th>
+  </tr>
+</thead>
+<tbody>
+  <%= render partial: "partials/admin_items", collection: @items, as: :item %>
+</tbody>
+</table>
