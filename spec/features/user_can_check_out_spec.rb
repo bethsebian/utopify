@@ -5,20 +5,20 @@ RSpec.feature "visitor can check out with items in cart" do
 		user = User.create(
 		first_name: "Jordan",
 		last_name: "Lawler",
-		username: "jlawler",
+		username: "jlawlz",
 		password: "password"
 		)
 
 		travesty = Travesty.create(title: "Environmental Disasters")
 		item_1 = travesty.items.create(
-			title: "Item title",
-			description: "Item description",
+			title: "Item title 1",
+			description: "Item description 1",
 			price: 11,
 			image_url: "app/assets/images/water_contamination.jpg"
 		)
 		item_2 = travesty.items.create(
-			title: "Item title",
-			description: "Item description",
+			title: "Item title 2",
+			description: "Item description 2",
 			price: 15,
 			image_url: "app/assets/images/water_contamination.jpg"
 		)
