@@ -16,7 +16,6 @@ RSpec.feature "Admin can delete an item" do
     ApplicationController.any_instance.stub(:current_user).and_return(admin)
 
     visit admin_items_path
-    save_and_open_page
 
     expect(page).to have_content item.title
     expect(page).to have_content item.description
