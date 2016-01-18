@@ -2,8 +2,12 @@ require 'rails_helper'
 
 RSpec.feature "user can view past orders" do
   scenario "through the order show page" do
-    db_repo = FactoryJordan.new
-    user = db_repo.create_users(1)[0]
+    user = User.create(
+      first_name: "Jordan",
+      last_name: "Lawler",
+      username: "jlawler",
+      password: "password"
+    )
 
     ApplicationController.any_instance.stub(:current_user).and_return(user)
 
@@ -45,11 +49,18 @@ RSpec.feature "user can view past orders" do
     expect(page).to have_content order.status
     expect(page).to have_content order.total_price
     expect(page).to have_content order.created_at
+
+    ### Timestamp of Update Displayed ###
+    timestamp_before_update = order.updated_at
+    order.status = "completed"
+    order.save
+    timestamp_after_update = order.updated_at
+    visit current_path
+
+    expect(page).to_not have_content timestamp_before_update
+    expect(page).to have_content timestamp_after_update
   end
 end
-
-# If the order was completed or cancelled
-# Then I shuld see a timestamp when the action took place
 
 # And if any of the items in the order were retired from the menu
 # Then they shuld still be able to access the item page
