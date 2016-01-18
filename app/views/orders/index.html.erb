@@ -9,7 +9,8 @@
   </tr>
 </thead>
 <tbody>
-  <%= render partial: "orders", collection: @user.orders, as: :order %>
+
+  <%= render partial: "orders", collection: current_user.orders, as: :order %>
 </tbody>
 </table>
 <div class="right">

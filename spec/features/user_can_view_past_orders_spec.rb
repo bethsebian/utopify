@@ -1,33 +1,63 @@
 require 'rails_helper'
 
 RSpec.feature "user can view past orders" do
-  scenario "authenticated user sees index of orders" do
-    db_repo = FactoryJordan.new
-    user = db_repo.create_users(1)[0]
+  scenario "through the order show page" do
+    user = User.create(
+      first_name: "Jordan",
+      last_name: "Lawler",
+      username: "jlawler",
+      password: "password"
+    )
 
-    visit '/'
+    ApplicationController.any_instance.stub(:current_user).and_return(user)
 
-    click_link "Login"
+    order = user.orders.create(
+      status: "paid",
+      total_price: 12,
+      created_at: Time.new(2016, 01, 01),
+      updated_at: Time.new(2016, 01, 02),
+      user_id: user.id
+    )
 
-    expect(current_path).to eq login_path
+    travesty = Travesty.create(title: "Environmental Disasters")
 
-    fill_in "Username", with: "jlawlz"
-    fill_in "Password", with: "password"
+    item = travesty.items.create(
+      title: "Item title",
+      description: "Item description",
+      price: 11,
+      image_url: "app/assets/images/water_contamination.jpg",
+      travesty_id: 1
+    )
 
-    click_button "Submit"
-
-    user = User.find_by(username: 'jlawlz')
-
-    order = Order.create(status: "Paid",
-                         total_price: 12,
-                         user_id: user.id)
+    order_item_1 = order.order_items.create(
+      item_id: item.id,
+      item_quantity: 4,
+      item_price: 3
+    )
 
     visit orders_path
 
-    expect(current_path).to eq orders_path
+    expect(page).to have_content "Past Orders"
+    expect(page).to have_link("Order ##{"%07d" % order.id.to_s}", href: order_path(order))
 
-    expect(page).to have_content "12"
-    expect(page).to have_content "Paid"
+    click_link("Order ##{"%07d" % order.id.to_s}")
+
+    expect(current_path).to eq order_path(order)
+    expect(page).to have_content item.title
+    expect(page).to have_content order_item_1.item_quantity
+    expect(page).to have_content (order_item_1.item_quantity.to_i * order_item_1.item_price.to_i)
+    expect(page).to have_content order.status
+    expect(page).to have_content order.total_price
+    expect(page).to have_content order.created_at
+
+    timestamp_before_update = order.updated_at
+    order.status = "completed"
+    order.save
+    timestamp_after_update = order.updated_at
+    visit current_path
+
+    expect(page).to_not have_content timestamp_before_update
+    expect(page).to have_content timestamp_after_update
   end
 
   scenario "authenticated user cannot see other users orders" do
@@ -64,7 +94,4 @@ RSpec.feature "user can view past orders" do
     expect(page).to_not have_content order_3.status
     expect(page).to_not have_content order_3.total_price
   end
-
-
-
 end

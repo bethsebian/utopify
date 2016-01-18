@@ -1,11 +1,12 @@
 <tr>
 
+
   <td><%= order.status %></td>
 
   <td><%= number_to_currency(order.total_price) %></td>
 
   <td><%= order.created_at %></td>
 
-  <td><%= link_to "View Order", order_path(order.id) %></td>
+  <td><%= link_to "View Order ##{"%07d" % order.id.to_s}", order_path(order.id) %></td>
 
 </tr>
