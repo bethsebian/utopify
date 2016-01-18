@@ -20,7 +20,6 @@ class CartItemsController < ApplicationController
 
 	def update
 		@cart.update_quantity(params[:qty_update_data])
-		redirect_to items_path if @cart.contents.empty?
-		redirect_to cart_path if @cart.contents
+		redirect_to cart_path
 	end
 end

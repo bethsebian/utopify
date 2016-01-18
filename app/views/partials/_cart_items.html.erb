@@ -1,15 +1,10 @@
 <tr>
 
-  <td><%= image_tag item.image_url, height: '300', width: '300', id: "#{item.id}_item" %></td>
-
+  <td><%= image_tag item.image_url, height: '100', width: '100', id: "#{item.id}_item" %></td>
   <td><%= item.title %></td>
-
   <td><%= item.description %></td>
-
   <td><%= item.travesty_title %></td>
-
-  <td><%= item.price %></td>
-
+  <td><%= number_to_currency(item.price) %></td>
   <td id="<%= "item_#{item.id}_qty" %>" >
     <%= form_for(:qty_update_data, url: cart_item_path(item.id), method: "patch") do |f| %>
       <%= f.label :quantity %>
@@ -18,9 +13,7 @@
       <%= f.submit "Update quantity"%>
     <% end %>
   </td>
-
-  <td id= "<%= "item_#{item.id}_line_ttl" %>" > <%= item.line_total_price %></td>
-
+  <td id= "<%= "item_#{item.id}_line_ttl" %>" > <%= number_to_currency(item.line_total_price) %></td>
   <td><%= link_to "Remove", cart_item_path(item.id), method: :delete %></td>
 
 </tr>

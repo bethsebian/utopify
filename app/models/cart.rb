@@ -29,7 +29,7 @@ class Cart
 		item_id = qty_update_data["item_id"]
 		new_qty = qty_update_data["quantity"].to_i
 		contents[item_id] = new_qty
-		if new_qty == 0
+		if new_qty <= 0
 			contents.delete(item_id)
 		end
 	end
