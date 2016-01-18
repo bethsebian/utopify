@@ -35,8 +35,12 @@ RSpec.describe Cart, type: :model do
 
   it "adds second item to cart" do
     cart = Cart.new(nil)
-    item_1 = Item.create
-    item_2 = Item.create
+    item_1 = Item.create(title: "title",
+                         description: "description",
+                         price: 10)
+    item_2 = Item.create(title: "title_2",
+                         description: "description",
+                         price: 10)
 
     cart.add_item(item_1.id)
     count = cart.contents.count

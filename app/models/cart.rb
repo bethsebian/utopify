@@ -11,7 +11,7 @@ class Cart
   end
 
 	def count_of
-		contents.length
+		contents.values.reduce(:+) || 0
 	end
 
 	def items
@@ -29,6 +29,9 @@ class Cart
 		item_id = qty_update_data["item_id"]
 		new_qty = qty_update_data["quantity"].to_i
 		contents[item_id] = new_qty
+		if new_qty <= 0
+			contents.delete(item_id)
+		end
 	end
 
 	def delete_item(item_id)

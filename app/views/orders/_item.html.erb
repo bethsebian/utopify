@@ -1,17 +1,9 @@
 <div class="container center">
   <div class="col s2">
     <div class="card">
-      <div class="card-image">
-        <%= image_tag item.image_url, height: '200', width: '300', id: "#{item.id}_item" %>
-        <span class="card-title"><%= item.title %></span>
-      </div>
+        <span class="card-title"><%= order.status %></span>
       <div class="card-content center">
-        <p><%= item.description %></p>
-        <p>Price:<%= number_to_currency(item.price) %></p>
-        <p>Travesty: <%= item.travesty.title %></p>
-      </div>
-      <div class="card-action center">
-        <%= button_to "Add to cart", cart_items_path(item_id: item.id), id: "#{item.id}_add_button"  %>
+        <p>Total Price:<%= number_to_currency(order.total_price) %></p>
       </div>
     </div>
   </div>
