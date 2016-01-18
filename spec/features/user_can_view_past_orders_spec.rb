@@ -3,6 +3,7 @@
 # RSpec.feature "user can view past orders" do
 #   scenario "authenticated user sees index of orders" do
 #     db_repo = FactoryJordan.new
+#
 #     user = db_repo.create_users(1)[0]
 #
 #     visit '/'
@@ -66,5 +67,5 @@
 #   end
 #
 #
-#
+# 
 # end

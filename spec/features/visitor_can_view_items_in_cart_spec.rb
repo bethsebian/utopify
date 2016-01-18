@@ -1,32 +1,29 @@
-# require 'rails_helper'
-#
-# RSpec.feature "visitor can view items in cart" do
-#     scenario "they see their cart items" do
-#
-#     db_repo = FactoryJordan.new
-#     db_repo.create_all
-#     item_1 = db_repo.items[0][0]
-#     item_2 = db_repo.items[0][1]
-#
-# 	  visit '/items'
-#
-#     expect(page).to have_content("My Cart: 0")
-#
-#     click_button("#{item_1.id}_add_button")
-#     click_button("#{item_2.id}_add_button")
-#
-#     expect(page).to have_content("My Cart: 2")
-#
-#     click_on "My Cart"
-#
-#     expect(page).to have_content(item_1.title)
-#     expect(page).to have_content(item_1.description)
-#     expect(page).to have_content(item_1.price)
-#     expect(page).to have_css("##{item_1.id}_item")
-#
-#     expect(page).to have_content(item_2.title)
-#     expect(page).to have_content(item_2.description)
-#     expect(page).to have_content(item_2.price)
-#     expect(page).to have_css("##{item_2.id}_item")
-#   end
-# end
+require 'rails_helper'
+
+RSpec.feature "visitor can view items in cart" do
+    scenario "they see their cart items" do
+
+    travesties = create_list(:travesty_with_items, 1)
+    items = (item_1, item_2, item_3, item_4 = travesties[0].items)
+
+	  visit '/items'
+
+    expect(page).to have_content("My Cart: 0")
+
+    4.times do |t|
+      click_button("#{items[t].id}_add_button")
+    end
+
+    expect(page).to have_content("My Cart: 4")
+
+    click_on "My Cart"
+
+    4.times do |t|
+      expect(page).to have_content(items[t].title)
+      expect(page).to have_content(items[t].description)
+      # expect(page).to have_content(item_1.price)
+      expect(page).to have_css("##{items[t].id}_item")
+    end
+
+  end
+end
