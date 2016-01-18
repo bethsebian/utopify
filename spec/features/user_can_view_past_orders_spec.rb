@@ -50,7 +50,6 @@ RSpec.feature "user can view past orders" do
     expect(page).to have_content order.total_price
     expect(page).to have_content order.created_at
 
-    ### Timestamp of Update Displayed ###
     timestamp_before_update = order.updated_at
     order.status = "completed"
     order.save
@@ -61,7 +60,3 @@ RSpec.feature "user can view past orders" do
     expect(page).to have_content timestamp_after_update
   end
 end
-
-# And if any of the items in the order were retired from the menu
-# Then they shuld still be able to access the item page
-# But they shuld not be able to add the item to their cart
