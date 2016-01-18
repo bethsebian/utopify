@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  get '/orders', to: 'orders#index'
+
+  resources :orders, only: [:index, :show]
 
   resources :cart_items, only: [:create, :update, :destroy]
   resources :items, only: [:index, :show]
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get '/dashboard', to: 'base#show'
+    resources :items, only: [:new, :create, :index]
     # resources :items
   end
 

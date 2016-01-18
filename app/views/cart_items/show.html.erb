@@ -6,7 +6,7 @@
       <th data-field="Title">Title</th>
       <th data-field="Description">Description</th>
       <th data-field="Travesty">Travesty</th>
-      <th data-field="Price">Price ($)</th>
+      <th data-field="Price">Price</th>
       <th data-field="Quantity">Quantity</th>
       <th data-field="LineTotal">Line Total</th>
       <th data-field="Remove Item">Remove Item</th>
@@ -14,8 +14,8 @@
   </tr>
 </thead>
 <tbody>
-  <%= render partial: "cart_items", collection: @cart.items, as: :item %>
+  <%= render partial: "partials/cart_items", collection: @cart.items, as: :item %>
 </tbody>
 </table>
 
-<h2><%= "Total Price: $#{@cart.total_price}.00" %></h2>
+<h2>Total Price: <%=number_to_currency(@cart.total_price)%></h2>
