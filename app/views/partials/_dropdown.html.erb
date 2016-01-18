@@ -1,0 +1,9 @@
+<a class="dropdown-button" href="#!" data-activates="dropdown1">Travesties</a>
+
+<ul id="dropdown1" class="dropdown-content">
+<% Travesty.all.each do |travesty| %>
+  <li>
+    <%= link_to "#{travesty.title}", travesty_path(travesty.slug) %>
+  </li>
+  <% end %>
+</ul>

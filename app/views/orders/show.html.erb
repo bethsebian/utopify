@@ -3,8 +3,8 @@
 <ul>
 <%= @items.each do |order_item| %>
 	<li><%= order_item.item.title %></li>
-	<li><%= order_item.qty %></li>
-	<li><%= (order_item.qty.to_i * order_item.unit_price.to_i) %></li>
+	<li><%= order_item.item_quantity %></li>
+	<li><%= (order_item.item_quantity.to_i * order_item.item_price.to_i) %></li>
 	<li><%= @order.status %>
 		<% if @order.status == "completed" || @order.status == "cancelled" %>
 			: <%= @order.updated_at %>

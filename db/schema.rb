@@ -30,10 +30,12 @@ ActiveRecord::Schema.define(version: 20160118163846) do
   add_index "items", ["travesty_id"], name: "index_items_on_travesty_id", using: :btree
 
   create_table "order_items", force: :cascade do |t|
-    t.integer "order_id"
-    t.integer "item_id"
-    t.string  "qty"
-    t.string  "unit_price"
+    t.integer  "order_id"
+    t.integer  "item_id"
+    t.integer  "item_quantity"
+    t.integer  "item_price"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   add_index "order_items", ["item_id"], name: "index_order_items_on_item_id", using: :btree
@@ -59,10 +61,11 @@ ActiveRecord::Schema.define(version: 20160118163846) do
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "username"
     t.string   "last_name"
+    t.integer  "role",            default: 0
   end
 
   add_foreign_key "items", "travesties"
