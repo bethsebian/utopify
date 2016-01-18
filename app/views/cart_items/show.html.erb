@@ -19,3 +19,5 @@
 </table>
 
 <h2><%= "Total Price: $#{@cart.total_price}.00" %></h2>
+
+<%= link_to "Checkout", "/checkout", method: :post, data: { cart: @cart } %>

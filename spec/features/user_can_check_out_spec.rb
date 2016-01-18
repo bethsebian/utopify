@@ -40,6 +40,7 @@ RSpec.feature "visitor can check out with items in cart" do
     fill_in "Password", with: "password"
     click_button "Submit"
 
+		expect(session[:current_user]).to eq user
 		# ApplicationController.any_instance.stub(:current_user).and_return(user)
 		visit '/cart'
 		click_on 'Checkout'
