@@ -25,6 +25,7 @@ class Admin::ItemsController < Admin::BaseController
     params.require(:item).permit(
       :title,
       :description,
+      :price,
       :image_url,
       :travesty_id
       )
