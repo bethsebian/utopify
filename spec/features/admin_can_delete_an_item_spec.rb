@@ -9,9 +9,9 @@ RSpec.feature "Admin can delete an item" do
                         role: 1)
     travesty = Travesty.create(title: "Environmental Disasters")
     item = travesty.items.create(title: "Arsenicify Water Sources",
-                       description: "There will be no investigation, cause they'll all be dead!",
-                       price: 10,
-                       image_url: "http://www.survivalreadyblog.com/uploads/1/4/1/2/1412634/7530107_orig.jpg")
+                                 description: "There will be no investigation, cause they'll all be dead!",
+                                 price: 10,
+                                 image_url: "http://www.survivalreadyblog.com/uploads/1/4/1/2/1412634/7530107_orig.jpg")
 
     ApplicationController.any_instance.stub(:current_user).and_return(admin)
 
