@@ -1,6 +1,7 @@
 class Travesty < ActiveRecord::Base
   before_save :generate_slug
   has_many :items
+  validates :title, presence: true, uniqueness: true
 
   def to_param
     title.parameterize

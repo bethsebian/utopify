@@ -3,9 +3,9 @@
 <div id='gif-body'>
 
 <!-- create partial for orders that then calls partial for items -->
-<%= render partial: "partials/carousel", locals: {items: @items} %>
 
 </div>
+<%= render partial: "partials/carousel", collection: @travesties, as: :travesty %>
 
   <script type="text/javascript">
   //Define the animation speed for the Carousel
