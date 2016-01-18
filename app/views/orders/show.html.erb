@@ -1,0 +1,13 @@
+<h1><%= "Order ##{"%07d" % @order.id.to_s}" %></h1>
+
+<ul>
+<%= @items.each do |order_item| %>
+	<li><%= order_item.item.title %></li>
+	<li><%= order_item.qty %></li>
+	<li><%= (order_item.qty.to_i * order_item.unit_price.to_i) %></li>
+	<li><%= @order.status %></li>
+	<li><%= @order.total_price %></li>
+	<li><%= @order.created_at %></li>
+<% end %>
+</ul>
+
