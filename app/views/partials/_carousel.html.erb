@@ -1,12 +1,20 @@
 <div id="container">
+  <h2>
+    <%= travesty.title %>
+  </h2>
     <div id="carousel">
         <ul>
           <%= render partial: "partials/sponsor", locals: {img: "bp.jpg", title: "Proud Sponsor"} %>
-          <%= render partial: "partials/item", collection: @items %>
+          <%= render partial: "partials/item", collection: travesty.items %>
         </ul>
     </div>
 <a id="navPrev" class="material-icons">fast_rewind</a>
-
-
 <a id="navNext" class="material-icons">fast_forward</a>
 </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
