@@ -2,6 +2,13 @@
 travesty = Travesty.create(title: "Environmental Disaster")
 travesty_2 = Travesty.create(title: "Endangered Species Culling")
 
+User.create(first_name: "Mr",
+            last_name: "Admin",
+            username: "admin",
+            password: "password",
+            role: 1)
+
+
 Item.create(title: "Oil Barrel",
             description: "holds oil",
             price: 10,
