@@ -27,4 +27,28 @@ RSpec.feature "user can create account from home" do
     expect(page).to_not have_content "Login"
     expect(page).to have_content "Logout"
   end
+
+  scenario "is redirected to account page if username already exists" do
+    user = User.create(
+      first_name: "Jordan",
+      last_name: "Lawler",
+      username: "jlawlz",
+      password: "password"
+    )
+
+    visit new_user_path
+
+    fill_in "First Name:", with: "Justin"
+    fill_in "Last Name:", with: "Lawlerz"
+    fill_in "Username:", with: "jlawlz"
+    fill_in "Password:", with: "password1"
+    fill_in "Password Confirmation", with: "password1"
+
+    within "form#new_user" do
+      click_button "Create"
+    end
+
+    expect(current_path).to eq new_user_path
+    expect(page).to have_content "Username #{user.username} is already taken. Please choose a different username"
+  end
 end
