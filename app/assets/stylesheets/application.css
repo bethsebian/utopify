@@ -14,6 +14,24 @@
  *= require_self
  */
 
+ .cart-qty {
+   width: 10vw;
+ }
+
+ .card .card-action a {
+   color:white;
+ }
+
+ .sign-up {
+   padding-top: 10vh;
+   width: 30%;
+ }
+
+ .checkout {
+   padding-top: 10vh;
+   width: 70%;
+ }
+
  #gif-body {
    padding-top: 420px;
  }

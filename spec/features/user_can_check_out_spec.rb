@@ -38,7 +38,7 @@ RSpec.feature "visitor can check out with items in cart" do
 
 		fill_in "Username", with: "jlawlz"
     fill_in "Password", with: "password"
-    click_button "Submit"
+    click_button "Sign In"
 
 		visit '/cart'
 		click_on 'Checkout'

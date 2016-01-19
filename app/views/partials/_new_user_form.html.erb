@@ -1,22 +1,29 @@
-<ul id="new_user">
-<%= form_for(user, url: users_path) do |f| %>
-  <%= f.label :first_name, "First Name:" %>
-  <%= f.text_field :first_name %>
+<div class="sign-up container">
+      <div class="col s12 m5">
+        <div class="card-panel">
+          <h3 class="center"> Create Account: </h3>
+          <%= form_for(user, url: users_path) do |f| %>
+            <%= f.label :first_name, "First Name:" %>
+            <%= f.text_field :first_name %>
 
-  <%= f.label :last_name, "Last Name:" %>
-  <%= f.text_field :last_name %>
+            <%= f.label :last_name, "Last Name:" %>
+            <%= f.text_field :last_name %>
 
-  <%= f.label :username, "Username:" %>
-  <%= f.text_field :username %>
+            <%= f.label :username, "Username:" %>
+            <%= f.text_field :username %>
 
-  <%= f.label :password, "Password:" %>
-  <%= f.password_field :password %>
+            <%= f.label :password, "Password:" %>
+            <%= f.password_field :password %>
 
-  <%= f.label :password_confirmation, "Password Confirmation:" %>
-  <%= f.password_field :password_confirmation %>
+            <%= f.label :password_confirmation, "Password Confirmation:" %>
+            <%= f.password_field :password_confirmation %>
 
-  <div id="new_user_submit">
-    <%= f.submit "Create" %>
-  </div>
-<% end %>
-</ul>
+            <div class="center", id="new_user_submit">
+              <a class="waves-effect waves-light btn"><%= f.submit "Create"%></a>
+            </div>
+          <% end %>
+          </ul>
+
+        </div>
+      </div>
+</div>

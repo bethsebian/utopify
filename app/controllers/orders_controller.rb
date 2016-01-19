@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
 
   def create
     if current_user.nil?
-      flash[:login] = {color: 'red', message: "Please log in to check out}"}
+      flash[:login] = {color: 'red', message: "Please log in to check out"}
       redirect_to '/login'
     else
       @order = current_user.orders.create(
@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
         total_price: total_price
       )
       add_items_to_order
-      flash[:order_success] = {color: 'green', message: "Order was successfully placed}"}
+      flash[:order_success] = {color: 'green', message: "Order was successfully placed"}
       redirect_to orders_path
     end
   end
