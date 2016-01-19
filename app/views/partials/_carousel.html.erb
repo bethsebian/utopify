@@ -4,7 +4,6 @@
   </h2>
     <div id="carousel">
         <ul>
-          <%binding.pry%>
           <%= render partial: "partials/sponsor", locals: {img: travesty.sponsor_image, title: travesty.sponsor_title} %>
           <%= render partial: "partials/item", collection: travesty.items %>
         </ul>
