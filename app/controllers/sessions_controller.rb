@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(username: params[:session][:username])
-    if @user.admin?
+    if @user && @user.admin?
       session[:user_id] = @user.id
       redirect_to admin_dashboard_path
     elsif @user && @user.authenticate(params[:session][:password])
@@ -14,8 +14,8 @@ class SessionsController < ApplicationController
       flash[:success] = {color: 'green', message: "Logged in as #{@user.first_name}"}
       redirect_to dashboard_path
     else
-      flash[:error] = {color: 'orange', message: "Username or Password incorrect."}
-      render :new
+      flash[:error] = {color: 'orange', message: "Username or password incorrect."}
+      redirect_to '/login'
     end
   end
 
