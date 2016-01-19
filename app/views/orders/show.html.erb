@@ -1,17 +1,20 @@
 <h1><%= "Order ##{"%07d" % @order.id.to_s}" %></h1>
 
-<ul>
-<%= @items.each do |order_item| %>
-	<li><%= order_item.item.title %></li>
-	<li><%= order_item.item_quantity %></li>
-	<li><%= (order_item.item_quantity.to_i * order_item.item_price.to_i) %></li>
-	<li><%= @order.status %>
-		<% if @order.status == "completed" || @order.status == "cancelled" %>
-			: <%= @order.updated_at %>
-		<% end %>
-	</li>
-	<li><%= @order.total_price %></li>
-	<li><%= @order.created_at %></li>
-<% end %>
-</ul>
-
+<h1> Cart Contents: </h1>
+<table class="bordered striped highlight centered responsive-table">
+  <thead>
+    <tr>
+      <th data-field="Title">Title</th>
+      <th data-field="Description">Description</th>
+      <th data-field="Travesty">Travesty</th>
+      <th data-field="Price">Price</th>
+      <th data-field="Quantity">Quantity</th>
+      <th data-field="LineTotal">Line Total</th>
+      <th data-field="Status">Status</th>
+      <th data-field="Ordered At">Ordered At</th>
+    </th>
+  </tr>
+</thead>
+<tbody>
+  <%= render partial: "partials/show_order", collection: @order.order_items, as: :order_item %>
+</tbody>
