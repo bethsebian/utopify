@@ -19,6 +19,7 @@
 <br>
 
 <script type="text/javascript">
+
   //Define the animation speed for the Carousel
   var speed = 600,
   scroller = $('#carousel ul'),
@@ -36,7 +37,7 @@
   $('#navNext').click(function(){
       $(this).addClass('disable');
       $('#navPrev').removeClass('disable');
-      scroller.animate({marginLeft:-300}, speed);});
+      scroller.animate({marginLeft:"-300px"}, speed);});
 
   $('#navPrev').click(function(){
       $(this).addClass('disable');

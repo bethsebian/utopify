@@ -40,8 +40,10 @@ RSpec.feature "user can view past orders" do
     expect(page).to have_content "Past Orders"
     expect(page).to have_link("Order ##{"%07d" % order.id.to_s}", href: order_path(order))
 
+
     click_link("Order ##{"%07d" % order.id.to_s}")
 
+    save_and_open_page
     expect(current_path).to eq order_path(order)
     expect(page).to have_content item.title
     expect(page).to have_content order_item_1.item_quantity
@@ -82,7 +84,7 @@ RSpec.feature "user can view past orders" do
 
     fill_in "Username", with: user.username
     fill_in "Password", with: user.password
-    click_button "Submit"
+    click_button "Sign In"
 
     visit orders_path
 

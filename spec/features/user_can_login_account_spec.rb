@@ -19,7 +19,7 @@ RSpec.feature "user can login account from home" do
     fill_in "Username", with: "jlawlz"
     fill_in "Password", with: "password"
 
-    click_button "Submit"
+    click_button "Sign In"
 
     user = User.find_by(username: 'jlawlz')
 
@@ -42,21 +42,21 @@ RSpec.feature "user can login account from home" do
     fill_in "Username", with: "jlawlz"
     fill_in "Password", with: "wrong"
 
-    click_button "Submit"
+    click_button "Sign In"
 
     expect(current_path).to eq '/login'
     expect(page).to have_content "Username or password incorrect."
 
     fill_in "Username", with: "jlawlzzz"
     fill_in "Password", with: "password"
-    click_button "Submit"
+    click_button "Sign In"
 
     expect(page).to have_content "Username or password incorrect."
     expect(current_path).to eq '/login'
 
     fill_in "Username", with: "jlawlzzz"
     fill_in "Password", with: "wrong"
-    click_button "Submit"
+    click_button "Sign In"
 
     expect(page).to have_content "Username or password incorrect."
     expect(current_path).to eq '/login'

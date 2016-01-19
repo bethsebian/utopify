@@ -19,7 +19,7 @@ RSpec.feature "user can logout account from navbar" do
     fill_in "Username", with: "jlawlz"
     fill_in "Password", with: "password"
 
-    click_button "Submit"
+    click_button "Sign In"
 
     user = User.find_by(username: 'jlawlz')
 
