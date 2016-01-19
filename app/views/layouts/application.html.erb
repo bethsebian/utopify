@@ -11,17 +11,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="wrap">
 
-  <%= render partial: "partials/navbar", locals: {cart: @cart, user: @user} %>
+    <%= render partial: "partials/navbar", locals: {cart: @cart, user: @user} %>
 
-  <div class="container-fluid">
+    <div class="container-fluid">
 
-    <% flash.each do |type, hash| %>
-      <%= render partial: "partials/flash_card", locals: {message: hash["message"], color: hash["color"]} %>
-    <% end %>
+      <% flash.each do |type, hash| %>
+        <%= render partial: "partials/flash_card", locals: {message: hash["message"], color: hash["color"]} %>
+      <% end %>
 
-    <%= yield %>
+      <%= yield %>
 
+    </div>
   </div>
 </body>
 </html>

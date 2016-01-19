@@ -17,3 +17,30 @@
 <br>
 <br>
 <br>
+
+<script type="text/javascript">
+  //Define the animation speed for the Carousel
+  var speed = 600,
+  scroller = $('#carousel ul'),
+  total = 0;
+
+  scroller.width(function() {
+          scroller.children().each(function(i, val) {
+              var el = $(this);
+              total = total + (el.outerWidth() + parseInt(el.css("marginLeft")));
+          });
+          return total;
+      });
+  var distance = ($('#carousel').outerWidth()-total);
+
+  $('#navNext').click(function(){
+      $(this).addClass('disable');
+      $('#navPrev').removeClass('disable');
+      scroller.animate({marginLeft:-300}, speed);});
+
+  $('#navPrev').click(function(){
+      $(this).addClass('disable');
+      $('#navNext').removeClass('disable');
+      scroller.animate({marginLeft:'1px'}, speed);});
+
+</script type="text/javascript">

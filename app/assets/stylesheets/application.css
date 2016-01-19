@@ -14,9 +14,10 @@
  *= require_self
  */
 
- .card-title {
-   
- }
+ #wrap{
+  width:100vw;
+  margin:0 auto;
+}
 
  #item_show_description {
    height: 223px;
@@ -109,7 +110,6 @@ div#bp_ad_end {
   font-size: 30px;
 }
 
-
  #container {
    height:369px;
    width:100vw;
@@ -119,10 +119,9 @@ div#bp_ad_end {
  }
 
  #carousel {
-   height:369px;
+   height:400px;
    width:100vw;
-   overflow:visible;
-
+   overflow: hidden;
 }
 
 #carousel-sponsor {
