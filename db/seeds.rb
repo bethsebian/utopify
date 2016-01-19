@@ -1,6 +1,6 @@
 
-travesty = Travesty.create(title: "Environmental Disaster")
-travesty_2 = Travesty.create(title: "Endangered Species Culling")
+travesty = Travesty.create(title: "Environmental Disaster", sponsor_image: "bp.jpg", sponsor_title: "BP")
+travesty_2 = Travesty.create(title: "Endangered Species Culling", sponsor_image: "cecil_killer.jpg", sponsor_title: "Walter Palmer")
 
 User.create(first_name: "Mr",
             last_name: "Admin",
@@ -34,7 +34,6 @@ Item.create(title: "7 Pack Plastic Rings",
             travesty_id: travesty.id,
             image_url: "turtle_ocean.jpg")
 
-
 Item.create(title: "HairDryer Icecap Melting Team",
             description: "Great for fun in the snow/water!",
             price: 10,
@@ -47,7 +46,6 @@ Item.create(title: "HairDryer Icecap Melting Teams",
             travesty_id: travesty.id,
             image_url: "polar_icecap.jpg")
 
-
 Item.create(title: "Black Rhino hunting license",
             travesty_id: travesty_2.id,
             description: "Mother not included.",
@@ -59,8 +57,6 @@ Item.create(title: "White Rhino hunting license",
             description: "Mother not included.",
             price: 20000,
             image_url: "rhino_black.jpg")
-
-
 
 Item.create(title: "Bowhead Whale hunting license",
             travesty_id: travesty_2.id,
