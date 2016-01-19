@@ -16,6 +16,7 @@ class OrdersController < ApplicationController
       add_items_to_order
       flash[:order_success] = {color: 'green', message: "Order was successfully placed"}
       redirect_to orders_path
+      session[:cart] = {}
     end
   end
 

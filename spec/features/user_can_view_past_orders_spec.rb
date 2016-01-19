@@ -46,7 +46,7 @@ RSpec.feature "user can view past orders" do
     expect(page).to have_content item.title
     expect(page).to have_content order_item_1.item_quantity
     expect(page).to have_content (order_item_1.item_quantity.to_i * order_item_1.item_price.to_i)
-    expect(page).to have_content order.status
+    expect(page).to have_content order.status.capitalize
     expect(page).to have_content order.total_price
     expect(page).to have_content order.created_at
 
@@ -88,10 +88,10 @@ RSpec.feature "user can view past orders" do
 
     expect(current_path).to eq orders_path
     expect(page).to have_content order.status
-    expect(page).to have_content order.total_price
-    expect(page).to have_content order_2.status
-    expect(page).to have_content order_2.total_price
+    expect(page).to have_content number_to_currency(order.total_price)
+    expect(page).to have_content order_2.status.capitalize
+    expect(page).to have_content number_to_currency(order_2.total_price)
     expect(page).to_not have_content order_3.status
-    expect(page).to_not have_content order_3.total_price
+    expect(page).to_not have_content number_to_currency(order_3.total_price)
   end
 end

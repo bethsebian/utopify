@@ -46,7 +46,6 @@ RSpec.feature "visitor can check out with items in cart" do
 		order = Order.find_by(user_id: user.id)
 		expect(order.status).to eq "ordered"
 		expect(current_path).to eq orders_path
-
 		expect(page).to have_content("Order was successfully placed")
 		within "td#order_status" do
 			expect(page).to have_content order.status
@@ -57,5 +56,6 @@ RSpec.feature "visitor can check out with items in cart" do
 		within "td#order_created_at" do
 			expect(page).to have_content order.created_at
 		end
+		expect(page).to have_content("My Cart: 0")
 	end
 end
