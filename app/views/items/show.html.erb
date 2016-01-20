@@ -3,5 +3,5 @@
 <%= link_to "Add Review", new_item_review_path(@item) %>
 
 <ul>
-<%= render partial: 'partials/review_card', collection: @reviews, as: :review %>
+  <%= render partial: 'partials/review_card', collection: @reviews, as: :review %>
 </ul>

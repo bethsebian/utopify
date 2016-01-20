@@ -3,3 +3,7 @@
 <h2> Username: <%= @user.username %> </h2>
 
 <%= link_to "View Past Orders", orders_path %>
+
+<ul>
+  <%= render partial: 'partials/review_card', collection: @reviews, as: :review %>
+</ul>
