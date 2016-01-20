@@ -2,7 +2,7 @@ require 'rails_helper'
 include ActionView::Helpers::NumberHelper
 
 RSpec.feature "visitor can check out with items in cart" do
-	scenario "with items in cart" do
+	scenario "with item in cart" do
 		user = create(:user)
 		travesty = create(:travesty_with_items)
 		item_1 = travesty.items.first
