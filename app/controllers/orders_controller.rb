@@ -37,7 +37,7 @@ class OrdersController < ApplicationController
   private
 
   def set_doomsday_flash_message
-    if session[:current_user] && session[:current_user].total_purchased >= 50000
+    if current_user && current_user.total_purchased >= 50000
       flash_link = "#{view_context.link_to 'Doomsday', doomsday_path}"
       flash[:alert] = {color: 'red', message: "Doomsday Hath Commeth: #{flash_link} "}
     end
