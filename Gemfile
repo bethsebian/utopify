@@ -33,6 +33,7 @@ gem 'shoulda-matchers'
 gem 'rails_12factor'
 # Use Unicorn as the app server
 # gem 'unicorn'
+gem "jquery-slick-rails", '>= 1.5.8.2'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

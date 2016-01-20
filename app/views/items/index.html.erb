@@ -1,5 +1,4 @@
-<div id="items-index">
-  <div id="index-shade">
+
   <div class="container center" style="padding-top:4rem;">
     <a class="waves-effect waves-light btn-large" style="color:white;width:400px;height:100px;">
       <%= button_to "Shop By Items", items_path, method: :get  %>
@@ -9,11 +8,9 @@
       <%= button_to "Shop By Travesty", travesties_path, method: :get %>
     </div>
     </a>
-
     <div class="row" style="padding-top:4rem;">
 
       <%= render partial: "partials/grid_item", collection: @items, as: :item %>
 
   </div>
-</div>
-</div>
+  

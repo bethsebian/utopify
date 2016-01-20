@@ -22,7 +22,7 @@ section {
       }
 
 #container-inner-card {
-  padding-top:18vh;
+  padding-top:12vh;
 }
 
 body {
@@ -34,8 +34,10 @@ body {
 }
 
 #index-shade {
-  width: 100vw;
-  background-color: rgba(0, 0, 10, 0.5);
+  background-color: rgba(10, 10, 10, 0.5);
+  background-size: cover;
+  width:  100vw;
+  height: 100vh;
 }
 
 .environmental-disaster {
@@ -71,6 +73,7 @@ body {
 
  .card .card-action a {
    color:white;
+   margin-right:0px;
  }
 
  .sign-up {
@@ -80,7 +83,7 @@ body {
 
  .checkout {
    padding-top: 10vh;
-   width: 70%;
+   width: 60%;
  }
 
  #gif-body {
@@ -95,12 +98,12 @@ body {
    background-size: cover;
    position: absolute;
    width:  100vw;
-   height: 420px;
+   height: 100vh;
  }
 
  #gif-container {
   width:  100vw;
-  height: 420px;
+  height: 100vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -176,6 +179,7 @@ div#bp_ad_end {
  }
 
  #container-shade {
+   position: relative;
    height: 100vh;
    width: 100vw;
    background-color: rgba(64, 110, 162, 0.3);
