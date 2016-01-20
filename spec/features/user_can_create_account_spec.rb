@@ -29,18 +29,13 @@ RSpec.feature "user can create account from home" do
   end
 
   scenario "is redirected to account page if username already exists" do
-    user = User.create(
-      first_name: "Jordan",
-      last_name: "Lawler",
-      username: "jlawlz",
-      password: "password"
-    )
+    user = create(:user)
 
     visit new_user_path
 
     fill_in "First Name:", with: "Justin"
     fill_in "Last Name:", with: "Lawlerz"
-    fill_in "Username:", with: "jlawlz"
+    fill_in "Username:", with: user.username
     fill_in "Password:", with: "password1"
     fill_in "Password Confirmation", with: "password1"
 

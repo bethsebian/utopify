@@ -2,30 +2,18 @@ require 'rails_helper'
 
 RSpec.feature "user can logout account from navbar" do
   scenario "I see home page" do
-
-    User.create(
-                first_name: "Jordan",
-                last_name: "Lawler",
-                username: "jlawlz",
-                password: "password"
-                )
-
+    user = create(:user)
     visit '/'
-
     click_link "Login"
 
     expect(current_path).to eq login_path
 
-    fill_in "Username", with: "jlawlz"
-    fill_in "Password", with: "password"
-
+    fill_in "Username", with: user.username
+    fill_in "Password", with: user.password
     click_button "Sign In"
 
-    user = User.find_by(username: 'jlawlz')
-
     expect(current_path).to eq dashboard_path
-
-    expect(page).to have_content "Logged in as Jordan"
+    expect(page).to have_content "Logged in as #{user.first_name}"
     expect(page).to_not have_content "Login"
 
     click_link "Logout"

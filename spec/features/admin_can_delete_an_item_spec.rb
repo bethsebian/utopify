@@ -2,12 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "Admin can delete an item" do
   scenario "Admin can delete an existing item and is redirected to items index" do
-    admin = User.create(first_name: "mister",
-                        last_name: "admin",
-                        username: "admin",
-                        password: "admin",
-                        role: 1)
-
+    admin = create(:user, role: 1)
     travesty = create(:travesty_with_items)
     item = travesty.items.first
 

@@ -3,9 +3,7 @@ require 'rails_helper'
 
 RSpec.feature "visitor can view items" do
   scenario "index displays all current items for visitor" do
-
     travesties = create_list(:travesty_with_items, 2)
-
     items = (item_1, item_2, item_3, item_4 = travesties[0].items)
     items_2 = (item_5, item_6, item_7, item_8 = travesties[1].items)
 
