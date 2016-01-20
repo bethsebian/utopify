@@ -19,6 +19,7 @@ class UsersController < ApplicationController
     if session[:user_id]
       @user = User.find(session[:user_id])
       @reviews = @user.reviews
+      @item = Item.order("RANDOM()").first
     else
       flash[:error] = {message: "Must be signed in to see dashboard.", color: "red"}
       redirect_to items_path

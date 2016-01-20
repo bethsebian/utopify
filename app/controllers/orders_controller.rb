@@ -15,6 +15,10 @@ class OrdersController < ApplicationController
       )
       add_items_to_order
       flash[:order_success] = {color: 'green', message: "Order was successfully placed"}
+      if @user.total_purchased >= 50000
+        flash_link = "#{view_context.link_to 'Doomsday', doomsday_path}"
+        flash[:alert] = {color: 'red', message: "Doomsday Hath Commeth: #{flash_link} "}
+      end
       redirect_to orders_path
       session[:cart] = {}
     end

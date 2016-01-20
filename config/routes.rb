@@ -7,10 +7,11 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+  get '/doomsday', to: 'sessions#doomsday'
 
   resources :cart_items, only: [:create, :update, :destroy]
   resources :items, only: [:index, :show] do
-    resources :reviews, only: [:new, :create, :destroy]    
+    resources :reviews, only: [:new, :create, :destroy]
   end
   resources :orders, only: [:create, :index, :show]
   resources :order_items, only: [:create]

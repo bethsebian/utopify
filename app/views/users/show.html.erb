@@ -1,8 +1,9 @@
-<h1> <%= @user.first_name %>'s Profile</h1>
-</br>
-<h2> Username: <%= @user.username %> </h2>
+<h1> <%= @user.first_name %>'s Profile (<%= @user.username %>)</h1>
+<h5 class="center">DoomsDay Meter:</h5>
 
-<%= link_to "View Past Orders", orders_path %>
+<%= render partial: 'partials/doomsday_meter' %>
+
+<h2><%= link_to "View Past Orders", orders_path %></h2>
 
 <h3>All Reviews for <%= @user.username %>:</h3>
 <ul>

@@ -25,4 +25,8 @@ class SessionsController < ApplicationController
     redirect_to '/'
   end
 
+  def doomsday
+    render :doomsday
+  end
+
 end
