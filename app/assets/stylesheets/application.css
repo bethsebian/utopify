@@ -14,6 +14,14 @@
  *= require_self
  */
 
+.item-description{
+  padding:20px;
+}
+
+.item-show {
+  padding:20px;
+ }
+
  .cart-qty {
    width: 10vw;
  }
@@ -56,6 +64,10 @@
 
 body {
   font-family: 'Source Sans Pro', sans-serif;
+}
+
+.card-carousel {
+  margin: 0.5rem 0 1rem 0.5rem;
 }
 
 .nav_custom {
@@ -115,18 +127,17 @@ div#bp_ad_end {
    height:369px;
    width:100vw;
    font-family:Tahoma;
-   margin: 20px auto;
-   padding-top: 50px;
+   margin: 40px auto;
  }
 
  #carousel {
-   height:400px;
-   width:100vw;
-   overflow: hidden;
+    height: 385px;
+    width: 100vw;
+    overflow: hidden;
 }
 
 #carousel-sponsor {
-  height:369px;
+  height:370px;
   width:200px;
   overflow:hidden;
 }
@@ -149,15 +160,15 @@ div#bp_ad_end {
    float:left; }
 
  #navPrev {
-   padding-top: 1vh;
-   padding-left: 21vw;
+
+   padding-left: 21.5vw;
    font-size: 4rem;
    color: rgba(20, 20, 20, 0.5);
  }
 
  #navNext {
-   padding-top: 1vh;
-   padding-right: 8vh;
+
+   padding-right: 2vh;
    float:right;
    font-size: 4rem;
    color: rgba(20, 20, 20, 0.5);
