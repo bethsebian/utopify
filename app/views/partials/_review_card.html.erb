@@ -1,13 +1,11 @@
 <li>
-  <div class="row">
-    <div class="card">
-      <span class="card-title">
-        <%= review.user.username %>
-      </span>
+  <div class="card">
+    <div class="card-title">
+      Username: <%= review.user.username %>
     </div>
     <div class="card-content center">
-      <p><%= review.text %></p>
-      <%= link_to "Delete Review", item_review_path(review.item_id, review), method: :delete %>
+      <p>Item: <%= review.item.title %></p>
+      <p>Review: <%= review.text %></p>
     </div>
   </div>
 </li>
