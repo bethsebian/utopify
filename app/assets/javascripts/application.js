@@ -13,3 +13,11 @@
 // = require jquery
 // = require jquery_ujs
 // = require_tree .
+
+$(document).ready(function(){
+  $('#checkout_link_cart').click(function(){
+    $('#meter').attr("value", function(i, origValue){
+      return origValue + 1;
+    });
+  });
+});
