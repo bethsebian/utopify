@@ -7,6 +7,7 @@
     </div>
     <div class="card-content center">
       <p><%= review.text %></p>
+      <%= link_to "Delete Review", item_review_path(review.item_id, review), method: :delete %>
     </div>
   </div>
 </li>

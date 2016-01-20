@@ -47,8 +47,6 @@ RSpec.feature "User can create a review for an item" do
     fill_in "Password", with: user.password
     click_on "Sign In"
 
-    save_and_open_page
-
     expect(current_path).to eq dashboard_path
     expect(page).to have_content(review.text)
   end
