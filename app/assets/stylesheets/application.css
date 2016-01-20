@@ -14,6 +14,29 @@
  *= require_self
  */
 
+#container-inner-card {
+  padding-top:10px;
+}
+
+.environmental-disaster {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/2/22/Defense.gov_photo_essay_100506-N-6070S-819.jpg');
+  background-size: 175vw;
+  background-position-x: -635px;
+  background-position-y: -621px;
+}
+
+.endangered-species-culling {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/43/Ms_744_obs_natiabouani_02.jpg');
+  background-size: 175vw;
+  background-position-x: -635px;
+  background-position-y: -621px;
+}
+
+.wrap-body{
+  top:98px;
+  z-index: -1px;
+}
+
 .item-description{
   padding:20px;
 }
@@ -44,6 +67,9 @@
    padding-top: 420px;
  }
 
+ #nav-body {
+ }
+
  #gif-overlay {
    background-color: rgba(10, 10, 10, 0.5);
    background-size: cover;
@@ -62,7 +88,7 @@
   background-image: url(http://i.imgur.com/WTrMmzJ.jpg);
 }
 
-body {
+body h1 h2 h3 h4 {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
@@ -124,10 +150,15 @@ div#bp_ad_end {
 }
 
  #container {
-   height:369px;
-   width:100vw;
-   font-family:Tahoma;
-   margin: 40px auto;
+   height: 680px;
+   width: 100vw;
+   font-family: Tahoma;
+ }
+
+ #container-shade {
+   height: 680px;
+   width: 100vw;
+   background-color: rgba(64, 110, 162, 0.3);
  }
 
  #carousel {

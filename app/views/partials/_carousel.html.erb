@@ -1,22 +1,22 @@
-<div id="container">
-  <h2>
-    <%= travesty.title %>
+
+<div id="container" class="<%=travesty.slug%>">
+  <div id="container-shade">
+  <div id="container-inner-card">
+  <h2 style="color:white; padding-bottom:10px">
+    <%= travesty.title %>:
   </h2>
     <div id="carousel">
         <ul>
           <%= render partial: "partials/sponsor", locals: {img: travesty.sponsor_image, title: travesty.sponsor_title} %>
-          <%= render partial: "partials/item", collection: travesty.items %>
+          <%= render partial: "partials/carousel_item", collection: travesty.items, as: :item %>
         </ul>
     </div>
 <a id="navPrev" class="material-icons">fast_rewind</a>
 <a id="navNext" class="material-icons">fast_forward</a>
 </div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+</div>
+</div>
+
 
 <script type="text/javascript">
 

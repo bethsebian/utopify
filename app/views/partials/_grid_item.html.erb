@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="row">
+  <div class="col m4">
+    <%= image_tag item.image_url, height: '200', width: '300', id: "#{item.id}_item", class: "item-show", style: "float:right;" %>
+  </div>
+  <div class="col m8">
+    <div class="item-description" style="float:left;">
+      <span class="card-title"><%= link_to item.title, item_path(item) %></span>
+      <p><%= item.description %></p>
+    </div>
+  </div>
+</div>
+<div class="card-action center" id='<%= "#{item.id}_add_button" %>' >
+<% if item.active? %>
+<%= button_to "Add to cart", cart_items_path(item_id: item.id), id: "#{item.id}_add_button"  %>
+<% end %>
+</div>
+</div>

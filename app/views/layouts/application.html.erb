@@ -11,10 +11,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="wrap">
+
 
     <%= render partial: "partials/navbar", locals: {cart: @cart, user: @user} %>
-
+      <div class="wrap-body">
     <div class="container-fluid">
 
       <% flash.each do |type, hash| %>
@@ -22,8 +22,7 @@
       <% end %>
 
       <%= yield %>
-
-    </div>
   </div>
+</div>
 </body>
 </html>
