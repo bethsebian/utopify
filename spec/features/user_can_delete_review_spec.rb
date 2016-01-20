@@ -2,15 +2,9 @@ require 'rails_helper'
 
 RSpec.feature "User can delete their own reviews" do
   scenario "User is redirected back to their dashboard upon deleting their review" do
-    travesty = create(:travesty)
-    item = travesty.items.create(title: "Black Rhino",
-                                description: "kill em all",
-                                price: 10)
-    user = User.create(first_name: "Greg",
-                       last_name: "Armstrong",
-                       password: "password",
-                       username: "greg",
-                       role: 0)
+    travesty = create(:travesty_with_items)
+    item = travesty.items.first
+    user = create(:user)
     review = Review.create(text: "Test Review", stars: 5)
     item.reviews << review
     user.reviews << review

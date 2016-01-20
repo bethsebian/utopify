@@ -1,4 +1,12 @@
 class OrdersController < ApplicationController
+  before_action :validate_user
+
+  def validate_user
+    if current_user.nil?
+      flash[:login] = {color: 'red', message: "Please log in to check out"}
+      redirect_to '/login'
+    end
+  end
 
   def index
     @orders = current_user.orders
@@ -22,7 +30,7 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:id])
+    @order = current_user.orders.find(params[:id])
     @items = @order.order_items
   end
 
@@ -42,10 +50,11 @@ class OrdersController < ApplicationController
   def add_items_to_order
     @cart.contents.each do |item_id, qty|
       item = Item.find(item_id)
-      @order.order_items.create(item_id: item_id,
-                         item_quantity: qty,
-                         item_price: item.price
-                         )
+      @order.order_items.create(
+        item_id: item_id,
+        item_quantity: qty,
+        item_price: item.price
+      )
     end
   end
 end
