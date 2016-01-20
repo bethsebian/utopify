@@ -21,10 +21,12 @@ RSpec.feature "User can create a review for an item" do
 
     expect(current_path).to eq new_item_review_path(item)
     fill_in "Text", with: text
+    fill_in "Stars", with: 5
     click_on "Create Review"
 
     expect(page).to have_content(user.username)
     expect(page).to have_content(text)
+    expect(page).to have_content(5)
   end
 
   scenario "user can see all their reviews on their dashboard" do

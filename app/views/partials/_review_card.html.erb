@@ -4,6 +4,14 @@
       Username: <%= review.user.username %>
     </div>
     <div class="card-content center">
+      <p>
+        <div class="row">
+          <p>Stars:</p>
+          <%= review.stars.times do |i| %>
+          <i class="material-icons">grade</i>
+          <% end %>
+        </div>
+      </p>
       <p>Item: <%= review.item.title %></p>
       <p>Review: <%= review.text %></p>
     </div>
