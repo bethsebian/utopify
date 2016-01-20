@@ -11,7 +11,7 @@
       </div>
     </div>
   </div>
-  
+
   <div class="row">
     <div class="col s4">
       <div class="card white">
@@ -55,7 +55,7 @@
 </div>
 
 
-<h3>All Reviews for <%= @user.username %>:</h3>
+<h3 class="center review-text">All Item Reviews for <%= @user.username %>:</h3>
 <ul>
   <div class="container">
     <%= render partial: 'partials/review_card_dashboard', collection: @reviews, as: :review %>
