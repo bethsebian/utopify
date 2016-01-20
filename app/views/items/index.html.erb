@@ -1,8 +1,17 @@
-<%= render partial: "partials/gif_upper" %>
+<div class="container center" style="padding-top:4rem;">
+  <a class="waves-effect waves-light btn-large" style="color:white;width:400px;height:100px;">
+    <%= button_to "Shop By Items", items_path, method: :get  %>
+  </a>
+  <a class="waves-effect waves-light btn-large" style="color:white;width:400px;height:100px;">
+    <div class="center">
+      <%= button_to "Shop By Travesty", travesties_path, method: :get %>
+    </div>
+  </a>
+  <div class="row" style="padding-top:4rem;">
 
-<div id='gif-body'>
+    <%= render partial: "partials/grid_item", collection: @items, as: :item %>
 
-<!-- create partial for orders that then calls partial for items -->
-
+  </div>
 </div>
-<%= render partial: "partials/carousel", collection: @travesties, as: :travesty %>
+
+<!-- <%= render partial: "partials/carousel", collection: @travesties, as: :travesty %> -->

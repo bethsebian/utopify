@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(username: params[:session][:username])
-    if @user && @user.admin?
+    if @user && @user.authenticate(params[:session][:password]) && @user.admin?
       session[:user_id] = @user.id
       redirect_to admin_dashboard_path
     elsif @user && @user.authenticate(params[:session][:password])
@@ -23,6 +23,10 @@ class SessionsController < ApplicationController
     session.clear
     flash[:notice] = {color: "white", message: "Goodbye"}
     redirect_to '/'
+  end
+
+  def doomsday
+    render :doomsday
   end
 
 end
