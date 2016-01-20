@@ -43,7 +43,6 @@ RSpec.feature "user can view past orders" do
 
     click_link("Order ##{"%07d" % order.id.to_s}")
 
-    save_and_open_page
     expect(current_path).to eq order_path(order)
     expect(page).to have_content item.title
     expect(page).to have_content order_item_1.item_quantity
