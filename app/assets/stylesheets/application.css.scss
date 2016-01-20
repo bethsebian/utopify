@@ -86,7 +86,9 @@ nav .brand-logo {
 
 @font-face {
   font-family: 'Jungle';
-  src: font-url('/assets/JungleClean.ttf')
+  src: font-url( asset-path('JungleClean.ttf') );
+  font-weight: normal;
+  font-style: normal;
 }
 
 div#bp_ad {
