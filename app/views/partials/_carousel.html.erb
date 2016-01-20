@@ -1,30 +1,28 @@
-<div id="container">
-  <h2>
-    <%= travesty.title %>
+<section class="<%=travesty.slug%>">
+  <div id="container-shade">
+  <div id="container-inner-card">
+  <h2 style="color:white; padding-bottom:10px">
+    <%= travesty.title %>:
   </h2>
     <div id="carousel">
         <ul>
           <%= render partial: "partials/sponsor", locals: {img: travesty.sponsor_image, title: travesty.sponsor_title} %>
-          <%= render partial: "partials/item", collection: travesty.items %>
+          <%= render partial: "partials/carousel_item", collection: travesty.items, as: :item %>
         </ul>
     </div>
 <a id="navPrev" class="material-icons">fast_rewind</a>
 <a id="navNext" class="material-icons">fast_forward</a>
 </div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+</div>
+</section>
+
+
 
 <script type="text/javascript">
-
   //Define the animation speed for the Carousel
   var speed = 600,
   scroller = $('#carousel ul'),
   total = 0;
-
   scroller.width(function() {
           scroller.children().each(function(i, val) {
               var el = $(this);
@@ -33,15 +31,12 @@
           return total;
       });
   var distance = ($('#carousel').outerWidth()-total);
-
   $('#navNext').click(function(){
       $(this).addClass('disable');
       $('#navPrev').removeClass('disable');
       scroller.animate({marginLeft:"-300px"}, speed);});
-
   $('#navPrev').click(function(){
       $(this).addClass('disable');
       $('#navNext').removeClass('disable');
       scroller.animate({marginLeft:'1px'}, speed);});
-
 </script type="text/javascript">

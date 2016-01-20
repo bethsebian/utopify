@@ -14,12 +14,66 @@
  *= require_self
  */
 
+section {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+      }
+
+#container-inner-card {
+  padding-top:12vh;
+}
+
+body {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/2/22/Defense.gov_photo_essay_100506-N-6070S-819.jpg');
+  background-size: 3500px;
+  background-position-x: -1097px;
+  background-position-y: -1059px;
+  background-attachment: fixed;
+}
+
+#index-shade {
+  background-color: rgba(10, 10, 10, 0.5);
+  background-size: cover;
+  width:  100vw;
+  height: 100vh;
+}
+
+.environmental-disaster {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/2/22/Defense.gov_photo_essay_100506-N-6070S-819.jpg');
+  background-size: 3500px;
+  background-position-x: -1097px;
+  background-position-y: -1059px;
+}
+
+.endangered-species-culling {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/43/Ms_744_obs_natiabouani_02.jpg');
+  background-size: 3000px;
+  background-position-x: -358px;
+  background-position-y: -732px;
+}
+
+.wrap-body{
+  top:98px;
+  z-index: -1px;
+}
+
+.item-description{
+  padding:20px;
+}
+
+.item-show {
+  padding:20px;
+ }
+
  .cart-qty {
    width: 10vw;
  }
 
  .card .card-action a {
    color:white;
+   margin-right:0px;
  }
 
  .sign-up {
@@ -29,11 +83,14 @@
 
  .checkout {
    padding-top: 10vh;
-   width: 70%;
+   width: 60%;
  }
 
  #gif-body {
    padding-top: 420px;
+ }
+
+ #nav-body {
  }
 
  #gif-overlay {
@@ -41,12 +98,12 @@
    background-size: cover;
    position: absolute;
    width:  100vw;
-   height: 420px;
+   height: 100vh;
  }
 
  #gif-container {
   width:  100vw;
-  height: 420px;
+  height: 100vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -54,8 +111,12 @@
   background-image: url(http://i.imgur.com/WTrMmzJ.jpg);
 }
 
-body {
+body h1 h2 h3 h4 {
   font-family: 'Source Sans Pro', sans-serif;
+}
+
+.card-carousel {
+  margin: 0.5rem 0 1rem 0.5rem;
 }
 
 .nav_custom {
@@ -114,21 +175,26 @@ div#bp_ad_end {
 }
 
  #container {
-   height:369px;
-   width:100vw;
-   font-family:Tahoma;
-   margin: 20px auto;
-   padding-top: 50px;
+   height: 100vh;
+   width: 100vw;
+   font-family: Tahoma;
+ }
+
+ #container-shade {
+   position: relative;
+   height: 100vh;
+   width: 100vw;
+   background-color: rgba(64, 110, 162, 0.3);
  }
 
  #carousel {
-   height:400px;
-   width:100vw;
-   overflow: hidden;
+    height: 385px;
+    width: 100vw;
+    overflow: hidden;
 }
 
 #carousel-sponsor {
-  height:369px;
+  height:370px;
   width:200px;
   overflow:hidden;
 }
@@ -151,15 +217,15 @@ div#bp_ad_end {
    float:left; }
 
  #navPrev {
-   padding-top: 1vh;
-   padding-left: 21vw;
+
+   padding-left: 21.5vw;
    font-size: 4rem;
    color: rgba(20, 20, 20, 0.5);
  }
 
  #navNext {
-   padding-top: 1vh;
-   padding-right: 8vh;
+
+   padding-right: 2vh;
    float:right;
    font-size: 4rem;
    color: rgba(20, 20, 20, 0.5);
