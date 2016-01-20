@@ -10,7 +10,6 @@
   <%= f.label :price %>
   <%= f.text_field :price %>
   <%= f.label "Travesty" %>
-  <%= f.collection_select :travesty_id, Travesty.all.distinct, :id, :title, include_blank: true %>
-
+  <%= f.collection_select :travesty_id, Travesty.all.distinct, :id, :title, prompt: true, include_blank: true %>
   <%= f.submit "Create Item" %>
 <% end %>

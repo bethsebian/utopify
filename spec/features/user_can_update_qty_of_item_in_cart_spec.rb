@@ -3,9 +3,7 @@ include ActionView::Helpers::NumberHelper
 
 RSpec.feature "visitor can update quantity of items in cart" do
   scenario "they can add to quantity of item in cart" do
-
     travesties = create_list(:travesty_with_items, 2)
-
     items = (item_1, item_2, item_3, item_4 = travesties[0].items)
     items_2 = (item_5, item_6, item_7, item_8 = travesties[1].items)
 

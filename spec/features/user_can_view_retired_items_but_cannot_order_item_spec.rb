@@ -2,24 +2,10 @@ require 'rails_helper'
 
 RSpec.feature "user can view retired item" do
   scenario "but cannot order item" do
-    user = User.create(
-      first_name: "Jordan",
-      last_name: "Lawler",
-      username: "jlawler",
-      password: "password"
-    )
-
+    user = create(:user)
     ApplicationController.any_instance.stub(:current_user).and_return(user)
-
-    travesty = Travesty.create(title: "Environmental Disasters")
-
-    item = travesty.items.create(
-      title: "Item title",
-      description: "Item description",
-      price: 11,
-      image_url: "app/assets/images/water_contamination.jpg",
-      travesty_id: 1
-    )
+    travesty = create(:travesty_with_items)
+    item = travesty.items.first
 
 		visit item_path(item)
 
