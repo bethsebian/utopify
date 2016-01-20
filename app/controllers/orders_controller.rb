@@ -13,12 +13,11 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = current_user.orders.create(
-      status: "ordered",
-      total_price: @cart.total_price
-    )
+    @order = current_user.orders.create(status: "ordered",
+                                        total_price: @cart.total_price)
     add_items_to_order
     flash[:order_success] = {color: 'green', message: "Order was successfully placed"}
+    set_doomsday_flash_message
     redirect_to orders_path
     session[:cart] = {}
   end
@@ -29,6 +28,17 @@ class OrdersController < ApplicationController
   end
 
   private
+
+  def set_doomsday_flash_message
+    if current_user && current_user.total_purchased >= 50000
+      flash_link = "#{view_context.link_to 'Doomsday', doomsday_path}"
+      flash[:alert] = {color: 'red', message: "Doomsday Hath Commeth: #{flash_link} "}
+    end
+  end
+
+  def total_price
+    @cart.total_price
+  end
 
   def add_items_to_order
     @cart.contents.each do |item_id, qty|
