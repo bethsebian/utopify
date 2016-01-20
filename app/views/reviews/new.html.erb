@@ -1,0 +1,6 @@
+<%= form_for(@review, url: item_reviews_path(params[:item_id])) do |f| %>
+  <%= f.label :text %>
+  <%= f.text_field :text %>
+
+  <%= f.submit "Create Review" %>
+<% end %>

@@ -1,1 +1,7 @@
 <%= render partial: 'partials/show_item', locals: { item: @item } %>
+
+<%= link_to "Add Review", new_item_review_path(@item) %>
+
+<ul>
+<%= render partial: 'partials/review_card', collection: @reviews, as: :review %>
+</ul>
