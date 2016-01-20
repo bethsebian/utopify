@@ -36,4 +36,23 @@ RSpec.feature "Admin can login" do
     expect(current_path).to eq dashboard_path
     expect(page).to_not have_content "Admin Dashboard"
   end
+
+  scenario "can navigate to dashboard from link on top left" do
+    user = User.create(first_name: "admin",
+                       last_name: "user",
+                       username: "admin_user",
+                       password: "default",
+                       role: 1 )
+
+    visit login_path
+
+    fill_in "Username", with: user.username
+    fill_in "Password", with: user.password
+    click_button "Sign In"
+
+    click_link "Logged in as admin"
+
+    expect(current_path).to eq admin_dashboard_path
+    expect(page).to have_content "Admin Dashboard"
+  end
 end
