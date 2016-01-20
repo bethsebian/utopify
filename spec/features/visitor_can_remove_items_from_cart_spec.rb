@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.feature "visitor can remove items from cart" do
   scenario "cart shows no items in cart after removal" do
-
     travesties = create_list(:travesty_with_items, 1)
     items = (item_1, item_2, item_3, item_4 = travesties[0].items)
 

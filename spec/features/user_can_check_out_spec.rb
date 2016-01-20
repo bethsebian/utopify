@@ -1,27 +1,12 @@
 require 'rails_helper'
+include ActionView::Helpers::NumberHelper
 
 RSpec.feature "visitor can check out with items in cart" do
 	scenario "with items in cart" do
-		user = User.create(
-		first_name: "Jordan",
-		last_name: "Lawler",
-		username: "jlawlz",
-		password: "password"
-		)
-
-		travesty = Travesty.create(title: "Environmental Disasters")
-		item_1 = travesty.items.create(
-			title: "Item title 1",
-			description: "Item description 1",
-			price: 11,
-			image_url: "app/assets/images/water_contamination.jpg"
-		)
-		item_2 = travesty.items.create(
-			title: "Item title 2",
-			description: "Item description 2",
-			price: 15,
-			image_url: "app/assets/images/water_contamination.jpg"
-		)
+		user = create(:user)
+		travesty = create(:travesty_with_items)
+		item_1 = travesty.items.first
+		item_2 = travesty.items[1]
 
 		visit item_path(item_1)
 		first(:button, 'Add to cart').click
@@ -36,8 +21,8 @@ RSpec.feature "visitor can check out with items in cart" do
 		expect(page).to have_content("Please log in to check out")
 		expect(current_path).to eq login_path
 
-		fill_in "Username", with: "jlawlz"
-    fill_in "Password", with: "password"
+		fill_in "Username", with: user.username
+    fill_in "Password", with: user.password
     click_button "Sign In"
 
 		visit '/cart'
@@ -51,7 +36,7 @@ RSpec.feature "visitor can check out with items in cart" do
 			expect(page).to have_content order.status
 		end
 		within "td#order_total_price" do
-			expect(page).to have_content order.total_price
+			expect(page).to have_content number_to_currency(order.total_price)
 		end
 		within "td#order_created_at" do
 			expect(page).to have_content order.created_at

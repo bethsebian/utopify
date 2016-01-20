@@ -2,15 +2,9 @@ require 'rails_helper'
 
 RSpec.feature "User can create a review for an item" do
   scenario "User is taken back to item after creating a review for it" do
-    travesty = create(:travesty)
-    item = travesty.items.create(title: "Black Rhino",
-                                description: "kill em all",
-                                price: 10)
-    user = User.create(first_name: "Greg",
-                       last_name: "Armstrong",
-                       password: "password",
-                       username: "greg",
-                       role: 0)
+    travesty = create(:travesty_with_items)
+    item = travesty.items.first
+    user = create(:user)
     text = "Test Review"
 
     ApplicationController.any_instance.stub(:current_user).and_return(user)
@@ -30,15 +24,10 @@ RSpec.feature "User can create a review for an item" do
   end
 
   scenario "user can see all their reviews on their dashboard" do
-    travesty = create(:travesty)
-    item = travesty.items.create(title: "Black Rhino",
-                                description: "kill em all",
-                                price: 10)
-    user = User.create(first_name: "Greg",
-                       last_name: "Armstrong",
-                       password: "password",
-                       username: "greg",
-                       role: 0)
+    travesty = create(:travesty_with_items)
+    item = travesty.items.first
+    user = create(:user)
+
     review = Review.create(text: "Test Review", stars: 3)
     item.reviews << review
     user.reviews << review

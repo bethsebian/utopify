@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.feature "visitor can add items to cart" do
   scenario "cart shows number of items in cart" do
-
     travesties = create_list(:travesty_with_items, 1)
 
     visit '/items'

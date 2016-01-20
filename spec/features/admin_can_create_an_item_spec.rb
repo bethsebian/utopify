@@ -2,16 +2,8 @@ require 'rails_helper'
 
 RSpec.feature "Admin can create an item" do
   scenario "Admin can see new item in travesty page" do
-
     travesty = create(:travesty_with_items)
-
-    admin = User.create(first_name: "mister",
-                        last_name: "admin",
-                        username: "admin",
-                        password: "admin",
-                        role: 1)
-
-
+    admin = create(:user, role: 1)
     ApplicationController.any_instance.stub(:current_user).and_return(admin)
 
     visit new_admin_item_path
