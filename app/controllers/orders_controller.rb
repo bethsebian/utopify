@@ -13,20 +13,13 @@ class OrdersController < ApplicationController
   end
 
   def create
-    if current_user.nil?
-      flash[:login] = {color: 'red', message: "Please log in to check out"}
-      redirect_to '/login'
-    else
-      @order = current_user.orders.create(
-        status: "ordered",
-        total_price: total_price
-      )
-      add_items_to_order
-      flash[:order_success] = {color: 'green', message: "Order was successfully placed"}
-      set_doomsday_flash_message
-      redirect_to orders_path
-      session[:cart] = {}
-    end
+    @order = current_user.orders.create(status: "ordered",
+                                        total_price: @cart.total_price)
+    add_items_to_order
+    flash[:order_success] = {color: 'green', message: "Order was successfully placed"}
+    set_doomsday_flash_message
+    redirect_to orders_path
+    session[:cart] = {}
   end
 
   def show
