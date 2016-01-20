@@ -39,7 +39,7 @@ RSpec.feature "User can create a review for an item" do
                        password: "password",
                        username: "greg",
                        role: 0)
-    review = Review.create(text: "Test Review")
+    review = Review.create(text: "Test Review", stars: 3)
     item.reviews << review
     user.reviews << review
 
@@ -51,5 +51,6 @@ RSpec.feature "User can create a review for an item" do
 
     expect(current_path).to eq dashboard_path
     expect(page).to have_content(review.text)
+    expect(page).to have_content(review.stars)
   end
 end
