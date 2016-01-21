@@ -20,6 +20,7 @@
    position: absolute;
    width:  100vw;
    height: 100vh;
+   z-index: -20;
  }
 
  #gif-container {
@@ -30,6 +31,7 @@
   background-repeat: no-repeat;
   position: fixed;
   background-image: url(http://i.imgur.com/WTrMmzJ.jpg);
+  z-index: -21;
 }
 
 #gif-body {
@@ -84,10 +86,6 @@ h6 {
   text-decoration: underline;
 }
 
-
-
-
-
 section {
         position: relative;
         overflow: hidden;
@@ -110,20 +108,6 @@ html {
   background-position-y: -1059px;
   background-attachment: fixed;
   min-height: 100vh
-}
-
-.environmental-disaster {
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/2/22/Defense.gov_photo_essay_100506-N-6070S-819.jpg');
-  background-size: 3500px;
-  background-position-x: -1097px;
-  background-position-y: -1059px;
-}
-
-.endangered-species-culling {
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/43/Ms_744_obs_natiabouani_02.jpg');
-  background-size: 3000px;
-  background-position-x: -358px;
-  background-position-y: -732px;
 }
 
 body {
@@ -178,7 +162,7 @@ body h1 h2 h3 h4 {
 }
 
 .nav_custom {
-  background-color: #E66C2C;
+  background-color: rgba(20, 20, 20, 0.0);
   height: 125px;
 }
 
