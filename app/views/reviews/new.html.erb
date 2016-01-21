@@ -1,20 +1,17 @@
 
-  <div class="sign-up container">
-    <div class="col s12 m5">
-      <div class="card-panel">
-        <h3 class="center"> Write Review for </h3>
-        <h3 class="center"> <%= @item.title %>: </h3>
-        <%= form_for(@review, url: item_reviews_path(params[:item_id])) do |f| %>
-          <%= f.label :text %>
-          <%= f.text_field :text %>
+<div class="container">
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">Write a Review for <%= @item.title %></span>
+      <%= form_for(@review, url: item_reviews_path(params[:item_id])) do |f| %>
+      <%= f.label :text %>
+      <%= f.text_field :text %>
 
-          <%= f.label :stars %>
-          <%= f.text_field :stars %>
-          <a class="waves-effect waves-light btn">
-            <%= f.submit "Create Review" %>
-          </a>
-        <% end %>
-        </ul>
-      </div>
+      <%= f.label :stars %>
+      <%= f.text_field :stars %>
+
+      <%= f.submit "Create Review" %>
+      <% end %>
     </div>
   </div>
+</div>
