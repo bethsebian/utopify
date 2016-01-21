@@ -116,7 +116,7 @@ travesty_2.items.create(
 
 travesty_3 = Travesty.create(
   title: "Crimes Against Humanity",
-  sponsor_image: "holding_hands.jpg",
+  sponsor_image: "nestle.jpeg",
   sponsor_title: "Nestle"
 )
 
