@@ -13,6 +13,7 @@ class Admin::ItemsController < Admin::BaseController
   def create
     @travesty = Travesty.find(params[:item][:travesty_id])
     @item = @travesty.items.create(item_params)
+    flash.now[:error] = current_user.errors.full_messages.join(", ")
     redirect_to admin_items_path
   end
 

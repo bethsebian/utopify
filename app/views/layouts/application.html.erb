@@ -6,35 +6,20 @@
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
 
-  <script src="/assets/jquery.panelSnap.js"></script>
-  <script>
-  jQuery(function($) {
-    $('body').panelSnap();
-  });
-  </script>
-
   <title>apocalypsify</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div id="index-shade">
+  <%= render partial: "partials/gif_upper" %>
   <%= render partial: "partials/navbar", locals: {cart: @cart, user: @user} %>
-  <%= render partial: 'partials/doomsday_meter' %>
-
-      <div class="wrap-body">
-        <div class="container-fluid">
 
       <% flash.each do |type, hash| %>
       <%= render partial: "partials/flash_card", locals: {message: hash["message"], color: hash["color"]} %>
       <% end %>
 
       <%= yield %>
-    </div>
-
-  </div>
-  </div>
 
 
 </body>

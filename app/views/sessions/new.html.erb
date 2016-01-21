@@ -1,25 +1,25 @@
-<div id="gif-container">
-    <div id='gif-overlay'>
+<div id='gif-body'>
 
-      <div class="sign-up container">
-        <div class="col s12 m5">
-          <div class="card-panel">
-            <h3 class="center"> Sign In: </h3>
-              <%= simple_form_for :session, url: login_path do |f| %>
 
-              <%= f.input :username %>
-              <br>
-              <%= f.input :password %>
-              <br>
-              <div class="center", id="new_user_submit">
-                <a class="waves-effect waves-light btn"><%= f.submit "Sign In"%></a>
-              </div>
-              <% end %>
-            </ul>
+<div class="container center" style="width:34rem;">
 
-          </div>
+    <div class="card">
+      <div class="card-content" style="padding-top:20px;padding-left:55px;padding-bottom:20px;padding-right:55px;">
+        <%= simple_form_for :session, url: login_path, style:"font-size:2rem" do |f| %>
+
+        <%= f.label :username, "Username:" %>
+        <%= f.text_field :username %>
+        <br>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+        <br>
+        <div id="new_user_submit">
+          <a class="waves-effect waves-light btn-large yellow darken-3" id="huge-page-button" >
+            <%= f.submit "Sign In", id:"huge-page-button-text"%>
+          </a>
         </div>
+        <% end %>
       </div>
-
     </div>
+  </div>
 </div>

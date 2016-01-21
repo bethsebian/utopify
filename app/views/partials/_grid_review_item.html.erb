@@ -19,7 +19,7 @@
       <h5>Price: <%=number_to_currency(item.price)%></h5>
       <% if item.active? %>
       <a class="waves-effect waves-light btn">
-        <%= button_to "Add to cart", cart_items_path(item_id: item.id), id:"#{item.id}_add_button"  %>
+        <%= button_to "Add Review", new_item_review_path(item), id: "#{item.id}_add_button", method: :get  %>
       </a>
       <% end %>
     </div>
