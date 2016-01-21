@@ -35,6 +35,7 @@ gem 'rails_12factor', group: :production
 # Use Unicorn as the app server
 # gem 'unicorn'
 gem "jquery-slick-rails", '>= 1.5.8.2'
+gem 'sprockets_better_errors'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
