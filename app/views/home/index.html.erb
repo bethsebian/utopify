@@ -1,7 +1,38 @@
-<%= render partial: "partials/gif_upper" %>
-
 <div id='gif-body'>
-
-<!-- create partial for orders that then calls partial for items -->
-
+  <div class="container center">
+    <div class="row">
+      <div class="col s6">
+        <div class="card">
+          <div class="card-content">
+            <a class="waves-effect waves-light btn-large yellow darken-3" id="huge-page-button" >
+              <%= button_to "Sign In", login_path, method: :get, id:"front-page-button-text"  %>
+            </a>
+          </br>
+        </br>
+            <a class="waves-effect waves-light btn-large yellow darken-3" id="huge-page-button" >
+              <div class="center">
+                <%= button_to "Sign Up", new_user_path, method: :get, id:"front-page-button-text" %>
+              </div>
+            </a>
+          </div>
+          </div>
+        </div>
+        <div class="col s6">
+          <div class="card">
+            <div class="card-content">
+              <a class="waves-effect waves-light btn-large light-blue darken-3" id="huge-page-button">
+                <%= button_to "Shop By Items", items_path, method: :get, id:"front-page-button-text"  %>
+              </a>
+            </br>
+          </br>
+              <a class="waves-effect waves-light btn-large light-blue darken-3" id="huge-page-button">
+                <div class="center">
+                  <%= button_to "Shop By Travesty", travesties_path, method: :get, id:"huge-page-button-text" %>
+                </div>
+              </a>
+            </div>
+            </div>
+          </div>
+    </div>
+  </div>
 </div>
