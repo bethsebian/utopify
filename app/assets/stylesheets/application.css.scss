@@ -25,19 +25,17 @@ section {
   padding-top:12vh;
 }
 
-body {
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/2/22/Defense.gov_photo_essay_100506-N-6070S-819.jpg');
-  background-size: 3500px;
-  background-position-x: -1097px;
-  background-position-y: -1059px;
-  background-attachment: fixed;
+html {
+  box-sizing:border-box;
 }
 
 #index-shade {
   background-color: rgba(10, 10, 10, 0.5);
-  background-size: cover;
-  width:  100vw;
-  height: 100vh;
+  background-size: 3500px;
+  background-position-x: -1097px;
+  background-position-y: -1059px;
+  background-attachment: fixed;
+  min-height: 100vh
 }
 
 .environmental-disaster {
@@ -54,9 +52,13 @@ body {
   background-position-y: -732px;
 }
 
-.wrap-body{
-  top:98px;
-  z-index: -1px;
+body {
+  background: url('https://upload.wikimedia.org/wikipedia/commons/2/22/Defense.gov_photo_essay_100506-N-6070S-819.jpg');
+  background-size: 3500px;
+  background-position-x: -1097px;
+  background-position-y: -1059px;
+  background-attachment: fixed;
+  min-height: 100vh
 }
 
 .item-description{
@@ -240,5 +242,4 @@ div#bp_ad_end {
    height: 40px;
    border: 1px solid #ccc;
    border-radius: 3px;
-   border:1px solid black;
  }

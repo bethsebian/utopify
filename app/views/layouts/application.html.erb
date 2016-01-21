@@ -19,11 +19,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <div id="index-shade">
   <%= render partial: "partials/navbar", locals: {cart: @cart, user: @user} %>
-
-  <div id="items-index">
-    <div id="index-shade" style="padding-top:1px;">
+  <%= render partial: 'partials/doomsday_meter' %>
 
       <div class="wrap-body">
         <div class="container-fluid">
@@ -37,7 +35,7 @@
 
   </div>
   </div>
-  </div>
+
 
 </body>
 </html>
