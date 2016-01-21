@@ -22,7 +22,11 @@ class Cart
 	end
 
 	def total_price
-		items.map { |item| item.line_total_price }.reduce(:+)
+		if contents.empty?
+			0
+		else
+			items.map { |item| item.line_total_price }.reduce(:+)
+		end
 	end
 
 	def update_quantity(qty_update_data)
