@@ -24,6 +24,6 @@ Rails.application.routes.draw do
     resources :items, only: [:new, :create, :index, :destroy]
     resources :orders, only: [:index]
   end
-
+  resources :reviews, only: [:index]
   resources :users, only: [:new, :create]
 end

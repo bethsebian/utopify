@@ -19,6 +19,10 @@ class ReviewsController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def index
+    @items = Item.all
+  end
+
   private
 
   def review_params

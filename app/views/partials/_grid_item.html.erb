@@ -1,21 +1,32 @@
 
-      <div class="col s4">
-        <div class="card">
-          <div class="card-image">
-              <%= image_tag item.image_url, id: "#{item.id}_item", class: "item-show", style: "float:right;" %>
-          </div>
-          <div class="card-content">
-            <span class="card-title"><%= link_to item.title, item_path(item) %></span>
-            <p><%= item.travesty.title %></p>
-            <p><%= item.description %></p>
-            <p><%= number_to_currency(item.price) %></p>
-          </div>
-          <div class="card-action">
-            <% if item.active? %>
-            <a class="waves-effect waves-light btn">
-              <%= button_to "Add to cart", cart_items_path(item_id: item.id), id: "#{item.id}_add_button"  %>
-            </a>
-            <% end %>
-          </div>
+  <div class="col s4">
+   <div class="card">
+       <div class="card-image waves-effect waves-block waves-light">
+        <div class="container" style="width:300px;height:240px;overflow:hidden;">
+          <%= image_tag item.image_url, id:"#{item.id}_item", class:"item-show activator"%>
         </div>
-      </div>
+     </div>
+     <div class="card-content center">
+      <span class="card-title activator grey-text text-darken-4">
+        <div class="container" style="width: 100%;height: 60px;">
+          <h5><%= link_to item.title, item_path(item) %></h5>
+        </div>
+        <div class="row">
+            <i class="material-icons right" style="margin:auto;padding-right:93px;padding-top:2px;">subject</i></span>
+      </span>
+      <h5 style="padding-left:81px;">Details</h5>
+    </div>
+      <h5>Price: <%=number_to_currency(item.price)%></h5>
+      <% if item.active? %>
+      <a class="waves-effect waves-light btn">
+        <%= button_to "Add to cart", cart_items_path(item_id: item.id), id:"#{item.id}_add_button"  %>
+      </a>
+      <% end %>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Back to Item</span>
+      <p>Travesty: <%=item.travesty.title%></p>
+      <p><%=item.description%></p>
+    </div>
+  </div>
+</div>
