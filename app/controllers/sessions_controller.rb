@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
       redirect_to dashboard_path
     else
       flash[:error] = {color: 'orange', message: "Username or password incorrect."}
-      redirect_to '/login'
+      redirect_to login_path
     end
   end
 
