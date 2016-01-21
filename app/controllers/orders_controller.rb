@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  include ActionView::Helpers::TextHelper
   before_action :validate_user
 
   def validate_user
