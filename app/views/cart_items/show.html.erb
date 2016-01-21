@@ -1,6 +1,6 @@
 
 
-<div class="checkout container">
+<div class="container center">
   <div class="col s12 m5">
     <div class="card-panel">
       <h3 class="center"> Cart Contents: </h3>
@@ -24,7 +24,9 @@
         </table>
           <div class="right-align">
               <h4>Total Price: <%=number_to_currency(@cart.total_price)%></h4>
-                <%= link_to "Checkout", orders_path, method: :post, data: { cart: @cart } %>
+              <button class="btn waves-effect waves-light">
+                <%= button_to "Checkout", orders_path, method: :post, data: { cart: @cart } %>
+                <i class="material-icons right">send</i>
               </button>
           </div>
     </div>
