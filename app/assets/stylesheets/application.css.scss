@@ -23,10 +23,20 @@
    z-index: -20;
  }
 
+
+ #snork {
+   background-color: rgba(10, 10, 10, 0.5);
+   background-size: cover;
+   position: absolute;
+   width:  100vw;
+   height: 100vh;
+   z-index: -20;
+ }
  #gif-container {
   width:  100vw;
   height: 100vh;
   background-size: cover;
+  background-image: url('http://i.imgur.com/uOYFkKS.gif');
   background-position: center;
   background-repeat: no-repeat;
   position: fixed;
