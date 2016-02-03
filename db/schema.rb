@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160121051327) do
+ActiveRecord::Schema.define(version: 20160203030151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,21 @@ ActiveRecord::Schema.define(version: 20160121051327) do
   add_index "reviews", ["item_id"], name: "index_reviews_on_item_id", using: :btree
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
+  create_table "stores", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "status"
+    t.string   "image_url"
+    t.string   "accreditation"
+    t.integer  "user_id"
+    t.integer  "item_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "stores", ["item_id"], name: "index_stores_on_item_id", using: :btree
+  add_index "stores", ["user_id"], name: "index_stores_on_user_id", using: :btree
+
   create_table "travesties", force: :cascade do |t|
     t.string   "title"
     t.datetime "created_at",    null: false
@@ -88,4 +103,6 @@ ActiveRecord::Schema.define(version: 20160121051327) do
   add_foreign_key "orders", "users"
   add_foreign_key "reviews", "items"
   add_foreign_key "reviews", "users"
+  add_foreign_key "stores", "items"
+  add_foreign_key "stores", "users"
 end
