@@ -21,36 +21,26 @@
 
 <div class="row"> <!-- Sales Summary Data-->
   <div class="col s9 m9 l9">
-    <table class="bordered highlight responsive-table">
-      <thead>
-        <tr>
-          <th>Sales Summary Data</th>
-        </tr>
-        <tr>
-            <th data-field="id"></th>
-            <th data-field="name">Item Name</th>
-            <th data-field="price">Item Price</th>
-        </tr>
-      </thead>
+    <table class="bordered striped responsive-table">
+        <thead>
+          <tr>
+            <th>Sales Summary Data</th>
+          </tr>
+          <tr>
+            <th data-field="total-sales">Total Sales</th>
+              <th data-field="category-sales">Category 1 Sales</th>
+              <th data-field="current-month">Current Month Sales</th>
+          </tr>
+        </thead>
 
-      <tbody>
-        <tr>
-          <td>Alvin</td>
-          <td>Eclair</td>
-          <td>$0.87</td>
-        </tr>
-        <tr>
-          <td>Alan</td>
-          <td>Jellybean</td>
-          <td>$3.76</td>
-        </tr>
-        <tr>
-          <td>Jonathan</td>
-          <td>Lollipop</td>
-          <td>$7.00</td>
-        </tr>
-      </tbody>
-    </table>
+        <tbody>
+          <tr>
+            <td>$398.76</td>
+            <td>$42.87</td>
+            <td>$234,231.87</td>
+          </tr>
+        </tbody>
+      </table>
   </div>
   <div class="col s3 m3 l3">
     <table class="bordered highlight centered responsive-table">
@@ -71,36 +61,48 @@
 
 <div class="row"> <!-- Orders Data -->
   <div class="col s9 m9 l9">
-    <table class="bordered striped responsive-table">
-        <thead>
-          <tr>
-            <th>Sales Summary Data</th>
-          </tr>
-          <tr>
-              <th data-field="id">Name</th>
-              <th data-field="name">Item Name</th>
-              <th data-field="price">Item Price</th>
-          </tr>
-        </thead>
+    <table class="bordered highlight responsive-table">
+      <thead>
+        <tr>
+          <th>Orders</th>
+        </tr>
+        <tr>
+            <th data-field="id">Order id</th>
+            <th data-field="name">Name</th>
+            <th data-field="price">Price</th>
+            <th data-field="quantity">Quantity</th>
+            <th data-field="customer">Customer</th>
+            <th data-field="date-sold">Date Sold</th>
+        </tr>
+      </thead>
 
-        <tbody>
-          <tr>
-            <td>Alvin</td>
-            <td>Eclair</td>
-            <td>$0.87</td>
-          </tr>
-          <tr>
-            <td>Alan</td>
-            <td>Jellybean</td>
-            <td>$3.76</td>
-          </tr>
-          <tr>
-            <td>Jonathan</td>
-            <td>Lollipop</td>
-            <td>$7.00</td>
-          </tr>
-        </tbody>
-      </table>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Water</td>
+          <td>$0.87</td>
+          <td>34</td>
+          <td>56</td>
+          <td>12/34/2016</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Trees</td>
+          <td>$3.76</td>
+          <td>3455</td>
+          <td>879</td>
+          <td>01/32/2016</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Wind Power</td>
+          <td>$7.00</td>
+          <td>2</td>
+          <td>8</td>
+          <td>13/30/2016</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
   <div class="col s3 m3 l3">
     <table class="bordered highlight centered responsive-table">
