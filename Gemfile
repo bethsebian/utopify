@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-ruby '2.2.3'
 gem 'rails', '4.2.5'
 gem 'pg', '~> 0.15'
 gem 'sass-rails', '~> 5.0'
@@ -15,7 +14,6 @@ gem "simple_form"
 gem 'shoulda-matchers'
 gem 'rails_12factor', group: :production
 gem "jquery-slick-rails", '>= 1.5.8.2'
-gem 'sprockets_better_errors'
 
 group :development, :test do
   gem 'pry'
