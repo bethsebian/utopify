@@ -1,27 +1,15 @@
-<div class="navbar">
-  <nav id="nav_f" class="nav_custom" role="navigation">
-    <div class="nav-wrapper">
-      <div class"title-wrapper">
-        <h1 class="brand-logo jungle center"><a href="/items">Apocalypsify</a></h1>
-      </div>
-      <ul class="right hide-on-med-and-down">
-        <li><%= link_to "My Cart: #{cart.count_of}", cart_path%></li>
-        <li><%= render partial: "partials/dropdown"%></li>
-      </ul>
-      <ul class="left hide-on-med-and-down">
-        <% if current_user %>
-
-        <li> <%= link_to "Logged in as #{current_user.first_name}", '/dashboard'%></li>
-
-        <li> <%= link_to "Logout", logout_path, method: :delete %></li>
-        <% else %>
-        <li><%= link_to "Login", login_path %></li>
-        <li><%= link_to "Create Account", new_user_path%></li>
-        <% end %>
-      </ul>
-      <ul id="nav-mobile" class="side-nav">
-      </ul>
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-    </div>
-  </nav>
-</div>
+<nav class="utopify-navbar">
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo">Utopify</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <% if current_user %>
+        <li id="nav-li"> <%= link_to "Logged in as #{current_user.first_name}", '/dashboard'%></li>
+        <li id="nav-li"> <%= link_to "Logout", logout_path, method: :delete %></li>
+      <% else %>
+        <li id="nav-li"><%= link_to "Login", login_path %></li>
+        <li id="nav-li"><%= link_to "Create Account", new_user_path%></li>
+      <% end %>
+      <li id="nav-li"><%= link_to "My Cart: #{cart.count_of}", cart_path%></li>
+    </ul>
+  </div>
+</nav>
