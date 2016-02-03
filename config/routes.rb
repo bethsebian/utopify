@@ -19,6 +19,10 @@ Rails.application.routes.draw do
     resources :items, only: [:index]
   end
 
+  namespace :stores, path: ":store", as: :store do
+    resources :dashboard, only: [:index]
+  end
+
   namespace :admin do
     get '/dashboard', to: 'base#show'
     resources :items, only: [:new, :create, :index, :destroy]
