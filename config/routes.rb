@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/doomsday', to: 'sessions#doomsday'
 
+
   resources :cart_items, only: [:create, :update, :destroy]
   resources :items, only: [:index, :show] do
     resources :reviews, only: [:new, :create, :destroy]
@@ -34,6 +35,7 @@ Rails.application.routes.draw do
 
   namespace :stores, path: ":store", as: :store do #new stuff we added
     resources :dashboard, only: [:index]
+    resources :items, only: [:show]
   end
 
   resources :stores, only: [:show]
