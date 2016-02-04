@@ -19,10 +19,6 @@ Rails.application.routes.draw do
     resources :items, only: [:index]
   end
 
-  namespace :stores, path: ":store", as: :store do
-    resources :dashboard, only: [:index]
-  end
-
   namespace :admin do
     get '/dashboard', to: 'base#show'
     resources :items, only: [:new, :create, :index, :destroy]
@@ -30,4 +26,14 @@ Rails.application.routes.draw do
   end
   resources :reviews, only: [:index]
   resources :users, only: [:new, :create]
+
+
+
+
+  namespace :stores, path: ":store", as: :store do #new stuff we added
+    resources :dashboard, only: [:index]
+  end
+
+  resources :stores, only: [:show]
+
 end
