@@ -28,7 +28,9 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
 
 
-
+  namespace :platform_admin do
+    resources :dashboard, only: [:index]
+  end
 
   namespace :stores, path: ":store", as: :store do #new stuff we added
     resources :dashboard, only: [:index]
