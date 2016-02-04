@@ -67,6 +67,17 @@
    }
  }
 
+#item_description {
+  margin-top: 500px;
+
+}
+
+ #item-image {
+   margin-top: 50px;
+   height: 300px;
+   width: 350px;
+ }
+
  p.home-gif-center-paragraph {
    color: #FFFFFF;
    font-family: 'Amaranth', sans-serif;
@@ -88,12 +99,25 @@
    background-color: #617C58;
  }
 
+ .more_from_category {
+   height: 100px;
+ }
+
+ #category {
+   vertical-align: text-bottom;
+ }
+
  #featured-circles {
    width: 200px;
    height: 200px;
    min-width: 200px;
  }
 
+ #featured-squares {
+   width: 200px;
+   height: 200px;
+   min-width: 200px;
+ }
  #card-image {
    padding: 20px;
    height: 150px;
