@@ -78,14 +78,16 @@
 }
 
 // * Store Show Page
-#store-show-image img {
-  width: 250px;
-  border: 1px solid white;
-  border-radius: 20px;
+#store-show-image {
   float: right;
-  margin: 25px 20px 0px 0px;
+  img {
+    width: 250px;
+    border: 1px solid white;
+    border-radius: 20px;
+    float: right;
+    margin: 25px 20px 0px 0px;
+  }
 }
-
 // * Item Show Page
 .show-container {
   padding: 40px 0px 0px 0px;
@@ -109,7 +111,7 @@
 
 }
 
-.item-show-left {
+.show-left {
   float: right;
   width: 350px;
 }
