@@ -2,10 +2,12 @@
   <p class="home-gif-center-paragraph">
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   </p>
-  <a class="waves-effect waves-light btn home-center-button">BROWSE</a>
+  <a class="btn" id="home-center-button" href="#filter-items-section">BROWSE</a>
 </div>
 
+
 <div class="row" id="home-middle">
+  <h4 class="centered-header">Our Initiatives</h4><br>
   <div class="col s4 m4 l4 center">
     <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/CH_cow_2_cropped.jpg" alt="" class="circle responsive-img" id="featured-circles">
     <p>Carbon Offsets</p>
@@ -20,66 +22,31 @@
   </div>
 </div>
 
-<div class="row">
 
-  <div class="col s3 m3 l3" >
-    <div class="card center" id="testing">
-        <img src="http://www.rei.com/media/product/892979" id="card-image">
-        <br>
-        <span class="card-title">Card Title</span>
-      <div class="card-content">
-        <p>I am a very simple card. I am good at containing small bits of information.
-        I am convenient because I require little markup to use effectively.</p>
-      </div>
-      <div class="card-action">
-        <a href="#">This is a link</a>
-      </div>
-    </div>
-  </div>
+<hr id="hr-divider">
 
-  <div class="col s3 m3 l3">
-    <div class="card center">
-        <img src="http://www.rei.com/media/product/892979" id="card-image">
-        <br>
-        <span class="card-title">Card Title</span>
-      <div class="card-content">
-        <p>I am a very simple card. I am good at containing small bits of information.
-        I am convenient because I require little markup to use effectively.</p>
-      </div>
-      <div class="card-action">
-        <a href="#">This is a link</a>
-      </div>
-    </div>
-  </div>
 
-  <div class="col s3 m3 l3">
-    <div class="card center">
-        <img src="http://www.rei.com/media/product/881935" id="card-image">
-        <br>
-        <span class="card-title">Card Title</span>
-      <div class="card-content">
-        <p>I am a very simple card. I am good at containing small bits of information.
-        I am convenient because I require little markup to use effectively.</p>
-      </div>
-      <div class="card-action">
-        <a href="#">This is a link</a>
-      </div>
-    </div>
-  </div>
+<div class="row container" id="filter-items-section">
+  <h4 class="centered-header">Products from Our Partners</h4><br>
 
-  <div class="col s3 m3 l3">
-    <div class="card center">
-        <img src="http://www.rei.com/media/product/737306?size=230" id="card-image">
-        <br>
-        <span class="card-title">Card Title</span>
-      <div class="card-content">
-        <p>I am a very simple card. I am good at containing small bits of information.
-        I am convenient because I require little markup to use effectively.</p>
-      </div>
-      <div class="card-action">
-        <a href="#">This is a link</a>
-      </div>
-    </div>
-  </div>
+<div class="col s3 m3 l3 filter-sidebar">
+  <form action="#" id="filter-section">
+    <h5 id="filter-category-header">Frequency</h5>
+    <p>
+      <input type="checkbox" id="test5" />
+      <label for="test5">Monthly</label>
+    </p>
+    <p>
+      <input type="checkbox" id="test5" />
+      <label for="test5">Quarterly</label>
+    </p>
+    <p>
+      <input type="checkbox" id="test5" />
+      <label for="test5">Annually</label>
+    </p>
+  </form>
+</div>
 
+<div class="col s9 m9 l9 items-index-filterable">
+  <%= render partial: "partials/grid_item", collection: @items, as: :item %>
 </div>
