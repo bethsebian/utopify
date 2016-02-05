@@ -18,7 +18,6 @@ RSpec.feature "guest visits item page" do
 		expect(page).to have_content(item_1.store.title)
 
 		within "#home-middle" do
-			save_and_open_page
 			expect(page).to have_content(item_2.title)
 			expect(page).to have_content(item_3.title)
 			expect(page).to have_content(item_4.title)
