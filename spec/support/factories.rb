@@ -19,21 +19,21 @@ FactoryGirl.define do
     n * 1000
   end
 
-  travesty_titles = ["Environmental 'Enhancements'",
+  category_titles = ["Environmental 'Enhancements'",
                      "Endangered Species Culling",
                      "Political 'Pursuasion'",
                      "Big Pharm Phun",
                      "Crowd Funded, Prisoner Approved"]
 
-  sequence :travesty_title, travesty_titles.cycle do |n|
+  sequence :category_title, category_titles.cycle do |n|
     "#{n}"
   end
 
-  factory :travesty do
-    title { generate(:travesty_title) }
+  factory :category do
+    title { generate(:category_title) }
 
-    factory :travesty_with_items do
-      items { create_list(:item, 4) }
+    factory :category_with_items do
+      items { create_list(:item, 5) }
     end
   end
 

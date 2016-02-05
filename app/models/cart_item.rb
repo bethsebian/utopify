@@ -9,7 +9,6 @@ class CartItem
 		@description = object.description
 		@price = object.price
 		@image_url = object.image_url
-		@travesty_title = object.travesty.title
 		@qty = qty
 	end
 

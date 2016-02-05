@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160204024658) do
+ActiveRecord::Schema.define(version: 20160204220115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "slug"
+    t.string   "category_image"
+  end
 
   create_table "items", force: :cascade do |t|
     t.string   "title"
@@ -23,13 +31,13 @@ ActiveRecord::Schema.define(version: 20160204024658) do
     t.string   "image_url",   default: "bill_cosby.gif"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
-    t.integer  "travesty_id"
     t.boolean  "active",      default: true
     t.integer  "store_id"
+    t.integer  "category_id"
   end
 
+  add_index "items", ["category_id"], name: "index_items_on_category_id", using: :btree
   add_index "items", ["store_id"], name: "index_items_on_store_id", using: :btree
-  add_index "items", ["travesty_id"], name: "index_items_on_travesty_id", using: :btree
 
   create_table "order_items", force: :cascade do |t|
     t.integer  "order_id"
@@ -80,15 +88,6 @@ ActiveRecord::Schema.define(version: 20160204024658) do
   add_index "stores", ["item_id"], name: "index_stores_on_item_id", using: :btree
   add_index "stores", ["user_id"], name: "index_stores_on_user_id", using: :btree
 
-  create_table "travesties", force: :cascade do |t|
-    t.string   "title"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.string   "slug"
-    t.string   "sponsor_image"
-    t.string   "sponsor_title"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "password_digest"
@@ -99,8 +98,8 @@ ActiveRecord::Schema.define(version: 20160204024658) do
     t.integer  "role",            default: 0
   end
 
+  add_foreign_key "items", "categories"
   add_foreign_key "items", "stores"
-  add_foreign_key "items", "travesties"
   add_foreign_key "order_items", "items"
   add_foreign_key "order_items", "orders"
   add_foreign_key "orders", "users"
