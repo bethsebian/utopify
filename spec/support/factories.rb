@@ -17,7 +17,7 @@ FactoryGirl.define do
 
   sequence :price do |n|
     n * 1000
-  end 
+  end
 
   category_titles = ["Environmental 'Enhancements'",
                      "Endangered Species Culling",
@@ -33,7 +33,7 @@ FactoryGirl.define do
     title { generate(:category_title) }
 
     factory :category_with_items do
-      items { create_list(:item, 4) }
+      items { create_list(:item, 5) }
     end
   end
 
