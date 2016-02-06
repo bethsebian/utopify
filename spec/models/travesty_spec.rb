@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe Travesty, type: :model do
+RSpec.describe Category, type: :model do
   it "adjusts slug" do
-    travesty = Travesty.create(title: "Natural Disaster")
+    category = Category.create(title: "Natural Disaster Relief")
 
-    expect(travesty.slug).to eq("natural-disaster")
+    expect(category.slug).to eq("natural-disaster-reflief")
   end
 end
