@@ -11,11 +11,15 @@
       <%= @store.description %>
     </p>
     <p id="feature-details-dynamic">
+      <p>
+        Acreditted by:
+      </p>
       <ul>
-        <li><%= @store.accreditation %></li>
-        <li>Accreditation 2</li>
-        <li>Accreditation 3</li>
+        <% @store.accreditations.each do |cred| %>
+          <li><%= cred %></li>
+        <% end %>
       </ul>
+
     </p>
 
   </div>
@@ -25,7 +29,7 @@
   <h4 class="text center">Our Top Sellers</h4><br>
   <% @top_sellers.each do |item| %>
     <div class="col s4 m4 l4 center">
-      <img src=item.image_url alt="" class="circle responsive-img" id="featured-circles">
+      <img src=<%= item.image_url %> alt="" class="circle responsive-img" id="featured-circles">
       <p><%= item.title %></p>
     </div>
   <% end %>
@@ -54,8 +58,8 @@
 
       <% @items.each do |item| %>
         <div class="col s4 m4 l4">
-          <div class="card center">
-            <img src="http://www.rei.com/media/product/892979" id="card-image"> <!-- replace with item image -->
+          <div class="card center medium">
+            <img src=<%= item.image_url %> id="card-image"> <!-- replace with item image -->
             <br>
               <span class="card-title"><%= item.title %></span>
             <div class="card-content">
