@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.feature "guest visits item page" do
 	scenario "and sees item details" do
-		store = Store.create(title: "test", accreditation: "Hurray")
-		store_2 = Store.create(title: "bad store", accreditation: "booooo")
+		store = Store.create(title: "test", accreditations: ["Hurray"])
+		store_2 = Store.create(title: "bad store", accreditations: ["booooo"])
 		category_1 = create_list(:category_with_items, 5)
 		category_2 = create_list(:category_with_items, 1)
 		item_1, item_2, item_3, item_4, item_5 = category_1[0].items
@@ -15,7 +15,7 @@ RSpec.feature "guest visits item page" do
 
 		expect(page).to have_content(store.title)
     expect(page).to have_content(store.description)
-		expect(page).to have_content(store.accreditation)
+		expect(page).to have_content(store.accreditations[0])
     # binding.pry
 		within "#home-middle" do
 			expect(page).to have_content(store.items[8].title)
@@ -26,6 +26,7 @@ RSpec.feature "guest visits item page" do
 
     within "#item-index" do
       expect(page).to_not have_content(item_5.title)
+			expect(page).to have_css("#store_items_for_sale", :count => store.items.count) # this test will change with the implementation of pagination
     end
 	end
 end
