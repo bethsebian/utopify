@@ -44,7 +44,7 @@ RSpec.feature "guest visits item page for other items in item show page category
     expect(page).to have_content(item_1.description)
 		expect(page).to have_content(item_1.category.title)
 
-    click_link
+    click_link 
   end
 end
 
