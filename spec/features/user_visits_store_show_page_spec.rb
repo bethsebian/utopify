@@ -16,12 +16,11 @@ RSpec.feature "guest visits item page" do
 		expect(page).to have_content(store.title)
     expect(page).to have_content(store.description)
 		expect(page).to have_content(store.accreditations[0])
-    # binding.pry
+    expect(page).to_not have_content(item_5.title)
 		within "#home-middle" do
-			expect(page).to have_content(store.items[8].title)
-			expect(page).to have_content(store.items[7].title)
-			expect(page).to have_content(store.items[6].title)
-			expect(page).to_not have_content(item_5.title)
+			expect(page).to have_content(store.items[0].title)
+			expect(page).to have_content(store.items[1].title)
+			expect(page).to have_content(store.items[2].title)
 		end
 
     within "#item-index" do
