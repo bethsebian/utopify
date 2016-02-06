@@ -5,26 +5,17 @@
   <a class="btn" id="home-center-button" href="#filter-items-section">BROWSE</a>
 </div>
 
-
 <div class="row" id="home-middle">
   <h4 class="centered-header">Our Initiatives</h4><br>
-  <div class="col s4 m4 l4 center">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/CH_cow_2_cropped.jpg" alt="" class="circle responsive-img" id="featured-circles">
-    <p>Carbon Offsets</p>
-  </div>
-  <div class="col s4 m4 l4 center">
-    <img src="http://corporate.vattenfall.co.uk/globalassets/uk/projects/aberdeen-bay/3c_clashindarroch_windfarm.jpg" alt="" class="circle responsive-img" id="featured-circles">
-    <p>Wind Farms</p>
-  </div>
-  <div class="col s4 m4 l4 center">
-    <img src="http://myteachermissoh.weebly.com/uploads/4/5/3/7/45371531/4792504_orig.jpg" alt="" class="circle responsive-img" id="featured-circles">
-    <p>Clean Water Initiatives</p>
-  </div>
+  <%= @top_categories.each do |category| %>
+    <div class="col s4 m4 l4 center">
+      <img src=" <%= category.category_image %>" alt="" class="circle responsive-img" id="featured-circles">
+      <p><%= link_to category.title, category_path(category)%></p>
+    </div>
+  <% end %>
 </div>
 
-
 <hr id="hr-divider">
-
 
 <div class="row container" id="filter-items-section">
   <h4 class="centered-header">Products from Our Partners</h4><br>
