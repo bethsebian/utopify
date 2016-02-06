@@ -1,199 +1,134 @@
-User.create(
-  first_name: "Mr",
-  last_name: "Admin",
-  username: "admin",
-  password: "password",
-  role: 1
-)
+class Seed
+  def self.start
+    seed = Seed.new
+    seed.generate_categories
+    seed.generate_stores
+    seed.generate_items
+    seed.generate_platform_admin
+    seed.generate_customers
+    seed.generate_orders
+  end
 
-travesty = Travesty.create(
-  title: "Environmental Disaster",
-  sponsor_image: "bp.jpg",
-  sponsor_title: "BP"
-)
+  def generate_categories
+    10.times do |i|
+      category = Category.create!(
+        title: category_names[i],
+        slug: category_names[i].parameterize,
+        category_image: "http://lorempixel.com/300/300/nature/#{i}/"
+        )
+      puts "Category #{i}: #{category.title} created!"
+    end
+  end
 
-travesty.items.create(
-  title: "Oil Spill",
-  description: "Our proud sponsor BP would be delighted to spill 5,000 gallons of the sweetest crude large oil rigs can pull from the depths of the Earth",
-  price: 1000,
-  image_url: "oil_barrel.jpg"
-)
+  def generate_items
+    categories = Category.all
+    categories.each do |category|
+      50.times do |i|
+        item = category.items.create!(
+        title: "#{Faker::Commerce.product_name} (#{Random.new.rand(1..99999)})",
+        description: Faker::Lorem.sentence(3),
+        price: Faker::Number.between(1, 10000),
+        image_url: category.category_image,
+        )
+        Store.all.sample.items << item
+        puts "#{category.title.capitalize}'s Item #{i}: Item #{item.title} created!"
+      end
+    end
+  end
 
-travesty.items.create(
-  title: "6 Pack Plastic Rings Ocean Dump",
-  description: "Great for hugging animals! 1,000 uncut beer can holders will be liberated into the Pacific Ocean Gyre",
-  price: 1500,
-  image_url: "turtle_ocean.jpg"
-)
+  def generate_store_admin
+    if Store.all.count == 0
+      store_admin = User.create!(
+        first_name: "andrew",
+        password: "password",
+        username: "acarmer",
+        last_name: "carmer",
+        role: 1.to_i
+      )
+    else
+      store_admin = User.create!(
+        first_name: Faker::Name.first_name,
+        password: "password",
+        username: Faker::Internet.user_name,
+        last_name: Faker::Name.last_name,
+        role: 1.to_i
+      )
+    end
+  end
 
-travesty.items.create(
-  title: "Hair-Dryer Ice Cap Melting Team",
-  description: "Oceanic salinity content too high? Sea level too low? A team of revlon-wielding ice-haters will happily go to town on the ice caps for you",
-  price: 2750,
-  image_url: "polar_icecap.jpg"
-)
+  def generate_stores
+    20.times do |i|
+      store_admin = generate_store_admin
+      store = Store.create!(
+        title: Faker::Company.name,
+        description: Faker::Lorem.sentence(1),
+        status: "active",
+        image_url: "http://lorempixel.com/300/300/abstract/#{(i/2)}/",
+        accreditations: ["National Audubon Society"],
+        user_id: store_admin.id
+        )
+      puts "Store #{i}: #{store.title} created with #{store_admin.last_name} as admin!"
+    end
+  end
 
-travesty.items.create(
-  title: "Chemical Plant Arson",
-  description: "Did you find the Runxing Chemical Co. explosion video worth watching repeatedly? Recreate the experience with our experienced arson team!",
-  price: 3500,
-  image_url: "chemical_explosion.jpg"
-)
+  def generate_platform_admin
+    platform_admin = User.create!(
+      first_name: "jorge",
+      password: "password",
+      username: "jtellez",
+      last_name: "tellez",
+      role: 2.to_i
+    )
+    puts "Platform Admin: #{platform_admin.last_name} created!"
+  end
 
-travesty.items.create(
-  title: "Oceanic Deoxygenation",
-  description: "Algae blooms are like grass plains of the sea!",
-  price: 4250,
-  image_url: "baltic_bloom.jpg"
-)
+  def generate_customers
+    100.times do |i|
+      customer = User.create!(
+        first_name: Faker::Name.first_name,
+        password: "password",
+        username: "#{Faker::Internet.user_name} (#{Random.new.rand(1..99999)})",
+        last_name: Faker::Name.last_name,
+        role: 0.to_i
+      )
+      puts "Customer #{i}: #{customer.last_name} created!"
+    end
+  end
 
-travesty.items.create(
-  title: "Coal Ash Liberation Event",
-  description: "If your nearby countryside is too colorful and splendid, we can cover it all in a thick coating of ash, filled wiith delightful mercury and lead. The kid's will love it",
-  price: 6800,
-  image_url: "coal_ash_spill.jpg"
-)
+  def generate_orders
+    customers = User.where(role: 0)
+    customers.each do |customer|
+      10.times do |i|
+        items = [ Item.find(rand(1..500)), Item.find(rand(1..500)), Item.find(rand(1..500))]
+        order = customer.orders.create!(
+          status: order_status.sample,
+          total_price: items.map { |item| item.price }.reduce(:+)
+        )
+        order.items << items
+        puts "#{customer.last_name.capitalize}'s order ##{i} created! Includes items ##{items[0].id}, ##{items[1].id}, ##{items[2].id}."
+      end
+    end
+  end
 
-travesty_2 = Travesty.create(
-  title: "Endangered Species Culling",
-  sponsor_image: "cecil_killer.jpg",
-  sponsor_title: "Walter Palmer"
-)
+  private
 
-travesty_2.items.create(
-  title: "Black Rhino Elimination Privilege",
-  description: "Feel free to take down a friendly rhino! Mother not included.",
-  price: 20000,
-  image_url: "rhino_black.jpg"
-)
+    def category_names
+      [ "Carbon Offsets Sector Incubator",
+        "Cookstoves Carbon Offsets Certicates",
+        "Domestic Behavior Change Programs",
+        "Wastewater BioGas-to-Energy Programs",
+        "Geothermal Energy Initiatives",
+        "Biomass Fuel Switch Certificates",
+        "Coal Mine Methane Reduction Programs",
+        "Reforestation Initiatives",
+        "Wind Power Prototyping Fund",
+        "HydroPower Innovation Fund",
+      ]
+    end
 
-travesty_2.items.create(
-  title: "Amur Leopard Reduction Authorization",
-  description: "These pesky kitties are so close to extinction, you might as well push their numbers over the edge",
-  price: 30000,
-  image_url: "amur_leopard.jpg"
-)
+    def order_status
+      ["completed", "cancelled", "paid", "submitted"]
+    end
+end
 
-travesty_2.items.create(
-  title: "Bowhead Whale Minimization Opportunity",
-  description: "Enough fat can be harvested to light 10 million candles for years on end",
-  price: 22500,
-  image_url: "whale_hunting.jpg"
-)
-
-travesty_2.items.create(
-  title: "Cross River Gorilla Thinning Prerogative",
-  description: "There's only space enough on this planet for one big Ape. Do your part to ensure our species' success",
-  price: 27500,
-  image_url: "gorilla.jpg"
-)
-
-travesty_2.items.create(
-  title: "Hawksbill Turtle Eradication Entitlement",
-  description: "Tired of cleaning up turtle egg-shell litter from your nearest beach? Solve the problem before it starts!",
-  price: 15000,
-  image_url: "turtle_ocean.jpg"
-)
-
-travesty_2.items.create(
-  title: "St. John's River Manatee Extermination Charter",
-  description: "Maybe Sea Cows are as tasty as real cows! Try one today!",
-  price: 10000,
-  image_url: "manatee.jpg"
-)
-
-travesty_3 = Travesty.create(
-  title: "Crimes Against Humanity",
-  sponsor_image: "holding_hands.jpg",
-  sponsor_title: "Nestle"
-)
-
-travesty_3.items.create(
-  title: "Punk Your Enemy",
-  description: "Punkings aren't just fun and games...they can really make someone's like miserable.",
-  price: 450,
-  image_url: "egg_on_car.png"
-)
-
-travesty_3.items.create(
-  title: "Arsenic in Communal Water Source",
-  description: "Water is a hot spot for spreading disaster. Some of the world's most notable epidemics have used this fact to their advantage, and you can too.",
-  price: 1000,
-  image_url: "drinking_fountain.jpg"
-)
-
-travesty_3.items.create(
-  title: "Wreck Something Special",
-  description: "Nothing brings you joy like taking away things that bring joy to other people. Make it permanent with a wrecking crew today.",
-  price: 3000,
-  image_url: "wrecking_crew.jpg"
-)
-
-travesty_3.items.create(
-  title: "Release Used Needles in Playgrounds",
-  description: "When kids are coddled, they grow into the softy liberals that are ruining our country. Help toughen up our youngsters with some real-life temptation.",
-  price: 1150,
-  image_url: "needles.jpg"
-)
-
-travesty_3.items.create(
-  title: "Out Someone in Witness Protection",
-  description: "No one likes a snitch. We deliver the true justice.",
-  price: 4500,
-  image_url: "witness_protection.jpg"
-)
-
-travesty_3.items.create(
-  title: "Claim Your Bounty",
-  description: "Dog can help claim what's yours. And if the guy standing between him and your bounty gets in the way, well...that's on him.",
-  price: 7000,
-  image_url: "dog_bounty_hunter.jpg"
-)
-
-travesty_4 = Travesty.create(
-  title: "Touching Greatness",
-  sponsor_image: "holding_hands.jpg",
-  sponsor_title: "Bill Cosby"
-)
-
-travesty_4.items.create(
-  title: "Bill Cosby Defense Fund",
-  description: "We all know the feeling of being misunderstood. This is the time when friends matter, when YOU matter. Don't let a man down.",
-  price: 200,
-  image_url: "bill_cosby.gif"
-)
-
-travesty_4.items.create(
-  title: "El Chapo Tunnel Building Program",
-  description: "Contribute to returning one of the greatest Columbian businessmen to the freedom to puruse his calling.",
-  price: 1000,
-  image_url: "el_chapo.jpg"
-)
-
-travesty_4.items.create(
-  title: "Sponsor Donald Trump's Freedom Kids",
-  description: "Stars, stripes, and lots of xenophobia.",
-  price: 500,
-  image_url: "freedom_kids.jpg"
-)
-
-travesty_4.items.create(
-  title: "Romantic Evening with Charlie Sheen",
-  description: "Treat your lady to a night with one of Hollywood's most gracious, fun-loving, and sometimes-a-little-rowdy hosts.",
-  price: 4000,
-  image_url: "charlie_sheen.jpg"
-)
-
-travesty_4.items.create(
-  title: "George Zimmerman Ghost Tweeter",
-  description: "Do you struggle to draw attention to your Tweets. With Zimmerman ghost-writing for you, you'll have the love you deserve in no time.",
-  price: 800,
-  image_url: "george_zimmerman.jpg"
-)
-
-travesty_4.items.create(
-  title: "Sunday Brunch with Nancy Grace",
-  description: "You'll have the time of your life, if you can get a word in.",
-  price: 1500,
-  image_url: "nancy_grace.jpg"
-)
+Seed.start

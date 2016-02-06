@@ -16,6 +16,7 @@ gem 'rails_12factor', group: :production
 gem "jquery-slick-rails", '>= 1.5.8.2'
 
 group :development, :test do
+  gem 'faker'
   gem 'pry'
   gem 'byebug'
   gem 'rspec-rails'

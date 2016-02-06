@@ -1,10 +1,31 @@
 FactoryGirl.define do
 
+# //  Useful Methods
+#       Create 1 Object
+#         store = create(:store)
+#         item = create(:item)
+#
+#       Create Multiple Objects
+#         store_1, store_2 = create_list(:store, 2)
+#         item_1, item_2, item_3 = create_list(:store, 3)
+#         users = create_list(:user, 20)
+#           user_1 = users[1]
+#           user_2 = users[2]
+#
+#       Create Associated Objects
+#         category_1 = create(:category_with_items, items_count: 5)
+#           item_1 = category_1.items[0]
+#           item_2 = category_1.items[1]
+#         item_1, item_2 = create(:category_with_items, items_count: 2).items
+
+
+# // Create Items
+
   factory :item do
     title
     description
     price
-    image_url "rhino_black.jpg"
+    image_url "http://www.mamashealth.com/allergies/images/trees.jpg"
   end
 
   sequence :title do |n|
@@ -19,23 +40,39 @@ FactoryGirl.define do
     n * 1000
   end
 
-  category_titles = ["Environmental 'Enhancements'",
-                     "Endangered Species Culling",
-                     "Political 'Pursuasion'",
-                     "Big Pharm Phun",
-                     "Crowd Funded, Prisoner Approved"]
+# // Create Categories, Categories with Items
+
+  category_titles = ["Carbon Offsets",
+                     "Wind Farm Certificates",
+                     "Clean Water Initiatives",
+                     "Waste Heat Recovery",
+                     "Forest Management Trust"]
 
   sequence :category_title, category_titles.cycle do |n|
     "#{n}"
   end
 
+  sequence :slug do |n|
+    "#{n}-slug"
+  end
+
   factory :category do
     title { generate(:category_title) }
+    slug
+    category_image "https://static.pexels.com/photos/2759/clouds-cloudy-forest-trees.jpg"
 
     factory :category_with_items do
-      items { create_list(:item, 5) }
+      transient do
+        items_count 5
+      end
+
+      after(:create) do |category, evaluator|
+        create_list(:item, evaluator.items_count, category: category)
+      end
     end
   end
+
+# // Create Users
 
   factory :user do
     first_name
@@ -57,6 +94,8 @@ FactoryGirl.define do
     "#{n}FirstLast"
   end
 
+# // Create Orders
+
   factory :order do
     status "ordered"
     total_price 5000
@@ -65,5 +104,23 @@ FactoryGirl.define do
   factory :order_item do
     item_quantity 1
     item_price 1000
+  end
+
+# // Create Stores
+
+  factory :store do
+    title         { generate(:store_title) }
+    description   { generate(:store_description) }
+    status        "submitted"
+    image_url     "http://www.businesswaste.co.uk/wp-content/uploads/2013/09/carbon-neutral.jpeg"
+    accreditation "[Nature Conservancy]"
+  end
+
+  sequence :store_title do |n|
+    "#{n}Store Title"
+  end
+
+  sequence :store_description do |n|
+    "#{n}Store Description"
   end
 end
