@@ -5,7 +5,7 @@
     </div>
   </div>
 
-  <div class="col s5 m5 show-right"  >
+  <div class="col s5 m5 show-right"  id='main-item-show'>
     <h3 id="feature-title"><%= @item.title %></h2>
     <p id="feature-narrative"><%= @item.description %>
     </p>
@@ -21,10 +21,12 @@
   <div class="row" id="home-middle">
     <h4 class="text center">Other Items in <%= link_to @item.category.title, "#" %></h4><br>
     <% @related_items.each do |item| %>
-      <div class="col s4 m4 l4 center">
-        <img src=item.image_url alt="" class="circle responsive-img" id="featured-circles">
-        <p><%= item.title %></p>
-      </div>
+      <a href="<%= store_item_path(item.store, item) %>" id= 'link-to-item-<%=item.id%>'>
+        <div class="col s4 m4 l4 center">
+          <img src=item.image_url alt="" class="circle responsive-img" id="featured-circles">
+          <p><%= item.title %></p>
+        </div>
+      </a>
     <% end %>
   </div>
 </div>
