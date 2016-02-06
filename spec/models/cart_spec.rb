@@ -5,7 +5,7 @@ RSpec.describe Cart, type: :model do
 
   before :each do
     @cart = Cart.new(nil)
-    @travesty = create(:travesty_with_items)
+    @travesty = create(:category_with_items)
     @item_1, @item_2 = travesty.items[0..1]
   end
 
