@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "user visits homepage" do
 	scenario "filters items shown", js: true do
+		pending
 		item_1 = create(:item, active: true)
 		item_2 = create(:item, active: false)
 
