@@ -23,7 +23,7 @@
     <% @related_items.each do |item| %>
       <a href="<%= store_item_path(item.store, item.id) %>" id= "link-to-item-<%=item.id%>">
         <div class="col s4 m4 l4 center">
-          <img src=item.image_url alt="" class="circle responsive-img" id="featured-circles">
+          <img src='<%= item.image_url %>' alt="" class="circle responsive-img" id="featured-circles">
           <p><%= item.title %></p>
         </div>
       </a>
