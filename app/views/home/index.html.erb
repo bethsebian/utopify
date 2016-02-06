@@ -30,23 +30,15 @@
   <h4 class="centered-header">Products from Our Partners</h4><br>
 
 <div class="col s3 m3 l3 filter-sidebar">
-  <form action="#" id="filter-section">
-    <h5 id="filter-category-header">Frequency</h5>
-    <p>
-      <input type="checkbox" id="test5" />
-      <label for="test5">Monthly</label>
-    </p>
-    <p>
-      <input type="checkbox" id="test5" />
-      <label for="test5">Quarterly</label>
-    </p>
-    <p>
-      <input type="checkbox" id="test5" />
-      <label for="test5">Annually</label>
-    </p>
-  </form>
+  <h5 id="filter-category-header">Frequency</h5>
+    <%= form_tag(search_path, method: :get, id: "filter-sidebar", remote: true) do %>
+      <%= check_box_tag("params[active]", true) %>
+      <%= label_tag("params_active", "Active") %>
+      <br>
+      <%= submit_tag("Submit") %>
+    <% end %>
 </div>
 
-<div class="col s9 m9 l9 items-index-filterable">
+<div class="col s9 m9 l9 items-index-filterable" id="filterable-items">
   <%= render partial: "partials/grid_item", collection: @items, as: :item %>
 </div>
