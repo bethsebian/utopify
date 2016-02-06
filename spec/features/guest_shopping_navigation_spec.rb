@@ -10,15 +10,14 @@ RSpec.feature "guest visits item page for other items in item show page category
 		store_1.items << [item_1, item_2, item_3, item_4]
 		store_1.items << item_6
 		store_2.items << item_5
-
     visit store_item_path(store_1, store_1.items[0])
 
 		expect(page).to have_content(item_1.title)
     expect(page).to have_content(item_1.description)
 		expect(page).to have_content(item_1.category.title)
-
 		within "#home-middle" do
 			expect(page).to have_content(item_2.title)
+			save_and_open_page
       click_on("link-to-item-#{item_2.id}")
 		end
 
@@ -44,7 +43,10 @@ RSpec.feature "guest visits item page for other items in item show page category
     expect(page).to have_content(item_1.description)
 		expect(page).to have_content(item_1.category.title)
 
-    click_link 
+    click_link "#{item_1.category.title}"
+
+		expect(current_path).to eq(category_path(item_1.category.slug))
+
   end
 end
 
