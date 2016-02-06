@@ -21,9 +21,11 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'capybara-webkit'
   gem 'launchy'
   gem 'database_cleaner'
   gem "factory_girl_rails", :require => false
+  gem 'selenium-webdriver'
   # gem 'mocha'
 end
 
