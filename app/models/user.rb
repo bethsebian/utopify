@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_many :orders
   has_many :reviews
   validates :username, presence: true, uniqueness: { message: "%{value} is already taken. Please choose a different username"}
-  enum role: %w(default admin)
+  enum role: %w(default store_admin platform_admin)
 
   def total_purchased
     orders.sum(:total_price)
