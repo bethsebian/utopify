@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
   resources :orders, only: [:create, :index, :show, :update]
   resources :order_items, only: [:create]
-  resources :travesties, only: [:show, :index], param: :slug do
+  resources :categories, only: [:show, :index], param: :slug do
     resources :items, only: [:index]
   end
 

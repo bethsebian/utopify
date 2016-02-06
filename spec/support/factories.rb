@@ -109,11 +109,11 @@ FactoryGirl.define do
 # // Create Stores
 
   factory :store do
-    title           { generate(:store_title) }
-    description     { generate(:store_description) }
-    status          "submitted"
-    image_url       "http://www.businesswaste.co.uk/wp-content/uploads/2013/09/carbon-neutral.jpeg"
-    accreditations  "[Nature Conservancy]"
+    title         { generate(:store_title) }
+    description   { generate(:store_description) }
+    status        "submitted"
+    image_url     "http://www.businesswaste.co.uk/wp-content/uploads/2013/09/carbon-neutral.jpeg"
+    accreditations ['Nature Conservancy']
   end
 
   sequence :store_title do |n|

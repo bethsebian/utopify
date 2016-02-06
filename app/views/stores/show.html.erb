@@ -6,19 +6,20 @@
   </div>
 
   <div class="col s6 m6 show-right"  >
-    <h3 id="feature-title">Store Title</h2>
-    <p id="feature-narrative">Bacon ipsum dolor amet fatback pork chop corned beef spare ribs beef
-        pancetta strip steak kevin sausage. Ham venison ham hock ball tip sausage.
-        Venison frankfurter pork strip steak salami spare ribs. Bacon ipsum dolor amet fatback pork chop corned beef spare ribs beef
-            pancetta strip steak kevin sausage. Ham venison ham hock ball tip sausage.
-            Venison frankfurter pork strip steak salami spare ribs.
+    <h3 id="feature-title"><%= @store.title %></h2>
+    <p id="feature-narrative">
+      <%= @store.description %>
     </p>
     <p id="feature-details-dynamic">
+      <p>
+        Acreditted by:
+      </p>
       <ul>
-        <li>Accreditation 1</li>
-        <li>Accreditation 2</li>
-        <li>Accreditation 3</li>
+        <% @store.accreditations.each do |cred| %>
+          <li><%= cred %></li>
+        <% end %>
       </ul>
+
     </p>
 
   </div>
@@ -26,18 +27,12 @@
 
 <div class="row" id="home-middle">
   <h4 class="text center">Our Top Sellers</h4><br>
-  <div class="col s4 m4 l4 center">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/CH_cow_2_cropped.jpg" alt="" class="circle responsive-img" id="featured-circles">
-    <p>Top Seller 1</p>
-  </div>
-  <div class="col s4 m4 l4 center">
-    <img src="http://corporate.vattenfall.co.uk/globalassets/uk/projects/aberdeen-bay/3c_clashindarroch_windfarm.jpg" alt="" class="circle responsive-img" id="featured-circles">
-    <p>Top Seller 2</p>
-  </div>
-  <div class="col s4 m4 l4 center">
-    <img src="http://myteachermissoh.weebly.com/uploads/4/5/3/7/45371531/4792504_orig.jpg" alt="" class="circle responsive-img" id="featured-circles">
-    <p>Top Seller 3</p>
-  </div>
+  <% @top_sellers.each do |top_seller| %>
+    <div class="col s4 m4 l4 center">
+      <img src=<%= top_seller.image_url %> alt="" class="circle responsive-img" id="featured-circles">
+      <p><%= top_seller.title %></p>
+    </div>
+  <% end %>
 </div>
 
 <div class="row"> <!-- Third section of page -->
@@ -58,97 +53,23 @@
       </div>
     </div>
 
-    <div class= 'col s9 m9 l9'>
-      <div class="col s4 m4 l4" >
-        <div class="card center">
-            <img src="http://www.rei.com/media/product/892979" id="card-image">
-            <br>
-            <span class="card-title">Card Title</span>
-          <div class="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively.</p>
-          </div>
-          <div class="card-action">
-            <a href="#">This is a link</a>
-          </div>
-        </div>
-      </div>
 
-      <div class="col s4 m4 l4">
-        <div class="card center">
-            <img src="http://www.rei.com/media/product/892979" id="card-image">
+    <div class= 'col s9 m9 l9' id="item-index" >
+      <% @items.each do |item| %>
+        <div class="col s4 m4 l4" id=store_items_for_sale >
+          <div class="card center medium">
+            <img src=<%= item.image_url %> id="card-image"> <!-- replace with item image -->
             <br>
-            <span class="card-title">Card Title</span>
-          <div class="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively.</p>
-          </div>
+              <span class="card-title"><%= item.title %></span>
+            <div class="card-content">
+              <p><%= item.description %></p>
+            </div>
           <div class="card-action">
-            <a href="#">This is a link</a>
+            <%= link_to "Add To Cart", "#" %>
+          </div>
           </div>
         </div>
-      </div>
-
-      <div class="col s4 m4 l4">
-        <div class="card center">
-            <img src="http://www.rei.com/media/product/881935" id="card-image">
-            <br>
-            <span class="card-title">Card Title</span>
-          <div class="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively.</p>
-          </div>
-          <div class="card-action">
-            <a href="#">This is a link</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col s4 m4 l4" >
-        <div class="card center" id="testing">
-            <img src="http://www.rei.com/media/product/892979" id="card-image">
-            <br>
-            <span class="card-title">Card Title</span>
-          <div class="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively.</p>
-          </div>
-          <div class="card-action">
-            <a href="#">This is a link</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col s4 m4 l4">
-        <div class="card center">
-            <img src="http://www.rei.com/media/product/892979" id="card-image">
-            <br>
-            <span class="card-title">Card Title</span>
-          <div class="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively.</p>
-          </div>
-          <div class="card-action">
-            <a href="#">This is a link</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col s4 m4 l4">
-        <div class="card center">
-            <img src="http://www.rei.com/media/product/881935" id="card-image">
-            <br>
-            <span class="card-title">Card Title</span>
-          <div class="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively.</p>
-          </div>
-          <div class="card-action">
-            <a href="#">This is a link</a>
-          </div>
-        </div>
-      </div>
+      <% end %>
     </div>
-
   </div>
 </div>
