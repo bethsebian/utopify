@@ -10,7 +10,7 @@
     <p id="feature-narrative"><%= @item.description %>
     </p>
     <p id="feature-details-dynamic">
-      Seller: <%= link_to @item.store.title, "#" %>
+      Seller: <%= link_to @item.store.title, store_path(@item.store) %>
     </p>
     <p>$ <%= @item.price %></p>
     <a class="waves-effect waves-light btn add-to-cart">ADD TO CART</a>
