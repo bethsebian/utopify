@@ -117,10 +117,10 @@ FactoryGirl.define do
   end
 
   sequence :store_title do |n|
-    "#{n}Store Title"
+    "#{n} Store Title"
   end
 
   sequence :store_description do |n|
-    "#{n}Store Description"
+    "#{n} Store Description"
   end
 end
