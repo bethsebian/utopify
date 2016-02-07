@@ -15,38 +15,28 @@ RSpec.feature "guest navigates" do
 		expect(page).to have_content("Our Categories")
   end
 
-	# scenario "user views " do
-	# 	visit root_path
-	# 	click_on ""
-	# 	expect(current_path).to eq "/"
-	# 	expect(page).to have_content("")
-  # end
+	scenario "user views item" do
+		item = create(:category_with_items, items_count: 1).items.first
+		store = create(:store)
+		store.items << item
 
+		visit root_path
 
-	# scenario "user views categories" do
-	# 	visit
-	#
-	# 	# As a guest,
-	# 	# when I click_on "Categories" in the navbar,
-	# 	# I'm redirected to the categories index page
-	# 	# and the url is "/categories"
-	# 	# and I see a list of all categories
-	# end
+		click_on "#{item.title}"
+
+		expect(page).to have_content("#{item.title}")
+		expect(page).to have_content("#{item.description}")
+		expect(current_path).to eq "/stores/#{store.slug}/items/#{item.slug}"
+  end
 end
 
-# As a guest,
-# when I'm on the homepage,
-# and I click_on "Cart" in the navbar,
-# I'm redirected to the cart show page
-# and the url is "/cart"
-# and I see a cart total of $0.00
-#
-# As a guest,
-# when I click_on "Categories" in the navbar,
-# I'm redirected to the categories index page
-# and the url is "/categories"
-# and I see a list of all categories
-#
+# scenario "user views " do
+# 	visit root_path
+# 	click_on ""
+# 	expect(current_path).to eq "/"
+# 	expect(page).to have_content("")
+# end
+
 # As a guest,
 # when I'm on the homepage,
 # and I click on an item,
