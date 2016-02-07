@@ -10,7 +10,7 @@ class CartItemsController < ApplicationController
 		end
 		session[:cart] = @cart.contents
 		flash[:notice] = {color: "white", message: "You have #{pluralize(@cart.count_of, "item")} in your cart."}
-		redirect_to :back #'/items'
+		redirect_to :back
 	end
 
 	def destroy

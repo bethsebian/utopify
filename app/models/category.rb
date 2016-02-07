@@ -4,6 +4,10 @@ class Category < ActiveRecord::Base
 	has_many :order_items, through: :items
 	# validates :title, presence: true, uniqueness: true
 
+	def to_param
+    title.parameterize
+  end
+
 	def generate_slug
 		self.slug = title.parameterize
 	end
