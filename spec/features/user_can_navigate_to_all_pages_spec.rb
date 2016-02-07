@@ -28,6 +28,18 @@ RSpec.feature "guest navigates" do
 		expect(page).to have_content("#{item.description}")
 		expect(current_path).to eq "/stores/#{store.slug}/items/#{item.slug}"
   end
+
+	scenario "user views store" do
+		store = create(:store)
+		item = create(:category_with_items, items_count: 1).items.first
+		store.items << item
+
+		visit root_path
+		click_on "#{store.title}"
+
+		expect(current_path).to eq "/stores/#{store.slug}"
+		expect(page).to have_content("#{store.title}")
+	end
 end
 
 # scenario "user views " do
@@ -39,27 +51,43 @@ end
 
 # As a guest,
 # when I'm on the homepage,
-# and I click on an item,
-# I'm redirected to the item show page,
-# and the url is 	"stores/store-slug/items/item-slug”
-# and I see the item title
+# and I click on "Sign Up,"
+# I'm directed to the sign-up page,
+# and the url is '/users/new'
+# and I fill in my info,
+# and I click "Submit",
+# I'm redirected to my new dashboard,
+# and the url is 'users/dashboard'
+
+
+# scenario "platform admin views dashboard" do
+# 	platform_admin = create(:user, role: 2)
 #
-# As a platform admin,
-# when I'm on the homepage,
-# and I click login,
-# and I enter my credentials,
-# and click on “submit”,
-# I'm directed to my platform_admin dashboard,
-# and the url is '/administrator/dashboard'
+# 	visit root_path
+# 	click_on "Login"
 #
-# As a regular customer,
-# when I'm on the homepage,
-# and I click login,
-# and I enter my credentials,
-# I'm directed to my dashboard,
-# and the url is '/users/dashboard',
-# and I see my name on the page,
-# and I don't see other users' information
+# 	page.fill_in 'Username', :with => platform_admin.username
+# 	page.fill_in 'Password', :with => platform_admin.password
+# 	click_on "Sign In"
+#
+# 	expect(current_path).to eq "/administrator/dashboard"
+# 	expect(page).to have_content("Site Administrator Dashboard")
+# end
+#
+# scenario "user views dashboard" do
+# 	user_1 = create(:user)
+# 	user_2 = create(:user)
+# 	visit root_path
+# 	click_on "Login"
+#
+# 	page.fill_in 'Username', :with => user_2.username
+# 	page.fill_in 'Password', :with => user_2.password
+# 	click_on "Sign In"
+#
+# 	expect(current_path).to eq "/dashboard"
+# 	expect(page).to have_content("Welcome #{user_2.first_name}!")
+# 	expect(page).to have_content("Welcome #{user_1.first_name}!")
+# end
 #
 # As a regular customer,
 # when I'm on the homepage,
@@ -70,18 +98,5 @@ end
 # I'm redirected to my dashboard,
 # and the url is '/users/dashboard'
 #
-# As a user,
-# when I'm on the homepage,
-# and I click on a store name,
-# I'm directed to that store page,
-# and the url is '/stores/store-slug'
-#
-# As a guest,
-# when I'm on the homepage,
-# and I click on "Sign Up,"
-# I'm directed to the sign-up page,
-# and the url is '/users/new'
-# and I fill in my info,
-# and I click "Submit",
-# I'm redirected to my new dashboard,
-# and the url is 'users/dashboard'
+
+

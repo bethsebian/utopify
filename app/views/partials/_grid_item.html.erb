@@ -8,6 +8,7 @@
       <span class="card-title grey-text text-darken-4">Back to Item</span>
       <p>Category: <%=item.category.title%></p>
       <p><%=item.description%></p>
+      <p>Sold by: <%= link_to item.store.title, store_path(item.store.slug) %></p>
     </div>
     <p><%= number_to_currency(item.price) %>
   </div>
