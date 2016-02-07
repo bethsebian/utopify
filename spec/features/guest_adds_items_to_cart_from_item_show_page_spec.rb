@@ -21,7 +21,7 @@ RSpec.feature "guest visits item show page" do
     end
 
     within "#main-item-show" do
-      click_on('ADD TO CART')
+      click_on('Add To Cart')
     end
 
     expect(page).to have_content("My Cart: 1")
