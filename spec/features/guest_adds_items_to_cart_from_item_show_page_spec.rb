@@ -25,9 +25,6 @@ RSpec.feature "guest visits item show page" do
     end
 
     expect(page).to have_content("My Cart: 1")
-    save_and_open_page
-
-
   end
 end
 
