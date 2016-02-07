@@ -13,7 +13,9 @@
       Seller: <%= link_to @item.store.title, store_path(@item.store) %>
     </p>
     <p>$ <%= @item.price %></p>
-    <a class="waves-effect waves-light btn add-to-cart">ADD TO CART</a>
+    <div>
+      <%=  button_to "ADD TO CART", cart_items_path(item_id: item.id), class: "waves-effect waves-light btn add-to-cart" %>
+    </div>
   </div>
 </div>
 

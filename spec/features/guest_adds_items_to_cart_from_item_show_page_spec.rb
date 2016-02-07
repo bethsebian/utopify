@@ -9,7 +9,6 @@ RSpec.feature "guest visits item show page" do
 		store.items << [item_1, item_2, item_3, item_4, item_5]
 
     visit item_path(item_1)
-    save_and_open_page
     expect(page).to have_content(store.title)
     expect(page).to have_content(store.description)
     expect(page).to have_content("My Cart: 0")
@@ -21,9 +20,8 @@ RSpec.feature "guest visits item show page" do
       expect(page).to have_content(store.items[4].title)
     end
 
-    within "#item-index" do
-      expect(page).to have_css("#store_items_for_sale", :count => store.items.count) # this test will change with the implementation of pagination
-      first('.card-action').click_link('Add To Cart')
+    within "#main-item-show" do
+      click_on('ADD TO CART')
     end
 
     expect(page).to have_content("My Cart: 1")
