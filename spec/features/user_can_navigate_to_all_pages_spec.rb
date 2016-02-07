@@ -55,20 +55,21 @@ RSpec.feature "guest navigates" do
 		expect(page).to have_content("Site Administrator Dashboard")
 	end
 
-	# scenario "user views dashboard" do
-	# 	user_1 = create(:user)
-	# 	user_2 = create(:user)
-	# 	visit root_path
-	# 	click_on "Login"
-	#
-	# 	page.fill_in 'Username', :with => user_2.username
-	# 	page.fill_in 'Password', :with => user_2.password
-	# 	click_on "Sign In"
-	#
-	# 	expect(current_path).to eq "/dashboard"
-	# 	expect(page).to have_content("Welcome #{user_2.first_name}!")
-	# 	expect(page).to have_content("Welcome #{user_1.first_name}!")
-	# end
+	scenario "user views dashboard" do
+		user_1 = create(:user)
+		user_2 = create(:user)
+		visit root_path
+		click_on "Login"
+
+		page.fill_in 'Username', :with => user_2.username
+		page.fill_in 'Password', :with => user_2.password
+		click_on "Sign In"
+
+		expect(current_path).to eq "/dashboard"
+
+		expect(page).to have_content("#{user_2.first_name}'s Profile")
+		expect(page).to_not have_content("#{user_1.first_name}'s' Profile")
+	end
 
 end
 

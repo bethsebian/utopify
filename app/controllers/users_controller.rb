@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     if session[:user_id]
       @user = User.find(session[:user_id])
       @reviews = @user.reviews
-      redirect_to admin_dashboard_path if @user.admin?
+      redirect_to store_admin_dashboard_path if @user.store_admin?
     else
       flash[:error] = {message: "Must be signed in to see dashboard.", color: "red"}
       redirect_to items_path
