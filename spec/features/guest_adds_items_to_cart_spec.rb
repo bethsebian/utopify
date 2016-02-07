@@ -27,12 +27,18 @@ RSpec.feature "guest visits item page" do
 
     within "#item-index" do
       expect(page).to have_css("#store_items_for_sale", :count => store.items.count) # this test will change with the implementation of pagination
-      first('.card-action').click_link('Add To Cart')
+      first('.card-action').click_on('Add To Cart')
     end
 
     expect(page).to have_content("My Cart: 1")
-    save_and_open_page
-    
+
+		within "#item-index" do
+      expect(page).to have_css("#store_items_for_sale", :count => store.items.count) # this test will change with the implementation of pagination
+			first('.card-action').click_on('Add To Cart')
+			first('.card-action').click_on('Add To Cart')
+		end
+
+		expect(page).to have_content("My Cart: 3")
 
   end
 end
