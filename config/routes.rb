@@ -14,6 +14,15 @@ Rails.application.routes.draw do
     resources :items, only: [:index]
   end
 
+  namespace :store_admin do
+    resources :dashboard, only: [:index]
+  end
+
+  namespace :platform_admin do
+    resources :dashboard, only: [:index]
+  end
+
+
   get '/dashboard', to: 'users#show'
 
   resources :cart_items, only: [:create, :update, :destroy]
@@ -29,9 +38,6 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
 
 
-  namespace :platform_admin do
-    resources :dashboard, only: [:index]
-  end
 
   # namespace :stores do
   #   resources :items, only: [:show]

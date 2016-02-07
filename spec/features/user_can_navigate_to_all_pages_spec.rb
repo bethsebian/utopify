@@ -40,14 +40,47 @@ RSpec.feature "guest navigates" do
 		expect(current_path).to eq "/stores/#{store.slug}"
 		expect(page).to have_content("#{store.title}")
 	end
+
+	scenario "platform admin views dashboard" do
+		platform_admin = create(:user, role: 2)
+
+		visit root_path
+		click_on "Login"
+
+		page.fill_in 'Username', :with => platform_admin.username
+		page.fill_in 'Password', :with => platform_admin.password
+		click_on "Sign In"
+
+		expect(current_path).to eq "/platform_admin/dashboard"
+		expect(page).to have_content("Site Administrator Dashboard")
+	end
+
+	# scenario "user views dashboard" do
+	# 	user_1 = create(:user)
+	# 	user_2 = create(:user)
+	# 	visit root_path
+	# 	click_on "Login"
+	#
+	# 	page.fill_in 'Username', :with => user_2.username
+	# 	page.fill_in 'Password', :with => user_2.password
+	# 	click_on "Sign In"
+	#
+	# 	expect(current_path).to eq "/dashboard"
+	# 	expect(page).to have_content("Welcome #{user_2.first_name}!")
+	# 	expect(page).to have_content("Welcome #{user_1.first_name}!")
+	# end
+
 end
 
-# scenario "user views " do
-# 	visit root_path
-# 	click_on ""
-# 	expect(current_path).to eq "/"
-# 	expect(page).to have_content("")
-# end
+#
+# As a regular customer,
+# when I'm on the homepage,
+# and I click login,
+# and I enter my credentials,
+# and I click submit,
+# and I navigate to '/administrator/dashboard',
+# I'm redirected to my dashboard,
+# and the url is '/users/dashboard'
 
 # As a guest,
 # when I'm on the homepage,
@@ -58,45 +91,4 @@ end
 # and I click "Submit",
 # I'm redirected to my new dashboard,
 # and the url is 'users/dashboard'
-
-
-# scenario "platform admin views dashboard" do
-# 	platform_admin = create(:user, role: 2)
-#
-# 	visit root_path
-# 	click_on "Login"
-#
-# 	page.fill_in 'Username', :with => platform_admin.username
-# 	page.fill_in 'Password', :with => platform_admin.password
-# 	click_on "Sign In"
-#
-# 	expect(current_path).to eq "/administrator/dashboard"
-# 	expect(page).to have_content("Site Administrator Dashboard")
-# end
-#
-# scenario "user views dashboard" do
-# 	user_1 = create(:user)
-# 	user_2 = create(:user)
-# 	visit root_path
-# 	click_on "Login"
-#
-# 	page.fill_in 'Username', :with => user_2.username
-# 	page.fill_in 'Password', :with => user_2.password
-# 	click_on "Sign In"
-#
-# 	expect(current_path).to eq "/dashboard"
-# 	expect(page).to have_content("Welcome #{user_2.first_name}!")
-# 	expect(page).to have_content("Welcome #{user_1.first_name}!")
-# end
-#
-# As a regular customer,
-# when I'm on the homepage,
-# and I click login,
-# and I enter my credentials,
-# and I click submit,
-# and I navigate to '/administrator/dashboard',
-# I'm redirected to my dashboard,
-# and the url is '/users/dashboard'
-#
-
 

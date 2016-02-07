@@ -6,9 +6,13 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(username: params[:session][:username])
-    if @user && @user.authenticate(params[:session][:password]) && @user.admin?
+    if @user && @user.authenticate(params[:session][:password]) && @user.platform_admin?
       session[:user_id] = @user.id
-      redirect_to admin_dashboard_path
+      redirect_to platform_admin_dashboard_index_path
+    elsif @user && @user.authenticate(params[:session][:password]) && @user.store_admin?
+      session[:user_id] = @user.id
+      redirect_to store_admin_dashboard_path(store.slug)
+
     elsif @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
       flash[:success] = {color: 'green', message: "Logged in as #{@user.first_name}"}
