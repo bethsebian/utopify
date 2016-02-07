@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   get '/doomsday', to: 'sessions#doomsday'
-
+  get '/search', to: 'home#search'
 
   resources :cart_items, only: [:create, :update, :destroy]
   resources :items, only: [:index, :show] do
