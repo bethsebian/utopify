@@ -8,6 +8,21 @@ RSpec.feature "guest navigates" do
 		expect(page).to have_content("Cart Contents:")
   end
 
+	scenario "user views categories" do
+		visit root_path
+		click_on "Browse All Categories"
+		expect(current_path).to eq "/categories"
+		expect(page).to have_content("Our Categories")
+  end
+
+	# scenario "user views " do
+	# 	visit root_path
+	# 	click_on ""
+	# 	expect(current_path).to eq "/"
+	# 	expect(page).to have_content("")
+  # end
+
+
 	# scenario "user views categories" do
 	# 	visit
 	#
