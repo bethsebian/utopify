@@ -1,7 +1,8 @@
 class HomeController < ApplicationController
 
   def index
-    @items = Item.all .first(12)
+    @items = Item.all.first(12)
+    @top_categories = Category.top_three
   end
 
   def search
