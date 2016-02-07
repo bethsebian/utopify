@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @reviews = @item.reviews
+    @related_items = Item.where(category_id: @item.category_id).last(3)
   end
 
 end

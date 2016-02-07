@@ -1,4 +1,41 @@
-<div class="checkout container">
+<div class='row container show-container'>
+  <div class="col s6 m6 show-left">
+    <div id="show-image">
+      <img src="http://www.intrawallpaper.com/static/images/1250654-for-laptop-nature.jpg">
+    </div>
+  </div>
+
+  <div class="col s5 m5 show-right" id='main-item-show' >
+    <h3 id="feature-title"><%= @item.title %></h2>
+    <p id="feature-narrative"><%= @item.description %>
+    </p>
+    <p id="feature-details-dynamic">
+      Seller: <%= link_to @item.store.title, store_path(@item.store) %>
+    </p>
+    <p>$ <%= @item.price %></p>
+    <div>
+      <%=  button_to "ADD TO CART", cart_items_path(item_id: item.id), class: "waves-effect waves-light btn add-to-cart" %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="row" id="home-middle">
+    <h4 class="text center">Other Items in <%= link_to @item.category.title, category_path(@item.category.slug)  %></h4><br>
+    <% @related_items.each do |item| %>
+      <a href="<%= store_item_path(item.store, item.id) %>" id= "link-to-item-<%=item.id%>">
+        <div class="col s4 m4 l4 center">
+          <img src='<%= item.image_url %>' alt="" class="circle responsive-img" id="featured-circles">
+          <p><%= item.title %></p>
+        </div>
+      </a>
+    <% end %>
+  </div>
+</div>
+
+
+
+<!-- <div class="checkout container">
 
     <div class="card">
       <div class="row">
@@ -23,4 +60,4 @@
 
   </div>
 
-</div>
+</div> -->
