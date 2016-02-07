@@ -22,6 +22,9 @@ RSpec.feature "guest visits item page" do
 		order_3.items << [item_4, item_3, item_2]
 		order_4.items << [item_4, item_3, item_2, item_1]
 
+		store = create(:store)
+		store.items << [item_4, item_3, item_2, item_1]
+
 		visit root_path
 
 		within "#home-middle" do

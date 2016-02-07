@@ -6,19 +6,19 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/search', to: 'home#search'
 
+  resources :stores, only: [:show], param: :slug do
+    resources :items, only: [:show], param: :slug
+  end
+
   resources :categories, only: [:show, :index], param: :slug do
     resources :items, only: [:index]
   end
 
-
-
   get '/dashboard', to: 'users#show'
-  get '/doomsday', to: 'sessions#doomsday'
 
   resources :cart_items, only: [:create, :update, :destroy]
   resources :orders, only: [:create, :index, :show, :update]
   resources :order_items, only: [:create]
-
 
   namespace :admin do
     get '/dashboard', to: 'base#show'
@@ -42,8 +42,5 @@ Rails.application.routes.draw do
   #   resources :items, only: [:show]
   # end
   # #
-  resources :stores, only: [:show], param: :slug do
-    resources :items, only: [:index, :show], param: :slug
-  end
 
 end

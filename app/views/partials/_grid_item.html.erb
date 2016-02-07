@@ -1,6 +1,6 @@
 <div class="col s4 m4 l4" >
   <div class="card center item-card">
-    <a href="<%= store_item_path(item.store, item) %>">
+    <a href="<%= store_item_path(item.store.slug, item.slug) %>">
       <img src="<%= item.image_url %>" id="card-image">
     </a>
     <span class="card-title"><%= link_to item.title, store_item_path(item.store.slug, item.slug) %></span>
