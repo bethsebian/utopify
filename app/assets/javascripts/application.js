@@ -18,4 +18,12 @@
 $(document).ready(function() {
     // Select - Single
     $('select:not([multiple])').material_select();
+    collapseTable
 });
+
+function collapseTable() {
+  $('.collapsible').on(click, 'li' , function() {
+    this.children().hide();
+    alert("The paragraph was clicked.");
+  };
+};

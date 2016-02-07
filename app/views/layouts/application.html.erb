@@ -14,5 +14,7 @@
       <%= render partial: "partials/flash_card", locals: {message: hash["message"], color: hash["color"]} %>
       <% end %>
       <%= yield %>
+
+      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>
