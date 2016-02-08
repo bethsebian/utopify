@@ -22,10 +22,6 @@ Rails.application.routes.draw do
     resources :dashboard, only: [:index]
   end
 
-  namespace :store_admin do
-    resources :dashboard, only: [:index]
-  end
-
   namespace :platform_admin do
     resources :dashboard, only: [:index]
   end
