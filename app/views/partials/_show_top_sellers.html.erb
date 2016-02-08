@@ -1,0 +1,9 @@
+<div class="row" id="home-middle">
+  <h4 class="text center">Our Top Sellers</h4><br>
+  <% @top_sellers.each do |top_seller| %>
+    <div class="col s4 m4 l4 center">
+      <img src=<%= top_seller.image_url %> alt="" class="circle responsive-img" id="featured-circles">
+      <p><%= top_seller.title %></p>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,26 @@
+<div class='row container show-container'>
+  <div class="col s5 m5 show-left">
+    <div id="store-show-image">
+      <img src="http://www.rv-camping.org/wp-content/uploads/2015/06/BLMLogo.gif">
+    </div>
+  </div>
+
+  <div class="col s6 m6 show-right"  >
+    <h3 id="feature-title"><%= @store.title %></h2>
+    <p id="feature-narrative">
+      <%= @store.description %>
+    </p>
+    <p id="feature-details-dynamic">
+      <p>
+        Acredited by:
+      </p>
+      <ul>
+        <% @store.accreditations.each do |cred| %>
+          <li><%= cred %></li>
+        <% end %>
+      </ul>
+
+    </p>
+
+  </div>
+</div>
