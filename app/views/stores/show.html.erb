@@ -57,12 +57,14 @@
     <div class= 'col s9 m9 l9' id="item-index" >
       <% @items.each do |item| %>
         <div class="col s4 m4 l4" id=store_items_for_sale >
+          <a href="<%= store_item_path(item.store.slug, item.slug) %>">
           <div class="card center medium">
             <img src=<%= item.image_url %> id="card-image"> <!-- replace with item image -->
             <br>
               <span class="card-title"><%= item.title %></span>
             <div class="card-content">
-              <p><%= item.description %></p>
+              <p class="truncate"><%= item.description %></p>
+              <P>$<%= item.price %></p>
             </div>
 
           <div class="card-action row">
