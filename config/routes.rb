@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :stores, only: [:show], param: :slug do
     resources :items, only: [:show], param: :slug
+    resources :dashboard, only: [:index]
   end
 
   resources :categories, only: [:show, :index], param: :slug do

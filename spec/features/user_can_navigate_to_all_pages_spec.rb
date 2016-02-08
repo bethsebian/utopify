@@ -55,6 +55,21 @@ RSpec.feature "guest navigates" do
 		expect(page).to have_content("Site Administrator Dashboard")
 	end
 
+	scenario "store admin views dashboard" do
+		store_admin = create(:user, role: 1)
+		store 			= create(:store, user_id: store_admin.id)
+		visit root_path
+		click_on "Login"
+
+		page.fill_in 'Username', :with => store_admin.username
+		page.fill_in 'Password', :with => store_admin.password
+		click_on "Sign In"
+
+		expect(current_path).to eq "/stores/#{store.slug}/dashboard"
+
+		expect(page).to have_content("#{store.title} Dashboard")
+	end
+
 	scenario "user views dashboard" do
 		user_1 = create(:user)
 		user_2 = create(:user)
@@ -70,6 +85,8 @@ RSpec.feature "guest navigates" do
 		expect(page).to have_content("#{user_2.first_name}'s Profile")
 		expect(page).to_not have_content("#{user_1.first_name}'s' Profile")
 	end
+
+
 
 end
 
