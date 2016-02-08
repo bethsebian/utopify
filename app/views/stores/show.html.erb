@@ -64,8 +64,19 @@
             <div class="card-content">
               <p><%= item.description %></p>
             </div>
-          <div class="card-action">
-            <%= link_to "Add To Cart", "#" %>
+
+          <div class="card-action row">
+            <%= form_for(:cart_item, url: cart_items_path(item_id: item.id)) do |f| %>
+              <div class="col s2 m2 l2">
+                <%= f.label "Qty:", class: "qty-label" %>
+              </div>
+              <div class="col s2 m2 l2">
+                <%= f.number_field(:quantity, in: 1.0..20.0, value: 1, class: "qty-selector") %>
+              </div>
+              <div class="col s8 m8 l8">
+                <%= f.submit "Add To Cart", class: "btn" %>
+              </div>
+            <% end %>
           </div>
           </div>
         </div>

@@ -13,8 +13,18 @@
       Seller: <%= link_to @item.store.title, store_path(@item.store.slug) %>
     </p>
     <p>$ <%= @item.price %></p>
-    <div>
-      <%=  button_to "ADD TO CART", cart_items_path(item_id: item.id), class: "waves-effect waves-light btn add-to-cart" %>
+    <div class="card-action row">
+      <%= form_for(:cart_item, url: cart_items_path(item_id: item.id)) do |f| %>
+        <div class="col s2 m2 l2">
+          <%= f.label "Qty:", class: "qty-label" %>
+        </div>
+        <div class="col s2 m2 l2">
+          <%= f.number_field(:quantity, in: 1.0..20.0, value: 1, class: "qty-selector") %>
+        </div>
+        <div class="col s8 m8 l8">
+          <%= f.submit "Add To Cart", class: "btn" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
@@ -32,4 +42,3 @@
     <% end %>
   </div>
 </div>
-
