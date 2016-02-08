@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+    @item = Item.find_by_slug(params[:slug])
     @related_items = Item.where(category_id: @item.category_id).last(3)
   end
 

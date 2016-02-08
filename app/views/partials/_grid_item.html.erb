@@ -1,13 +1,14 @@
 <div class="col s4 m4 l4" >
   <div class="card center item-card">
-    <a href="<%= item_path(item) %>">
+    <a href="<%= store_item_path(item.store.slug, item.slug) %>">
       <img src="<%= item.image_url %>" id="card-image">
     </a>
-    <span class="card-title"><%= link_to item.title, item_path(item) %></span>
+    <span class="card-title"><%= link_to item.title, store_item_path(item.store.slug, item.slug) %></span>
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4">Back to Item</span>
       <p>Category: <%=item.category.title%></p>
       <p><%=item.description%></p>
+      <p>Sold by: <%= link_to item.store.title, store_path(item.store.slug) %></p>
     </div>
     <p><%= number_to_currency(item.price) %>
   </div>

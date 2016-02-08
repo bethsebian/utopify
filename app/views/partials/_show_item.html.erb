@@ -10,11 +10,21 @@
     <p id="feature-narrative"><%= @item.description %>
     </p>
     <p id="feature-details-dynamic">
-      Seller: <%= link_to @item.store.title, store_path(@item.store) %>
+      Seller: <%= link_to @item.store.title, store_path(@item.store.slug) %>
     </p>
     <p>$ <%= @item.price %></p>
-    <div>
-      <%=  button_to "ADD TO CART", cart_items_path(item_id: item.id), class: "waves-effect waves-light btn add-to-cart" %>
+    <div class="card-action row">
+      <%= form_for(:cart_item, url: cart_items_path(item_id: item.id)) do |f| %>
+        <div class="col s2 m2 l2">
+          <%= f.label "Qty:", class: "qty-label" %>
+        </div>
+        <div class="col s2 m2 l2">
+          <%= f.number_field(:quantity, in: 1.0..20.0, value: 1, class: "qty-selector") %>
+        </div>
+        <div class="col s8 m8 l8">
+          <%= f.submit "Add To Cart", class: "btn" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
@@ -23,7 +33,7 @@
   <div class="row" id="home-middle">
     <h4 class="text center">Other Items in <%= link_to @item.category.title, category_path(@item.category.slug)  %></h4><br>
     <% @related_items.each do |item| %>
-      <a href="<%= store_item_path(item.store, item.id) %>" id= "link-to-item-<%=item.id%>">
+      <a href="<%= store_item_path(item.store.slug, item.slug) %>" id= "link-to-item-<%=item.id%>">
         <div class="col s4 m4 l4 center">
           <img src='<%= item.image_url %>' alt="" class="circle responsive-img" id="featured-circles">
           <p><%= item.title %></p>
@@ -32,32 +42,3 @@
     <% end %>
   </div>
 </div>
-
-
-
-<!-- <div class="checkout container">
-
-    <div class="card">
-      <div class="row">
-      <div class="col m4">
-        <%= image_tag item.image_url, height: '200', width: '300', id: "#{item.id}_item", class: "item-show" %>
-      </div>
-      <div class="col m8">
-        <div class="item-description">
-          <span class="card-title"><%= link_to item.title, item_path(item) %></span>
-          <p><%= item.description %></p>
-          <% if item.active? %>
-          <div style="float: right;padding-top: 2.4rem;">
-          <button class="btn waves-effect waves-light" type="submit" name="action">
-            <%= button_to "Add to cart", cart_items_path(item_id: item.id), id: "#{item.id}_add_button"  %>
-          </button>
-        </div>
-          <% end %>
-        </div>
-      </div>
-  </div>
-
-
-  </div>
-
-</div> -->

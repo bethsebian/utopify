@@ -11,7 +11,7 @@ RSpec.feature "guest visits item page" do
 		store.items << [item_1, item_2, item_3, item_4, item_6, item_7, item_8, item_9, item_10]
 		store_2.items << item_5
 
-		visit store_path(store)
+		visit store_path(store.slug)
 
 		expect(page).to have_content(store.title)
     expect(page).to have_content(store.description)
@@ -29,12 +29,3 @@ RSpec.feature "guest visits item page" do
     end
 	end
 end
-
-
-# As a guest,
-# when I visit a store’s page,
-# I see the store’s profile information, and
-# I see the store’s accreditations, and
-# I see the store’s top selling items, and
-# I see a list of all items sold by that shop, and
-# I do not see items sold by other shops

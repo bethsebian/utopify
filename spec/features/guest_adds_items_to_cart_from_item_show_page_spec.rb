@@ -8,7 +8,7 @@ RSpec.feature "guest visits item show page" do
 		item_1, item_2, item_3, item_4, item_5 = category_1[0].items
 		store.items << [item_1, item_2, item_3, item_4, item_5]
 
-    visit item_path(item_1)
+    visit store_item_path(item_1.store.slug, item_1.slug)
     expect(page).to have_content(store.title)
     expect(page).to have_content(store.description)
     expect(page).to have_content("My Cart: 0")
@@ -21,7 +21,7 @@ RSpec.feature "guest visits item show page" do
     end
 
     within "#main-item-show" do
-      click_on('ADD TO CART')
+      click_on('Add To Cart')
     end
 
     expect(page).to have_content("My Cart: 1")

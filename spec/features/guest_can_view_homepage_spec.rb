@@ -10,6 +10,9 @@ RSpec.feature 'guest visits home page' do
 		item_6, item_7, item_8, item_9, item_10 = category_2.items
 		item_11, item_12, item_13, item_14, item_15 = category_3.items
 
+		store = create(:store)
+		store.items << [category_1.items, category_2.items, category_3.items].flatten
+
 		visit root_path
 
 		expect(page).to have_link("BROWSE", href: "#filter-items-section")
