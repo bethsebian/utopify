@@ -1,4 +1,4 @@
-class Stores::DashboardController < ApplicationController
-  def index
-  end
-end
+# class Stores::DashboardController < ApplicationController
+#   def index
+#   end
+# end

@@ -44,16 +44,10 @@
         </div>
         <div class="card-action center">
           <a class="waves-effect waves-light btn-large">
-            <%= button_to "Write a Review", reviews_path, method: :get %>
           </a>
         </div>
       </div>
     </div>
   </div>
-
-<h3 class="center review-text">All Item Reviews for <%= @user.username %>:</h3>
-<ul>
-  <div class="container">
-    <%= render partial: 'partials/review_card_dashboard', collection: @reviews, as: :review %>
-  </div>
 </div>
+

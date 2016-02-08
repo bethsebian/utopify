@@ -4,4 +4,8 @@ class StoresController < ApplicationController
     @top_sellers = @store.items.first(3)
     @items = @store.items
   end
+
+  def dashboard
+    render :dashboard
+  end
 end
