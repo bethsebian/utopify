@@ -40,63 +40,84 @@ RSpec.feature "guest navigates" do
 		expect(current_path).to eq "/stores/#{store.slug}"
 		expect(page).to have_content("#{store.title}")
 	end
+
+	scenario "platform admin views dashboard" do
+		platform_admin = create(:user, role: 2)
+
+		visit root_path
+		click_on "Login"
+
+		page.fill_in 'Username', :with => platform_admin.username
+		page.fill_in 'Password', :with => platform_admin.password
+		click_on "Sign In"
+
+		expect(current_path).to eq "/platform_admin/dashboard"
+		expect(page).to have_content("Site Administrator Dashboard")
+	end
+
+	scenario "store admin views dashboard" do
+		store_admin = create(:user, role: 1)
+		store 			= create(:store, user_id: store_admin.id)
+		visit root_path
+		click_on "Login"
+
+		page.fill_in 'Username', :with => store_admin.username
+		page.fill_in 'Password', :with => store_admin.password
+		click_on "Sign In"
+
+		expect(current_path).to eq "/stores/#{store.slug}/dashboard"
+
+		expect(page).to have_content("#{store.title} Dashboard")
+	end
+
+	scenario "user views dashboard" do
+		user_1 = create(:user)
+		user_2 = create(:user)
+		visit root_path
+		click_on "Login"
+
+		page.fill_in 'Username', :with => user_2.username
+		page.fill_in 'Password', :with => user_2.password
+		click_on "Sign In"
+
+		expect(current_path).to eq "/dashboard"
+
+		expect(page).to have_content("#{user_2.first_name}'s Profile")
+		expect(page).to_not have_content("#{user_1.first_name}'s' Profile")
+	end
+
+	scenario "regular user cannot view platform admin dashboard" do
+		pending
+		user = create(:user)
+
+		ApplicationController.any_instance.stub(:current_user).and_return(user)
+
+		visit platform_admin_dashboard_index_path
+		expect(current_path).to eq "/dashboard"
+		expect(page).to have_content("#{user.first_name}'s Profile")
+
+		expect(current_path).to_not eq "/platform_admin/dashboard"
+		expect(page).to_not have_content("Site Administrator Dashboard")
+	end
+
+	scenario "user views dashboard" do
+		pending
+		visit root_path
+		click_on "Sign Up"
+
+    fill_in "First Name:", with: "User_first"
+    fill_in "Last Name:", with: "User_last"
+    fill_in "Username:", with: "Username"
+    fill_in "Password:", with: "password"
+    fill_in "Password Confirmation", with: "password"
+
+    within "form#new_user" do
+      click_button "Create"
+    end
+
+		expect(current_path).to eq "/dashboard"
+
+		expect(page).to have_content("#{user_2.first_name}'s Profile")
+		expect(page).to_not have_content("#{user_1.first_name}'s' Profile")
+	end
 end
-
-# scenario "user views " do
-# 	visit root_path
-# 	click_on ""
-# 	expect(current_path).to eq "/"
-# 	expect(page).to have_content("")
-# end
-
-# As a guest,
-# when I'm on the homepage,
-# and I click on "Sign Up,"
-# I'm directed to the sign-up page,
-# and the url is '/users/new'
-# and I fill in my info,
-# and I click "Submit",
-# I'm redirected to my new dashboard,
-# and the url is 'users/dashboard'
-
-
-# scenario "platform admin views dashboard" do
-# 	platform_admin = create(:user, role: 2)
-#
-# 	visit root_path
-# 	click_on "Login"
-#
-# 	page.fill_in 'Username', :with => platform_admin.username
-# 	page.fill_in 'Password', :with => platform_admin.password
-# 	click_on "Sign In"
-#
-# 	expect(current_path).to eq "/administrator/dashboard"
-# 	expect(page).to have_content("Site Administrator Dashboard")
-# end
-#
-# scenario "user views dashboard" do
-# 	user_1 = create(:user)
-# 	user_2 = create(:user)
-# 	visit root_path
-# 	click_on "Login"
-#
-# 	page.fill_in 'Username', :with => user_2.username
-# 	page.fill_in 'Password', :with => user_2.password
-# 	click_on "Sign In"
-#
-# 	expect(current_path).to eq "/dashboard"
-# 	expect(page).to have_content("Welcome #{user_2.first_name}!")
-# 	expect(page).to have_content("Welcome #{user_1.first_name}!")
-# end
-#
-# As a regular customer,
-# when I'm on the homepage,
-# and I click login,
-# and I enter my credentials,
-# and I click submit,
-# and I navigate to '/administrator/dashboard',
-# I'm redirected to my dashboard,
-# and the url is '/users/dashboard'
-#
-
-
