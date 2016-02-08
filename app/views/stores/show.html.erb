@@ -1,40 +1,10 @@
-<div class='row container show-container'>
-  <div class="col s5 m5 show-left">
-    <div id="store-show-image">
-      <img src="http://www.rv-camping.org/wp-content/uploads/2015/06/BLMLogo.gif">
-    </div>
-  </div>
 
-  <div class="col s6 m6 show-right"  >
-    <h3 id="feature-title"><%= @store.title %></h2>
-    <p id="feature-narrative">
-      <%= @store.description %>
-    </p>
-    <p id="feature-details-dynamic">
-      <p>
-        Acreditted by:
-      </p>
-      <ul>
-        <% @store.accreditations.each do |cred| %>
-          <li><%= cred %></li>
-        <% end %>
-      </ul>
+<%= render partial: 'partials/store_show_business_name' %>
 
-    </p>
+<%= render partial: 'partials/show_top_sellers' %>
 
-  </div>
-</div>
 
-<div class="row" id="home-middle">
-  <h4 class="text center">Our Top Sellers</h4><br>
-  <% @top_sellers.each do |top_seller| %>
-    <div class="col s4 m4 l4 center">
-      <img src=<%= top_seller.image_url %> alt="" class="circle responsive-img" id="featured-circles">
-      <p><%= top_seller.title %></p>
-    </div>
-  <% end %>
-</div>
-
+<!-- this block to change with filter  -->
 <div class="row"> <!-- Third section of page -->
   <div class="col s12 m12 l12">
     <div class="col s3 m3 l3">
@@ -54,33 +24,6 @@
     </div>
 
 
-    <div class= 'col s9 m9 l9' id="item-index" >
-      <% @items.each do |item| %>
-        <div class="col s4 m4 l4" id=store_items_for_sale >
-          <div class="card center medium">
-            <img src=<%= item.image_url %> id="card-image"> <!-- replace with item image -->
-            <br>
-              <span class="card-title"><%= item.title %></span>
-            <div class="card-content">
-              <p><%= item.description %></p>
-            </div>
-
-          <div class="card-action row">
-            <%= form_for(:cart_item, url: cart_items_path(item_id: item.id)) do |f| %>
-              <div class="col s2 m2 l2">
-                <%= f.label "Qty:", class: "qty-label" %>
-              </div>
-              <div class="col s2 m2 l2">
-                <%= f.number_field(:quantity, in: 1.0..20.0, value: 1, class: "qty-selector") %>
-              </div>
-              <div class="col s8 m8 l8">
-                <%= f.submit "Add To Cart", class: "btn" %>
-              </div>
-            <% end %>
-          </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
+  <%= render partial: 'partials/store_show_all_items' %>
   </div>
 </div>
