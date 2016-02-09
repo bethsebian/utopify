@@ -1,5 +1,5 @@
 <div class="col s4 m4 l4" >
-  <div class="card center item-card">
+  <div class="card center item-card item_<%= item.id %>">
     <a href="<%= store_item_path(item.store.slug, item.slug) %>">
       <img src="<%= item.image_url %>" id="card-image">
     </a>
@@ -11,5 +11,16 @@
       <p>Sold by: <%= link_to item.store.title, store_path(item.store.slug) %></p>
     </div>
     <p><%= number_to_currency(item.price) %>
+      <%= form_for(:cart_item, url: cart_items_path(item_id: item.id)) do |f| %>
+        <div class="col s2 m2 l2">
+          <%= f.label "Qty:", class: "qty-label" %>
+        </div>
+        <div class="col s3 m3 l3">
+          <%= f.number_field(:quantity, in: 1.0..20.0, value: 1, class: "qty-selector") %>
+        </div>
+        <div class="col s7 m7 l7">
+          <%= f.submit "Add To Cart", class: "btn" %>
+        </div>
+      <% end %>
   </div>
 </div>

@@ -1,6 +1,6 @@
 <div class= 'col s9 m9 l9' id="item-index" >
   <% @items.each do |item| %>
-    <div class="col s4 m4 l4" id=store_items_for_sale >
+    <div class="col s4 m4 l4 item_<%= item.id %>" id=store_items_for_sale >
       <div class="card center medium">
         <div  class="link_to_item_show" >
           <a href="<%= store_item_path(item.store.slug, item.slug) %>">
@@ -10,7 +10,8 @@
           <span class="card-title"><%= item.title %></span>
         <div class="card-content">
           <p class="truncate"><%= item.description %></p>
-          <P>$<%= item.price %></p>
+          <p>Sold by: <%= link_to item.store.title, store_path(item.store.slug) %></p>
+          <P>$<%= number_to_currency(item.price) %></p>
           </div>
         </a>
       </div>
