@@ -24,9 +24,12 @@ RSpec.feature "guest navigates" do
 
 		click_on "#{item.title}"
 
+		expect(current_path).to eq "/stores/#{store.slug}/items/#{item.slug}"
 		expect(page).to have_content("#{item.title}")
 		expect(page).to have_content("#{item.description}")
-		expect(current_path).to eq "/stores/#{store.slug}/items/#{item.slug}"
+		expect(page).to have_content(item.price)
+		expect(page).to have_content(store.title)
+		expect(page).to have_button("Add To Cart")
   end
 
 	scenario "user views store" do
