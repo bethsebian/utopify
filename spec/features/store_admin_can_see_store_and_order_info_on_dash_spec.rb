@@ -89,8 +89,11 @@ RSpec.feature "admin visits dashboard" do
 		# 	expect(page).to_not have_content(store.pending_orders.first.total_price)
 		# end
 
-		within("items-list") do
-
+		within(".store-items-dashboard-table") do
+			expect(page).to have_content(store.items.first.title)
+			expect(page).to have_content(store.items.second.description)
+			expect(page).to have_content(store.items.third.price)
+			expect(page).to have_content(store.items.fourth.category.title)
 		end
 
   end
