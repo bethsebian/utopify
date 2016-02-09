@@ -46,7 +46,6 @@
             <tr>
               <th data-field="id">Order id</th>
               <th data-field="buyer">Buyer</th>
-              <!-- <th data-field="order_date">Order Date</th> -->
               <th data-field="price">Price</th>
             </tr>
           </thead>
@@ -55,13 +54,14 @@
             <tr>
               <td><%= order.id %></td>
               <td><%= order.user.username %></td>
-              <!-- <td><%= order.created_at %></td> -->
               <td><%= order.total_price %></td>
             </tr>
             <% end %>
+            <tr>
+              <td><%= link_to 'top of table', '#1'%></td>
+            </tr>
           </tbody>
-        </table>
-        <tr><%= link_to 'top of table', '#1'%></tr><br><br>
+        </table><br><br>
       </div>
         <h5 id="2">Paid Orders</h5>
         <a class="btn sales-data-tables">Hide / Display</a>
@@ -70,7 +70,6 @@
             <tr>
               <th data-field="id">Order id</th>
               <th data-field="buyer">Buyer</th>
-              <!-- <th data-field="order_date">Order Date</th> -->
               <th data-field="price">Price</th>
             </tr>
           </thead>
@@ -79,13 +78,15 @@
             <tr>
               <td><%= order.id %></td>
               <td><%= order.user.username %></td>
-              <!-- <td><%= order.created_at %></td> -->
               <td><%= order.total_price %></td>
+            </tr>
+            <tr>
+              <td><%= link_to 'top of table', '#2'%></td>
             </tr>
             <% end %>
           </tbody>
-        </table>
-        <tr><%= link_to 'top of table', '#2'%></tr><br><br>
+        </table><br><br>
+
         <h5 id= "3">Completed Orders</h5>
         <a class="btn sales-data-tables">Hide / Display</a>
         <table class="bordered highlight responsive-table">
@@ -106,8 +107,11 @@
               <td><%= order.total_price %></td>
             </tr>
             <% end %>
+            <tr>
+              <td><%= link_to 'top of table', '#3'%></td>
+            </tr>
           </tbody>
-        </table><tr><%= link_to 'top of table', '#3'%></tr><br><br>
+        </table><br><br>
         <h5 id='4'>Cancelled Orders</h5>
         <a class="btn sales-data-tables">Hide / Display</a>
         <table class="bordered highlight responsive-table">
@@ -128,9 +132,11 @@
               <td><%= order.total_price %></td>
             </tr>
             <% end %>
+            <tr>
+              <td><%= link_to 'top of table', '#3'%></td>
+            </tr>
           </tbody>
-        </table>
-        <tr><%= link_to 'top of table', '#4'%></tr><br><br>
+        </table><br><br>
       </div>
     </div>
     <h4>Store Admin</h4>
@@ -165,12 +171,13 @@
           <td><%= category.title %></td>
         </tr>
         <% end %>
+        <tr>
+          <td><%= link_to 'top of table', '#5'%></td>
+        </tr>
       </tbody>
-    </table>
-    <tr><%= link_to 'top of table', '#5'%></tr><br><br>
+    </table><br><br>
     <div class="store-items-dashboard-table">
       <h4 id="6">Our Items</h4>
-      <%= link_to "View All Items" store%>
       <a class="btn sales-data-tables">Hide / Display</a>
       <table class="bordered highlight responsive-table">
         <thead>
@@ -190,9 +197,11 @@
             <td><%= item.category.title %></td>
           </tr>
           <% end %>
+          <tr>
+            <td><%= link_to 'top of table', '#6'%></td>
+          </tr>
         </tbody>
-      </table>
-      <tr><%= link_to 'top of table', '#6'%></tr><br><br>
+      </table><br><br>
     </div>
   </div>
 </div>
