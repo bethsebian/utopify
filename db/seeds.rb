@@ -127,7 +127,7 @@ class Seed
     end
 
     def order_status
-      ["completed", "cancelled", "paid", "submitted"]
+      ["completed", "cancelled", "paid", "pending"]
     end
 end
 
