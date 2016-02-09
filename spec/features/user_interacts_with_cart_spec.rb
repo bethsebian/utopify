@@ -21,7 +21,7 @@ RSpec.feature "user interacts with cart" do
 		expect(page).to have_content("My Cart: 1")
 
 		within ".item_#{item_2.id}" do
-			fill_in "cart_item[quantity]", with: "2"
+			fill_in 'cart_item[quantity]', with: "2"
 			click_on "Add To Cart"
 		end
 		expect(page).to have_content("My Cart: 3")
@@ -148,4 +148,67 @@ RSpec.feature "user interacts with cart" do
 			expect(page).to have_content("$0.00")
 		end
   end
+
+	scenario "they can update the quantity of an item in their cart" do
+		item_1 = create(:category_with_items, items_count: 1).items.first
+		store = create(:store)
+		item_1.store = store
+		item_1.save
+
+		visit store_path(store.slug)
+		within "div.item_#{item_1.id}" do
+			click_button('Add To Cart')
+		end
+		click_on "My Cart"
+
+		within "td.cart-qty-#{item_1.id}" do
+			fill_in "qty_update_data_quantity", with: 7
+			click_on "Update quantity"
+		end
+
+		expect(page).to have_content("Successfully updated #{item_1.title} quantity in your cart.")
+		expect(current_path).to eq "/cart"
+
+		within "td.cart-qty-#{item_1.id}" do
+			expect(page).to have_field('qty_update_data[quantity]', with: 7)
+		end
+		within "#cart-total-price" do
+			expect(page).to have_content(number_to_currency(item_1.price.to_i*7))
+		end
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	#
+	#
+	#
+	#
+	#
+	# As a user,
+	# when I have 1 of item 1 in my cart,
+	# and I visit my cart,
+	# I see the item,
+	# within item 1’s section,
+	# I see the quantity of 1,
+	# when I fill in the quantity field with 3,
+	# and click on update,
+	# I am still on my cart page,
+	# and I item 1’s quantity is now 3,
+	# and the line price is updated,
+	# and the total cost of my cart is updated.
+
 end
