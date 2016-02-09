@@ -15,6 +15,6 @@
       <a class="waves-effect waves-light btn"><%= f.submit "Update quantity"%></a>
     <% end %>
   </td>
-  <td id= "<%= "item_#{item.id}_line_ttl" %>" > <%= number_to_currency(item.line_total_price) %></td>
-  <td><%= link_to "Remove", cart_item_path(item.id), method: :delete %></td>
+  <td id="<%= "item_#{item.id}_line_ttl" %>" > <%= number_to_currency(item.line_total_price) %></td>
+  <td id="<%= "item_#{item.id}_delete_link" %>"><%= link_to "Remove", cart_item_path(item.id), method: :delete %></td>
 </tr>

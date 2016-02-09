@@ -92,4 +92,39 @@ RSpec.feature "user interacts with cart" do
 		expect(page).to have_content(number_to_currency(item_2.price.to_i*2))
 		expect(page).to have_content(number_to_currency(cart_price))
   end
+
+	scenario "they can delete items in their cart" do
+		item_1, item_2 = create(:category_with_items, items_count: 2).items
+		store = create(:store)
+
+		item_1.store = store
+		item_1.save
+		item_2.store = store
+		item_2.save
+
+		visit store_path(store.slug)
+
+		within "div.item_#{item_1.id}" do
+			click_button('Add To Cart')
+		end
+		within ".item_#{item_2.id}" do
+			fill_in "cart_item[quantity]", with: "2"
+			click_on "Add To Cart"
+		end
+
+		cart_price = (item_1.price.to_i * 1) + (item_2.price.to_i * 2)
+
+		click_on "My Cart"
+		within "#item_#{item_1.id}_delete_link" do
+			click_on "Remove"
+		end
+
+		expect(current_path).to eq('/cart')
+		expect(page).to have_content("Successfully removed #{item_1.title} from your cart.")
+		expect(page).to have_content(item_2.title)
+		expect(page).to_not have_css("#item_#{item_1.id}_delete_link")
+		within "#cart-total-price" do
+			expect(page).to have_content(number_to_currency(item_2.price.to_i*2))
+		end
+  end
 end
