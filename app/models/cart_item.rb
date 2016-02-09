@@ -15,6 +15,10 @@ class CartItem
 	def line_total_price
 		qty * price
 	end
+
+	def store
+		@object.store
+	end
 end
 
 class CartDecorator < SimpleDelegator
