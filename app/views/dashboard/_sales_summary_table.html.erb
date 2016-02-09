@@ -1,0 +1,20 @@
+<h4>Sales Summary Data</h4>
+<a class="btn sales-data-tables">Hide / Display</a>
+<table class="bordered striped responsive-table" id="sales_summary"> <!-- Sales Summary Data-->
+  <thead>
+    <tr>
+      <th data-field="orders-pending">Pending Orders</th>
+      <th data-field="orders-paid">Paid Orders</th>
+      <th data-field="orders-completed">Completed Orders</th>
+      <th data-field="orders-cancelled">Cancelled Orders</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @store.pending_orders.count %></td>
+      <td><%= @store.paid_orders.count %></td>
+      <td><%= @store.completed_orders.count %></td>
+      <td><%= @store.cancelled_orders.count %></td>
+    </tr>
+  </tbody>
+</table><br><br>

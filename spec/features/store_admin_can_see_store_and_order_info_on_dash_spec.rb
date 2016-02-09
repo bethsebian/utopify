@@ -94,6 +94,9 @@ RSpec.feature "admin visits dashboard" do
 			expect(page).to have_content(store.items.second.description)
 			expect(page).to have_content(store.items.third.price)
 			expect(page).to have_content(store.items.fourth.category.title)
+
+			click_on store.items.first.title
+			expect(current_path).to eq(store_item_path(store.slug, store.items.first.slug))
 		end
 
   end
