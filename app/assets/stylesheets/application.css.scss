@@ -133,23 +133,47 @@ nav .brand-logo {
   }
 
   // Item Cards
+  #card-image img {
+    display:block;
+    margin: auto;
+    padding: 20px;
+    max-height: 200px;
+    max-width: 200px;
+    border: 1px solid white;
+    border-radius: 20px;
+    float: right;
+    margin: 25px 20px 0px 0px;
+}
+
+  .card {
+    min-width: 200px;
+    min-height: 400px;
+    max-height: 400px;
+  }
+
+  .card-bottom-qty {
+    margin: auto;
+    text-align:center;
+  }
+
   .item-card {
     min-height: 250px;
     max-height: 250px;
-    padding: 20px;
     line-height: 20px;
   }
 
-  .card-title a {
-    font-size: 18px;
+  .card-title-alt a {
+    font-family: 'Amaranth', sans-serif;
+    font-size: 20px;
     color: #000000;
   }
 
-  #card-image {
-    padding: 20px;
-    max-height: 150px;
-    max-width: 150px;
+  #card-store-title a {
+    font-family: 'Amaranth', sans-serif;
+    font-size: 12px;
+    color: #000000;
   }
+
 
 
     // Buttons
@@ -229,6 +253,7 @@ nav .brand-logo {
 
 input.qty-selector {
   height: 20px;
+  width: 40px;
   border-bottom: none;
 }
 

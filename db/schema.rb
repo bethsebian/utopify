@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 20160207212257) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "title"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string   "slug"
-    t.string   "category_image"
+    t.string   "image_url"
   end
 
   create_table "items", force: :cascade do |t|
