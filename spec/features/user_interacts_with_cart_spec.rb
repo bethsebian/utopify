@@ -127,4 +127,25 @@ RSpec.feature "user interacts with cart" do
 			expect(page).to have_content(number_to_currency(item_2.price.to_i*2))
 		end
   end
+
+	scenario "they can delete the last item from their cart" do
+		item_1 = create(:category_with_items, items_count: 1).items.first
+		store = create(:store)
+		item_1.store = store
+		item_1.save
+
+		visit store_path(store.slug)
+		within "div.item_#{item_1.id}" do
+			click_button('Add To Cart')
+		end
+		click_on "My Cart"
+		click_on "Remove"
+
+		expect(current_path).to eq('/cart')
+		expect(page).to have_content("Successfully removed #{item_1.title} from your cart.")
+		expect(page).to_not have_css("#item_#{item_1.id}_delete_link")
+		within "#cart-total-price" do
+			expect(page).to have_content("$0.00")
+		end
+  end
 end
