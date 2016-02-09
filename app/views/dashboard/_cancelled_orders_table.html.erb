@@ -1,0 +1,25 @@
+<h5 id='4'>Cancelled Orders</h5>
+<a class="btn sales-data-tables">Hide / Display</a>
+<table class="bordered highlight responsive-table">
+  <thead>
+    <tr>
+      <th data-field="id">Order id</th>
+      <th data-field="buyer">Buyer</th>
+      <!-- <th data-field="order_date">Order Date</th> -->
+      <th data-field="price">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @store.cancelled_orders.each do |order| %>
+    <tr>
+      <td><%= order.id %></td>
+      <td><%= order.user.username %></td>
+      <!-- <td><%= order.created_at %></td> -->
+      <td><%= order.total_price %></td>
+    </tr>
+    <% end %>
+    <tr>
+      <td><%= link_to 'top of table', '#3'%></td>
+    </tr>
+  </tbody>
+</table><br><br>
