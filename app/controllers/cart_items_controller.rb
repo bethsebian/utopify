@@ -23,6 +23,9 @@ class CartItemsController < ApplicationController
 
 	def update
 		@cart.update_quantity(params[:qty_update_data])
+		@item = Item.find(params[:id])
+		flash_link = "#{view_context.link_to @item.title, store_item_path(@item.store_id, @item.id)}"
+		flash[:success] = {color: "green", message: "Successfully updated #{flash_link} quantity in your cart." }
 		redirect_to cart_path
 	end
 end
