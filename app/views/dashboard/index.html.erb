@@ -158,17 +158,15 @@
       <thead class="collapsible-header">
         <tr>
             <th>Category</th>
-            <th>Total Sales</th>
-            <th>Total Orders</th>
         </tr>
       </thead>
 
       <tbody class="collapsible-body">
+        <% @store.item_categories.each do |category| %>
         <tr>
-          <td>Water</td>
-          <td>$23,456.00</td>
-          <td>34</td>
+          <td><%= category.title %></td>
         </tr>
+        <% end %>
       </tbody>
     </table><br><br>
   </div>

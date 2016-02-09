@@ -81,21 +81,17 @@ RSpec.feature "admin visits dashboard" do
 			expect(page).to have_content(store.completed_orders.first.user.username)
 		end
 
-# save_and_open_page
-		within(".store-pending-orders-table")	do
-			expect(page).to have_content(store.pending_orders.first.total_price)
+#this test should test the hide/display buttons but I may have to etst that the classes or id's
+#are on the page before but not after clicking the button
+		# within(".store-pending-orders-table")	do
+		# 	expect(page).to have_content(store.pending_orders.first.total_price)
+		# 	click_on('Hide / Display')
+		# 	expect(page).to_not have_content(store.pending_orders.first.total_price)
+		# end
+
+		within("items-list") do
+
 		end
-
-
- # => {"id"=>301, "status"=>"completed", "user_id"=>52, "created_at"=>Tue, 09 Feb 2016 05:43:00 UTC +00:00 "total_price"=>4658}
-
-# 		and within the orders summary section,
-# I see all my pending orders under the heading “Pending Orders”,
-# and I see all my paid orders under the heading “Paid Orders”,
-# and I see all my completed orders under the heading “Completed Orders”,
-# and I see all my cancelled orders under the heading “Cancelled Orders”,
-# and within the items section,
-# I see all my items under the heading “Items”
 
   end
 end

@@ -1,9 +1,14 @@
 class Store < ActiveRecord::Base
   before_save :generate_slug
   has_many :items
+  has_many :categories, through: :items
   has_one :user
   has_many :order_items, through: :items
   has_many :orders, through: :order_items
+
+  def item_categories
+    self.categories.uniq
+  end
 
   def generate_slug
     self.slug = title.parameterize
