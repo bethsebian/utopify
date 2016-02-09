@@ -9,8 +9,8 @@
             <tr>
               <th data-field="Image">Image</th>
               <th data-field="Title">Title</th>
-              <th data-field="Description">Description</th>
-              <th data-field="Travesty">Travesty</th>
+              <th data-field="Store">Description</th>
+              <th data-field="Category">Category</th>
               <th data-field="Price">Price</th>
               <th data-field="Quantity">Quantity</th>
               <th data-field="LineTotal">Line Total</th>
@@ -23,7 +23,7 @@
         </tbody>
         </table>
           <div class="right-align">
-              <h4>Total Price: <%=number_to_currency(@cart.total_price)%></h4>
+              <h4 id="cart-total-price">Total Price: <%=number_to_currency(@cart.total_price)%></h4>
               <button class="btn waves-effect waves-light">
                 <%= button_to "Checkout", orders_path, method: :post, data: { cart: @cart } %>
                 <i class="material-icons right">send</i>
