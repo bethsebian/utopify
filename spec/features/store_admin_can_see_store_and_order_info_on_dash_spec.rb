@@ -81,6 +81,12 @@ RSpec.feature "admin visits dashboard" do
 			expect(page).to have_content(store.completed_orders.first.user.username)
 		end
 
+# save_and_open_page
+		within(".store-pending-orders-table")	do
+			expect(page).to have_content(store.pending_orders.first.total_price)
+		end
+
+
  # => {"id"=>301, "status"=>"completed", "user_id"=>52, "created_at"=>Tue, 09 Feb 2016 05:43:00 UTC +00:00 "total_price"=>4658}
 
 # 		and within the orders summary section,

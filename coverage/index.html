@@ -14,14 +14,14 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2016-02-09T08:27:14-07:00">2016-02-09T08:27:14-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2016-02-09T09:24:18-07:00">2016-02-09T09:24:18-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">45.06%</span></span>
+    (<span class="covered_percent"><span class="red">45.17%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
@@ -32,9 +32,9 @@
   <a name="AllFiles"></a>
   <div>
     <b>34</b> files in total.
-    <b>415</b> relevant lines. 
+    <b>414</b> relevant lines. 
     <span class="green"><b>187</b> lines covered</span> and
-    <span class="red"><b>228</b> lines missed </span>
+    <span class="red"><b>227</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -203,10 +203,10 @@
       <tr>
         <td class="strong"><a href="#cb5e0cfc2ba5328306f1eebb93d7226815890214" class="src_link" title="app/controllers/stores/items_controller.rb">app/controllers/stores/items_controller.rb</a></td>
         <td class="red strong">0.0 %</td>
-        <td>7</td>
-        <td>7</td>
+        <td>6</td>
+        <td>6</td>
         <td>0</td>
-        <td>7</td>
+        <td>6</td>
         <td>0.0</td>
       </tr>
       
@@ -399,7 +399,7 @@
           <div class="file_list_container" id="Controllers">
   <h2>
     <span class="group_name">Controllers</span>
-    (<span class="covered_percent"><span class="red">27.21%</span></span>
+    (<span class="covered_percent"><span class="red">27.31%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
@@ -410,9 +410,9 @@
   <a name="Controllers"></a>
   <div>
     <b>18</b> files in total.
-    <b>272</b> relevant lines. 
+    <b>271</b> relevant lines. 
     <span class="green"><b>74</b> lines covered</span> and
-    <span class="red"><b>198</b> lines missed </span>
+    <span class="red"><b>197</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -581,10 +581,10 @@
       <tr>
         <td class="strong"><a href="#cb5e0cfc2ba5328306f1eebb93d7226815890214" class="src_link" title="app/controllers/stores/items_controller.rb">app/controllers/stores/items_controller.rb</a></td>
         <td class="red strong">0.0 %</td>
-        <td>7</td>
-        <td>7</td>
+        <td>6</td>
+        <td>6</td>
         <td>0</td>
-        <td>7</td>
+        <td>6</td>
         <td>0.0</td>
       </tr>
       
@@ -3013,9 +3013,9 @@
     <h3>app/controllers/stores/items_controller.rb</h3>
     <h4><span class="red">0.0 %</span> covered</h4>
     <div>
-      <b>7</b> relevant lines. 
+      <b>6</b> relevant lines. 
       <span class="green"><b>0</b> lines covered</span> and
-      <span class="red"><b>7</b> lines missed.</span>
+      <span class="red"><b>6</b> lines missed.</span>
     </div>
   </div>
   
@@ -3037,28 +3037,22 @@
         <li class="missed" data-hits="0" data-linenumber="3">
           
           
-          <code class="ruby">    # binding.pry</code>
+          <code class="ruby">    @item = Item.find_by(id: params[:id])</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="4">
           
           
-          <code class="ruby">    @item = Item.find_by(id: params[:id])</code>
+          <code class="ruby">    @related_items = @item.category.items.where(store_id: @item.store_id).last(3)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="5">
           
           
-          <code class="ruby">    @related_items = @item.category.items.where(store_id: @item.store_id).last(3)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="6">
-          
-          
           <code class="ruby">  end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="7">
+        <li class="missed" data-hits="0" data-linenumber="6">
           
           
           <code class="ruby">end</code>
@@ -4858,8 +4852,8 @@
           <code class="ruby">  def pending_orders</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="25">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="9" data-linenumber="25">
+          <span class="hits">9</span>
           
           <code class="ruby">    self.orders.where(status: &quot;pending&quot;)</code>
         </li>

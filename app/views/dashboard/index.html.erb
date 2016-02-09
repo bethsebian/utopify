@@ -15,9 +15,10 @@
 </div><br>
 <div class= 'container'>
 
+  <h4>Sales Summary Data</h4>
+  <a class="btn sales-data-tables">Hide / Display</a>
   <table class="bordered striped responsive-table" id="sales_summary"> <!-- Sales Summary Data-->
     <thead>
-      <h4>Sales Summary Data</h4>
       <tr>
         <th data-field="orders-pending">Pending Orders</th>
           <th data-field="orders-paid">Paid Orders</th>
@@ -38,30 +39,35 @@
 
       <!-- Orders Data -->
   <div id="orders_summary">
+    <div class="store-pending-orders-table">
+      <h4 id='1'>Pending Orders</h4>
+      <a class="btn sales-data-tables">Hide / Display</a>
+      <table class="bordered highlight responsive-table">
+        <thead>
+          <tr>
+            <th data-field="id">Order id</th>
+            <th data-field="buyer">Buyer</th>
+            <!-- <th data-field="order_date">Order Date</th> -->
+            <th data-field="price">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @store.pending_orders.each do |order| %>
+          <tr>
+            <td><%= order.id %></td>
+            <td><%= order.user.username %></td>
+            <!-- <td><%= order.created_at %></td> -->
+            <td><%= order.total_price %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <tr><%= link_to 'top of table', '#1'%></tr><br><br>
+    </div>
+    <h4 id="2">Paid Orders</h4>
+    <a class="btn sales-data-tables">Hide / Display</a>
     <table class="bordered highlight responsive-table">
       <thead>
-        <h4>Pending Orders</h4>
-        <tr>
-          <th data-field="id">Order id</th>
-          <th data-field="buyer">Buyer</th>
-          <!-- <th data-field="order_date">Order Date</th> -->
-          <th data-field="price">Price</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @store.pending_orders.each do |order| %>
-        <tr>
-          <td><%= order.id %></td>
-          <td><%= order.user.username %></td>
-          <!-- <td><%= order.created_at %></td> -->
-          <td><%= order.total_price %></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table><br><br>
-    <table class="bordered highlight responsive-table">
-      <thead>
-        <h4>Paid Orders</h4>
         <tr>
           <th data-field="id">Order id</th>
           <th data-field="buyer">Buyer</th>
@@ -79,10 +85,12 @@
         </tr>
         <% end %>
       </tbody>
-    </table><br><br>
+    </table>
+    <tr><%= link_to 'top of table', '#2'%></tr><br><br>
+    <h4 id= "3">Completed Orders</h4>
+    <a class="btn sales-data-tables">Hide / Display</a>
     <table class="bordered highlight responsive-table">
       <thead>
-        <h4>Completed Orders</h4>
         <tr>
           <th data-field="id">Order id</th>
           <th data-field="buyer">Buyer</th>
@@ -100,10 +108,11 @@
         </tr>
         <% end %>
       </tbody>
-    </table><br><br>
+    </table><tr><%= link_to 'top of table', '#3'%></tr><br><br>
+    <h4 id='4'>Cancelled Orders</h4>
+    <a class="btn sales-data-tables">Hide / Display</a>
     <table class="bordered highlight responsive-table">
       <thead>
-        <h4>Cancelled Orders</h4>
         <tr>
           <th data-field="id">Order id</th>
           <th data-field="buyer">Buyer</th>
@@ -121,10 +130,12 @@
         </tr>
         <% end %>
       </tbody>
-    </table><br><br>
+    </table>
+    <tr><%= link_to 'top of table', '#4'%></tr><br><br>
+    <h4>Store Admin</h4>
+    <a class="btn sales-data-tables">Hide / Display</a>
     <table class="bordered highlight responsive-table">
       <thead>
-        <h4>Store Admin</h4>
         <tr>
             <th>Name</th>
             <th>Email</th>
@@ -141,9 +152,10 @@
       </tbody>
     </table><br><br>
 
+    <h4>Categories I sell in</h4>
+    <a class="btn sales-data-tables">Hide / Display</a>
     <table class="bordered highlight responsive-table">
       <thead class="collapsible-header">
-        <h4>Categories I sell in</h4>
         <tr>
             <th>Category</th>
             <th>Total Sales</th>
