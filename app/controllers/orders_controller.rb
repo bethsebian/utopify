@@ -14,13 +14,13 @@ class OrdersController < ApplicationController
   end
 
   def create
+
     @order = current_user.orders.create(status: "ordered",
                                         total_price: @cart.total_price)
     add_items_to_order
-    flash[:order_success] = {color: 'green', message: "Order was successfully placed"}
-    set_doomsday_flash_message
-    redirect_to orders_path
+    flash[:order_success] = {color: 'green', message: "Order was successfully placed."}
     session[:cart] = {}
+    redirect_to '/dashboard'
   end
 
   def show
