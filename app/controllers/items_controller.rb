@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   def index
-    @items = Item
+    @items = Item.where(active: true)
   end
 
   def show
@@ -17,7 +17,8 @@ class ItemsController < ApplicationController
 
   def destroy
     item = Item.find_by_slug(params[:slug])
-    item.delete
+    item.active = false
+    item.save
     redirect_to store_dashboard_index_path(item.store.slug)
   end
 end
