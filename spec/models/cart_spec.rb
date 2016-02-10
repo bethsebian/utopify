@@ -16,6 +16,16 @@ RSpec.describe Cart, type: :model do
     expect(count).to eq(1)
   end
 
+  it "does not add inactive items to cart" do
+    item_1.active = false
+    item_1.save
+
+    add_one = cart.add_item(item_1.id)
+    count = cart.contents.count
+
+    expect(count).to eq(0)
+  end
+
   it "increases count of single item in cart" do
     cart.add_item(item_1.id)
     count = cart.contents.values.last
