@@ -10,4 +10,8 @@ class ItemsController < ApplicationController
     @related_items = Item.where(category_id: @item.category_id).last(3)
   end
 
+  def new
+
+  end
+
 end

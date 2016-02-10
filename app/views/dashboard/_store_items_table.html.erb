@@ -1,5 +1,6 @@
 <div class="store-items-dashboard-table">
   <h4 id="6">Our Items</h4>
+  <%= link_to "Add an item", new_store_item_path(@store.slug) %>
   <a class="btn sales-data-tables">Hide / Display</a>
   <table class="bordered highlight responsive-table">
     <thead>
