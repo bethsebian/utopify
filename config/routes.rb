@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   end
 
   resources :stores, only: [:show], param: :slug do
-    resources :items, only: [:show], param: :slug
+    resources :items, param: :slug
     resources :dashboard, only: [:index]
   end
 

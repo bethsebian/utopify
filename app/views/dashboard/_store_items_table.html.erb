@@ -12,12 +12,14 @@
       </tr>
     </thead>
     <tbody>
-      <% @store.items.each do |item| %>
+      <% @store_items.each do |item| %>
       <tr>
         <td><%= link_to "#{item.title}", store_item_path(@store.slug, item.slug) %></td>
         <td><%= item.description %></td>
         <td><%= item.price %></td>
         <td><%= item.category.title %></td>
+        <td><%= button_to "Delete", store_item_path(@store.slug, item.slug), method: :delete %></td>
+        <!-- <td><%= button_to "Deactivate", store_item_path(@store.slug, item.slug), method: :patch, params: { new_status: false } %></td> -->
       </tr>
       <% end %>
       <tr>
