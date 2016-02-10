@@ -258,12 +258,12 @@ nav .brand-logo {
 
 
 // Used?
-#item_description {
-  margin-top: 500px;
-}
-#category {
-  vertical-align: text-bottom;
-}
+// #item_description {
+//   margin-top: 500px;
+// }
+// #category {
+//   vertical-align: text-bottom;
+// }
 
 
 .qty-label {
@@ -379,4 +379,8 @@ h1 {
 #store-show-image {
   width: 200px;
   height: 200px;
+}
+
+.hidden {
+  display: none
 }

@@ -1,0 +1,25 @@
+<div class="store-pending-orders-table">
+  <h5 id='1'>Pending Orders</h5>
+  <a class="btn sales-data-tables">Hide / Display</a>
+  <table class="bordered highlight responsive-table">
+    <thead>
+      <tr>
+        <th data-field="id">Order id</th>
+        <th data-field="buyer">Buyer</th>
+        <th data-field="price">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @store.pending_orders.each do |order| %>
+      <tr>
+        <td><%= order.id %></td>
+        <td><%= order.user.username %></td>
+        <td><%= order.total_price %></td>
+      </tr>
+      <% end %>
+      <tr>
+        <td><%= link_to 'top of table', '#1'%></td>
+      </tr>
+    </tbody>
+  </table><br><br>
+</div>

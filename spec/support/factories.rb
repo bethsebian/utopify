@@ -99,11 +99,17 @@ FactoryGirl.define do
   factory :order do
     status "ordered"
     total_price 5000
+    # user_id { generate(:order_user_id) }
   end
+
+  # sequence :order_user_id do |n|
+  #   n
+  # end
 
   factory :order_item do
     item_quantity 1
     item_price 1000
+    # order_id
   end
 
 # // Create Stores
