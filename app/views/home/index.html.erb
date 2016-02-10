@@ -6,7 +6,7 @@
 </div>
 
 <div class="row" id="home-middle">
-  <h4 class="centered-header">Our Initiatives</h4><br>
+  <h4 class="centered-header"><%= link_to "Our Initiatives", categories_path %></h4><br>
   <%= @top_categories.each do |category| %>
     <div class="col s4 m4 l4 center">
       <img src=" <%= category.image_url %>" alt="" class="circle responsive-img" id="featured-circles">
