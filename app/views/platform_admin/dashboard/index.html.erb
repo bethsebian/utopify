@@ -49,7 +49,6 @@
         <td><%= link_to "Approve", store_path(store.slug, params:
                                               {store: {title: store.title,
                                                        description: store.description,
-                                                       status: store.status,
                                                        image_url: store.image_url,
                                                        accreditations: store.accreditations,
                                                        status: "active"
@@ -57,7 +56,6 @@
         <td><%= link_to "Decline", store_path(store.slug, params:
                                               {store: {title: store.title,
                                                        description: store.description,
-                                                       status: store.status,
                                                        image_url: store.image_url,
                                                        accreditations: store.accreditations,
                                                        status: "declined"

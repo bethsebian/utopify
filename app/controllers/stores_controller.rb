@@ -25,7 +25,6 @@ class StoresController < ApplicationController
     store = Store.find_by(slug: params[:slug])
     store.update_attributes(store_params)
     store.status = params[:store][:status]
-    # byebug
     if current_user.platform_admin? && store.save
       if store.status == "active"
         flash[:success] = {color: "white", message: "Store #{store.title} has been successfully created and approved"}
