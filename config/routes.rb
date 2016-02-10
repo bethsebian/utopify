@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :orders, only: [:create, :index, :show, :update]
   resources :users, only: [:new, :create]
   resources :items, only: [:new, :create, :edit, :update]
-  resources :categories, only: [:show, :index], param: :slug do
+  resources :categories, only: [:show, :index, :edit, :update], param: :slug do
     resources :items, only: [:index]
   end
 
