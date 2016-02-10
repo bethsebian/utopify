@@ -29,7 +29,6 @@ RSpec.feature "guest navigates" do
 		expect(page).to have_css("#item_categories", :count => Category.all.count )
 		click_on(category_1.title)
 		expect(current_path).to eq(category_path(category_1))
-		save_and_open_page
   end
 
 	scenario "user views item" do
