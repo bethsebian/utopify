@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   resources :stores, only: [:show, :new, :create, :edit, :update], param: :slug do
     resources :items, param: :slug
-    resources :dashboard, only: [:index]  
+    resources :dashboard, only: [:index]
   end
 
   namespace :platform_admin do
