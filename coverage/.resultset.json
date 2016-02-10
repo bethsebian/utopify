@@ -1,19 +1,19 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/justinpease/Turing_All/Module_3.2/projects/the_pivot/app/helpers/application_helper.rb": [
+      "/Users/lenny/turing/3module/projects/apocalypsify/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/justinpease/Turing_All/Module_3.2/projects/the_pivot/app/helpers/platform_admin/dashboard_helper.rb": [
+      "/Users/lenny/turing/3module/projects/apocalypsify/app/helpers/platform_admin/dashboard_helper.rb": [
         1,
         null
       ],
-      "/Users/justinpease/Turing_All/Module_3.2/projects/the_pivot/app/helpers/store/dashboard_helper.rb": [
+      "/Users/lenny/turing/3module/projects/apocalypsify/app/helpers/store/dashboard_helper.rb": [
         1,
         null
       ],
-      "/Users/justinpease/Turing_All/Module_3.2/projects/the_pivot/app/models/store.rb": [
+      "/Users/lenny/turing/3module/projects/apocalypsify/app/models/store.rb": [
         1,
         1,
         1,
@@ -23,35 +23,35 @@
         1,
         null,
         1,
-        2,
+        5,
         null,
         null,
         1,
-        26,
+        34,
         null,
         null,
         1,
-        8,
+        14,
         null,
         null,
         1,
-        8,
+        14,
         null,
         null,
         1,
-        8,
+        14,
         null,
         null,
         1,
-        8,
+        14,
         null,
         null
       ],
-      "/Users/justinpease/Turing_All/Module_3.2/projects/the_pivot/app/helpers/stores_helper.rb": [
+      "/Users/lenny/turing/3module/projects/apocalypsify/app/helpers/stores_helper.rb": [
         1,
         null
       ],
-      "/Users/justinpease/Turing_All/Module_3.2/projects/the_pivot/app/models/cart_item.rb": [
+      "/Users/lenny/turing/3module/projects/apocalypsify/app/models/cart_item.rb": [
         1,
         1,
         1,
@@ -78,12 +78,12 @@
         1,
         null
       ],
-      "/Users/justinpease/Turing_All/Module_3.2/projects/the_pivot/app/models/cart.rb": [
+      "/Users/lenny/turing/3module/projects/apocalypsify/app/models/cart.rb": [
         1,
         1,
         null,
         1,
-        99,
+        105,
         null,
         null,
         1,
@@ -92,7 +92,7 @@
         null,
         null,
         1,
-        83,
+        86,
         null,
         null,
         1,
@@ -124,7 +124,7 @@
         null,
         null
       ],
-      "/Users/justinpease/Turing_All/Module_3.2/projects/the_pivot/app/models/category.rb": [
+      "/Users/lenny/turing/3module/projects/apocalypsify/app/models/category.rb": [
         1,
         1,
         1,
@@ -144,12 +144,12 @@
         14,
         14,
         null,
-        20,
+        21,
         27,
         null,
         null
       ],
-      "/Users/justinpease/Turing_All/Module_3.2/projects/the_pivot/app/models/order_digest.rb": [
+      "/Users/lenny/turing/3module/projects/apocalypsify/app/models/order_digest.rb": [
         1,
         1,
         null,
@@ -175,7 +175,7 @@
         null,
         null
       ],
-      "/Users/justinpease/Turing_All/Module_3.2/projects/the_pivot/app/models/user.rb": [
+      "/Users/lenny/turing/3module/projects/apocalypsify/app/models/user.rb": [
         1,
         1,
         1,
@@ -189,11 +189,11 @@
         null,
         null,
         1,
-        2,
+        12,
         null,
         null
       ],
-      "/Users/justinpease/Turing_All/Module_3.2/projects/the_pivot/app/models/item.rb": [
+      "/Users/lenny/turing/3module/projects/apocalypsify/app/models/item.rb": [
         1,
         1,
         1,
@@ -210,20 +210,20 @@
         null,
         null
       ],
-      "/Users/justinpease/Turing_All/Module_3.2/projects/the_pivot/app/models/order.rb": [
+      "/Users/lenny/turing/3module/projects/apocalypsify/app/models/order.rb": [
         1,
         1,
         1,
         1,
         null
       ],
-      "/Users/justinpease/Turing_All/Module_3.2/projects/the_pivot/app/models/order_item.rb": [
+      "/Users/lenny/turing/3module/projects/apocalypsify/app/models/order_item.rb": [
         1,
         1,
         1,
         null
       ],
-      "/Users/justinpease/Turing_All/Module_3.2/projects/the_pivot/app/controllers/items_controller.rb": [
+      "/Users/lenny/turing/3module/projects/apocalypsify/app/controllers/items_controller.rb": [
         1,
         null,
         1,
@@ -238,7 +238,7 @@
         null,
         null
       ],
-      "/Users/justinpease/Turing_All/Module_3.2/projects/the_pivot/app/controllers/application_controller.rb": [
+      "/Users/lenny/turing/3module/projects/apocalypsify/app/controllers/application_controller.rb": [
         1,
         null,
         null,
@@ -247,11 +247,11 @@
         1,
         null,
         1,
-        90,
+        96,
         null,
         null,
         1,
-        160,
+        169,
         null,
         null,
         1,
@@ -260,7 +260,7 @@
         null,
         null
       ],
-      "/Users/justinpease/Turing_All/Module_3.2/projects/the_pivot/app/controllers/cart_items_controller.rb": [
+      "/Users/lenny/turing/3module/projects/apocalypsify/app/controllers/cart_items_controller.rb": [
         1,
         1,
         1,
@@ -293,7 +293,7 @@
         null,
         null
       ],
-      "/Users/justinpease/Turing_All/Module_3.2/projects/the_pivot/app/controllers/stores_controller.rb": [
+      "/Users/lenny/turing/3module/projects/apocalypsify/app/controllers/stores_controller.rb": [
         1,
         1,
         22,
@@ -306,7 +306,7 @@
         null,
         null
       ],
-      "/Users/justinpease/Turing_All/Module_3.2/projects/the_pivot/app/controllers/home_controller.rb": [
+      "/Users/lenny/turing/3module/projects/apocalypsify/app/controllers/home_controller.rb": [
         1,
         null,
         1,
@@ -322,7 +322,7 @@
         null,
         null
       ],
-      "/Users/justinpease/Turing_All/Module_3.2/projects/the_pivot/app/controllers/categories_controller.rb": [
+      "/Users/lenny/turing/3module/projects/apocalypsify/app/controllers/categories_controller.rb": [
         1,
         null,
         1,
@@ -336,7 +336,23 @@
         null,
         null
       ],
-      "/Users/justinpease/Turing_All/Module_3.2/projects/the_pivot/app/controllers/sessions_controller.rb": [
+      "/Users/lenny/turing/3module/projects/apocalypsify/app/controllers/dashboard_controller.rb": [
+        1,
+        null,
+        1,
+        8,
+        3,
+        3,
+        5,
+        2,
+        2,
+        null,
+        3,
+        null,
+        null,
+        null
+      ],
+      "/Users/lenny/turing/3module/projects/apocalypsify/app/controllers/sessions_controller.rb": [
         1,
         null,
         1,
@@ -374,23 +390,13 @@
         null,
         null
       ],
-      "/Users/justinpease/Turing_All/Module_3.2/projects/the_pivot/app/controllers/dashboard_controller.rb": [
-        1,
-        null,
-        1,
-        2,
-        2,
-        null,
-        null,
-        null
-      ],
-      "/Users/justinpease/Turing_All/Module_3.2/projects/the_pivot/app/controllers/platform_admin/dashboard_controller.rb": [
+      "/Users/lenny/turing/3module/projects/apocalypsify/app/controllers/platform_admin/dashboard_controller.rb": [
         1,
         1,
         null,
         null
       ],
-      "/Users/justinpease/Turing_All/Module_3.2/projects/the_pivot/app/controllers/users_controller.rb": [
+      "/Users/lenny/turing/3module/projects/apocalypsify/app/controllers/users_controller.rb": [
         1,
         null,
         1,
@@ -432,7 +438,7 @@
         null,
         null
       ],
-      "/Users/justinpease/Turing_All/Module_3.2/projects/the_pivot/app/controllers/confirm_retired/admin/base_controller.rb": [
+      "/Users/lenny/turing/3module/projects/apocalypsify/app/controllers/confirm_retired/admin/base_controller.rb": [
         0,
         0,
         0,
@@ -447,118 +453,7 @@
         0,
         0
       ],
-      "/Users/justinpease/Turing_All/Module_3.2/projects/the_pivot/app/controllers/confirm_retired/admin/items_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/justinpease/Turing_All/Module_3.2/projects/the_pivot/app/controllers/confirm_retired/admin/orders_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/justinpease/Turing_All/Module_3.2/projects/the_pivot/app/controllers/confirm_retired/carts_controller.rb": [
-        0,
-        0,
-        0
-      ],
-      "/Users/justinpease/Turing_All/Module_3.2/projects/the_pivot/app/controllers/confirm_retired/reviews_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/justinpease/Turing_All/Module_3.2/projects/the_pivot/app/controllers/orders_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+      "/Users/lenny/turing/3module/projects/apocalypsify/app/controllers/confirm_retired/admin/items_controller.rb": [
         0,
         0,
         0,
@@ -600,14 +495,8 @@
         0,
         0
       ],
-      "/Users/justinpease/Turing_All/Module_3.2/projects/the_pivot/app/controllers/stores/dashboard_controller.rb": [
+      "/Users/lenny/turing/3module/projects/apocalypsify/app/controllers/confirm_retired/admin/orders_controller.rb": [
         0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/justinpease/Turing_All/Module_3.2/projects/the_pivot/app/controllers/stores/items_controller.rb": [
         0,
         0,
         0,
@@ -615,19 +504,129 @@
         0,
         0
       ],
-      "/Users/justinpease/Turing_All/Module_3.2/projects/the_pivot/app/models/confirm_retire/review.rb": [
+      "/Users/lenny/turing/3module/projects/apocalypsify/app/controllers/confirm_retired/carts_controller.rb": [
+        0,
+        0,
+        0
+      ],
+      "/Users/lenny/turing/3module/projects/apocalypsify/app/controllers/confirm_retired/reviews_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
         0,
         0,
         0,
         0
       ],
-      "/Users/justinpease/Turing_All/Module_3.2/projects/the_pivot/app/models/confirm_retire/store_admin.rb": [
+      "/Users/lenny/turing/3module/projects/apocalypsify/app/controllers/orders_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
         0,
         0,
         0,
         0
       ],
-      "/Users/justinpease/Turing_All/Module_3.2/projects/the_pivot/app/models/confirm_retire/travesty.rb": [
+      "/Users/lenny/turing/3module/projects/apocalypsify/app/controllers/stores/items_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/lenny/turing/3module/projects/apocalypsify/app/models/confirm_retire/review.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/lenny/turing/3module/projects/apocalypsify/app/models/confirm_retire/store_admin.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/lenny/turing/3module/projects/apocalypsify/app/models/confirm_retire/travesty.rb": [
         0,
         0,
         0,
@@ -651,6 +650,6 @@
         0
       ]
     },
-    "timestamp": 1455051530
+    "timestamp": 1455070931
   }
 }
