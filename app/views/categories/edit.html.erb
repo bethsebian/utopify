@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col s12 m12 l12" id="edit-item-form">
+      <h2>Fill in data to edit a Category</h2>
+      <%= form_for @category do |f| %>
+        <%= f.label :title, "Title:" %>
+        <%= f.text_field :title %>
+
+        <%= f.label :image_url, "Image Url:" %>
+        <%= f.text_field :image_url %>
+
+        <%= f.submit "Submit", class: "waves-effect waves-light btn"%>
+      <% end %>
+    </div>
+  </div>
+</div>
