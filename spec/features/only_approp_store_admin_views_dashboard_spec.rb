@@ -41,6 +41,15 @@ RSpec.feature "store and store's admin' exist" do
     expect(page).to have_content("doesn't exist")
   end
 
+  scenario "guest cannot access store dash" do
+    setup
+
+    visit store_dashboard_index_path(store_1.slug)
+
+    expect(current_path).to eq('/404')
+    expect(page).to have_content("doesn't exist")
+  end
+
   scenario "platform_admin can view any store's dash" do
     setup
 

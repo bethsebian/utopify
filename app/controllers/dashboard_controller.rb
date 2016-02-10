@@ -1,10 +1,10 @@
 class DashboardController < ApplicationController
 
   def index
-    if current_user.store == Store.find_by_slug(params["store_slug"])
+    if current_user && (current_user.store == Store.find_by_slug(params["store_slug"]))
       @store = current_user.store
       @orders = @store.orders
-    elsif current_user.platform_admin?
+    elsif current_user && current_user.platform_admin?
       @store = Store.find_by_slug(params["store_slug"])
       @orders = @store.orders
     else
