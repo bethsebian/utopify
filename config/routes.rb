@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :items, only: [:index]
   end
 
-  resources :stores, only: [:show, :create, :new], param: :slug do
+  resources :stores, only: [:show, :new, :create, :edit, :update], param: :slug do
     resources :items, param: :slug
     resources :dashboard, only: [:index]
   end
