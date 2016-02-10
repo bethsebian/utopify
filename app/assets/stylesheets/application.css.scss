@@ -33,7 +33,7 @@
   font-family: 'Amaranth', sans-serif;
   p a {
    font-size: 25px;
-   color: #97743a;
+   color: #49412c;
   }
 }
 
@@ -113,9 +113,13 @@ nav .brand-logo {
 }
 
 #hr-divider {
+  height: 1px;
+  color: #B6B6B4;
+  background-color: #B6B6B4;
+  border: none;
   width: 300px;
   margin-bottom: 50px;
-  border-color: #B6B6B4;
+  line-color: #B6B6B4;
 }
 
   // Filters
