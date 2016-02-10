@@ -21,13 +21,9 @@ RSpec.feature "guest navigates" do
 
 
 		visit root_path
-<<<<<<< HEAD
+
 		click_on "Our Initiatives"
-=======
-		within "#home-middle" do
-		  click_on "Our Initiatives"
-		end
->>>>>>> master
+
 		expect(current_path).to eq "/categories"
 		expect(page).to have_content("Our Categories")
 		expect(page).to have_css("#item_categories", :count => Category.all.count )
