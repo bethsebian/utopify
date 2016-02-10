@@ -31,8 +31,9 @@
   max-width: 65%;
   min-width: 450px;
   font-family: 'Amaranth', sans-serif;
-  p {
+  p a {
    font-size: 25px;
+   color: #97743a;
   }
 }
 
@@ -99,9 +100,16 @@ nav .brand-logo {
   min-width: 200px;
 }
 
+.centered-header a {
+  font-family: 'Amaranth', sans-serif;
+  text-align: center;
+  color: #49412c;
+}
+
 .centered-header {
   font-family: 'Amaranth', sans-serif;
   text-align: center;
+  color: #49412c;
 }
 
 #hr-divider {
@@ -122,10 +130,7 @@ nav .brand-logo {
   #filter-category-header {
     border-bottom: #B6B6B4 solid 1px;
     padding-bottom: 5px;
-  }
-
-  .items-index-filterable {
-
+    color: #49412c;
   }
 
   #filter-section {
@@ -135,18 +140,12 @@ nav .brand-logo {
   // Item Cards
   #card-image img {
     display:block;
-    margin: auto;
-    padding: 20px;
-    max-height: 200px;
-    max-width: 200px;
-    border: 1px solid white;
-    border-radius: 20px;
-    float: right;
-    margin: 25px 20px 0px 0px;
 }
 
   .card {
-    min-width: 200px;
+    min-width: 230px;
+    max-width: 230px;
+    margin-right: 10px;
     min-height: 400px;
     max-height: 400px;
   }
@@ -165,22 +164,38 @@ nav .brand-logo {
   .card-title-alt a {
     font-family: 'Amaranth', sans-serif;
     font-size: 20px;
-    color: #000000;
+    color: #49412c;
   }
 
   #card-store-title a {
     font-family: 'Amaranth', sans-serif;
     font-size: 12px;
-    color: #000000;
+    color: #97743a;
+  }
+
+  #card-item-price {
+    padding-bottom: 5px;
   }
 
 
-
     // Buttons
-    .add-to-cart {
-      background: #000000;
+    .card-item-btn {
+      border-top: 1px solid #C0C0C0;
+      background-color: transparent;
+      font-size: 13px;
       font-family: 'Amaranth', sans-serif;
+      color: #49412c;
     }
+    .card-item-btn:hover {
+      background-color: #000000;
+      background: #FFFFFF;
+      color: #49412c;
+    }
+    .card-item-btn:active {
+      color: #49412c;
+    }
+
+
 
 
 // * Store Show Page
@@ -255,6 +270,7 @@ input.qty-selector {
   height: 20px;
   width: 40px;
   border-bottom: none;
+  text-align: center;
 }
 
 hr {
