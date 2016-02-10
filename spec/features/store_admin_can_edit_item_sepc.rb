@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "admin visits dashboard clicks link to edit item" do
-	scenario "edits an item and is redirected back to the dashboard" do
+	scenario "admin edits an item and is redirected back to the dashboard" do
     category_1 = create(:category_with_items, items_count: 1)
 
 		item_1 = category_1.items.first
