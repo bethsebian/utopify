@@ -20,7 +20,8 @@ RSpec.feature "platform admin visits dashboard and sees pending stores" do
 		end
 
 		expect(current_path).to eq(platform_admin_dashboard_index_path)
-    expect(page).to have_content("Store #{store.title} has been successfully created and is approved")
+    save_and_open_page
+    expect(page).to have_content("Store #{store.title} has been successfully created and approved")
 		within("#active-stores") do
 			expect(page).to have_content("#{store.title}")
 		end
