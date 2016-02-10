@@ -9,21 +9,27 @@ RSpec.feature "guest navigates" do
   end
 
 	scenario "user views categories" do
+		category_1 = create(:category_with_items, items_count: 5)
+		category_2 = create(:category_with_items, items_count: 5)
+		category_3 = create(:category_with_items, items_count: 5)
+		item_1, item_2, item_3, item_4, item_5 = category_1.items
+		item_6, item_7, item_8, item_9, item_10 = category_2.items
+		item_11, item_12, item_13, item_14, item_15 = category_3.items
 
-		store = Store.create(title: "test", accreditations: ["Hurray"])
-		store_2 = Store.create(title: "bad store", accreditations: ["booooo"])
-		category_1 = create_list(:category_with_items, 5)
-		category_2 = create_list(:category_with_items, 1)
-		item_1, item_2, item_3, item_4, item_5 = category_1[0].items
-		item_6, item_7, item_8, item_9, item_10 = category_2[0].items
-		store.items << [item_1, item_2, item_3, item_4, item_6, item_7, item_8, item_9, item_10]
-		store_2.items << item_5
+		store = create(:store)
+		store.items << [category_1.items, category_2.items, category_3.items].flatten
+
 
 		visit root_path
-		click_on "Our Initiatives"
+		within "#home-middle" do
+		  click_on "Our Initiatives"
+		end
 		expect(current_path).to eq "/categories"
 		expect(page).to have_content("Our Categories")
 		expect(page).to have_css("#item_categories", :count => Category.all.count )
+		click_on(category_1.title)
+		expect(current_path).to eq(category_path(category_1))
+		save_and_open_page
   end
 
 	scenario "user views item" do
