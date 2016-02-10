@@ -26,7 +26,7 @@ RSpec.feature "admin visits dashboard clicks link to add a new item" do
 		within(".store-items-dashboard-table") do
 			expect(page).to have_content(store.items.first.title)
 			expect(page).to have_content(store.items.first.description)
-      click_on "Add an item"
+      click_on "Add New Item"
 		end
     expect(current_path).to eq(new_item_path)
 
@@ -39,6 +39,8 @@ RSpec.feature "admin visits dashboard clicks link to add a new item" do
     	click_on "Submit"
     end
 		expect(current_path).to eq(store_dashboard_index_path(store.slug))
+
+		expect(page).to have_content("Your item was successfully created")
 
 		within(".store-items-dashboard-table") do
 			expect(page).to have_content(store.items.second.description)
@@ -70,7 +72,7 @@ RSpec.feature "admin visits dashboard clicks link to add a new item" do
 		within(".store-items-dashboard-table") do
 			expect(page).to have_content(store.items.first.title)
 			expect(page).to have_content(store.items.first.description)
-      click_on "Add an item"
+      click_on "Add New Item"
 		end
     expect(current_path).to eq(new_item_path)
 
