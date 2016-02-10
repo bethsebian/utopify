@@ -5,88 +5,93 @@
 
 <div class="container">
 <!-- Sitewide Sales Sumary Data -->
-      <h4>Site-wide Sales Summary Data</h4>
-      <a class="btn platform-admin-tables">Hide / Display</a>
-      <table class="bordered highlight responsive-table">
-        <thead>
-          <tr>
-            <th data-field="total-sales">Total Sales</th>
-              <th data-field="category-sales">Category 1 Sales</th>
-              <th data-field="current-month">Current Month Sales</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>$398.76</td>
-            <td>$42.87</td>
-            <td>$234,231.87</td>
-          </tr>
-        </tbody>
-      </table><br><br>
-    <!-- Pending Stores -->
-      <h4>Pending Stores</h4>
-      <a class="btn platform-admin-tables">Hide / Display</a>
-      <table class="bordered highlight responsive-table">
-        <thead>
-          <tr>
-              <th data-field="title">Store Title</th>
-              <th data-field="owner">Owner</th>
-              <th data-field="description">Description</th>
-              <th data-field="accreditation">Accreditation</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Jeffs Store</td>
-            <td>Jeff Johnson</td>
-            <td>We sell stuff to people</td>
-            <td>Maybe a dropdown list of accredidations?</td>
-          </tr>
-          <tr>
-            <td>Harry's Cool Store</td>
-            <td>Harry Hudini</td>
-            <td>We sell stuff to people</td>
-            <td>Maybe a dropdown list of accredidations?</td>
-          </tr>
-          <tr>
-            <td>Jon's Even Cooler Store</td>
-            <td>Jon</td>
-            <td>We sell stuff to people</td>
-            <td>Maybe a dropdown list of accredidations?</td>
-          </tr>
-        </tbody>
-      </table><br><br>
-      <!-- all other stores -->
-      <h4>All Stores</h4>
-      <a class="btn platform-admin-tables">Hide / Display</a>
-      <table class="bordered highlight responsive-table">
-        <thead>
-          <tr>
-              <th data-field="title">Store Title</th>
-              <th data-field="owner">Owner</th>
-              <th data-field="description">Description</th>
-              <th data-field="status">Active / Declined / Closed</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Jeffs Store</td>
-            <td>Jeff Johnson</td>
-            <td>We sell stuff to people</td>
-            <td>Active</td>
-          </tr>
-          <tr>
-            <td>Harry's Cool Store</td>
-            <td>Harry Hudini</td>
-            <td>We sell stuff to people</td>
-            <td>Active</td>
-          </tr>
-          <tr>
-            <td>Jon's Even Cooler Store</td>
-            <td>Jon Guy</td>
-            <td>We sell stuff to people</td>
-            <td>Active</td>
-          </tr>
-        </tbody>
-      </table><br><br>
+  <h4>Site-wide Sales Summary Data</h4>
+  <a class="btn platform-admin-tables">Hide / Display</a>
+  <table class="bordered highlight responsive-table">
+    <thead>
+      <tr>
+        <th data-field="total-sales">Total Sales</th>
+          <th data-field="category-sales">Category 1 Sales</th>
+          <th data-field="current-month">Current Month Sales</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>$398.76</td>
+        <td>$42.87</td>
+        <td>$234,231.87</td>
+      </tr>
+    </tbody>
+  </table><br><br>
+<!-- Pending Stores -->
+  <h4>Pending Stores</h4>
+  <a class="btn platform-admin-tables">Hide / Display</a>
+  <table class="bordered highlight responsive-table" id="pending-stores">
+    <thead>
+      <tr>
+        <th data-field="title">Store Title</th>
+        <th data-field="owner">Owner</th>
+        <th data-field="description">Description</th>
+        <th data-field="accreditation">Accreditations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @pending_stores.each do |store| %>
+      <tr>
+        <td><%= store.title %></td>
+        <td><%= store.description %></td>
+        <td><%= store.status %></td>
+        <td><%= store.user.username %></td>
+        <td><%= store.image_url %></td>
+        <td>dropdown for accredidations</td>
+        <td><%= link_to "Approve" "#" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table><br><br>
+  <!-- all other stores -->
+  <h4>All Stores</h4>
+  <a class="btn platform-admin-tables">Hide / Display</a>
+  <table class="bordered highlight responsive-table">
+    <thead>
+      <tr>
+          <th data-field="title">Store Title</th>
+          <th data-field="owner">Owner</th>
+          <th data-field="description">Description</th>
+          <th data-field="status">Active / Declined / Closed</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Jeffs Store</td>
+        <td>Jeff Johnson</td>
+        <td>We sell stuff to people</td>
+        <td>Active</td>
+      </tr>
+      <tr>
+        <td>Harry's Cool Store</td>
+        <td>Harry Hudini</td>
+        <td>We sell stuff to people</td>
+        <td>Active</td>
+      </tr>
+      <tr>
+        <td>Jon's Even Cooler Store</td>
+        <td>Jon Guy</td>
+        <td>We sell stuff to people</td>
+        <td>Active</td>
+      </tr>
+    </tbody>
+  </table><br><br>
+  <h4>All Categories</h4>
+  <a class="btn platform-admin-tables">Hide / Display</a>
+  <table class="bordered highlight responsive-table" id="all-categories">
+    <% @categories.each do |category| %>
+    <tbody>
+      <tr>
+        <td><%= category.title %></td>
+        <td><%= link_to "Edit", edit_category_path(category.slug) %></td>
+      </tr>
+    </tbody>
+    <% end %>
+  </table><br><br>
 </div>
