@@ -10,9 +10,10 @@ RSpec.feature "guest navigates" do
 
 	scenario "user views categories" do
 		visit root_path
-		click_on "Browse All Categories"
+		click_on "Our Initiatives"
 		expect(current_path).to eq "/categories"
 		expect(page).to have_content("Our Categories")
+		expect(page).to have_css("#item_categories", :count => )
   end
 
 	scenario "user views item" do
