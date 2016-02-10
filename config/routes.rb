@@ -12,13 +12,13 @@ Rails.application.routes.draw do
   resources :order_items, only: [:create]
   resources :orders, only: [:create, :index, :show, :update]
   resources :users, only: [:new, :create]
-
+  resources :items, only: [:new, :create]
   resources :categories, only: [:show, :index], param: :slug do
     resources :items, only: [:index]
   end
 
   resources :stores, only: [:show], param: :slug do
-    resources :items, only: [:show, :new, :create], param: :slug
+    resources :items, only: [:show], param: :slug
     resources :dashboard, only: [:index]
   end
 
