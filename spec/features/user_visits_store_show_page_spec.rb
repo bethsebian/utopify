@@ -1,31 +1,36 @@
 require 'rails_helper'
 
-RSpec.feature "guest visits item page" do
-	scenario "and sees item details" do
-		store = Store.create(title: "test", accreditations: ["Hurray"])
+RSpec.feature "guest visits store show page" do
+	scenario "and sees top items and item details" do
+		store_1 = Store.create(title: "test", accreditations: ["Hurray"])
 		store_2 = Store.create(title: "bad store", accreditations: ["booooo"])
-		category_1 = create_list(:category_with_items, 5)
-		category_2 = create_list(:category_with_items, 1)
-		item_1, item_2, item_3, item_4, item_5 = category_1[0].items
-		item_6, item_7, item_8, item_9, item_10 = category_2[0].items
-		store.items << [item_1, item_2, item_3, item_4, item_6, item_7, item_8, item_9, item_10]
-		store_2.items << item_5
+		category_1 = create(:category_with_items, items_count: 6)
+		item_1, item_2, item_3, item_4, item_5, item_6 = category_1.items
+		store_1.items << [item_1, item_2, item_3]
+		store_2.items << [item_4, item_5, item_6]
 
-		visit store_path(store.slug)
+		visit store_path(store_1.slug)
 
-		expect(page).to have_content(store.title)
-    expect(page).to have_content(store.description)
-		expect(page).to have_content(store.accreditations[0])
-    expect(page).to_not have_content(item_5.title)
+		expect(page).to have_content(store_1.title)
+    expect(page).to have_content(store_1.description)
+		expect(page).to have_content(store_1.accreditations.first)
+
 		within "#home-middle" do
-			expect(page).to have_content(store.items[0].title)
-			expect(page).to have_content(store.items[1].title)
-			expect(page).to have_content(store.items[2].title)
+			expect(page).to have_content(item_1.title)
+			expect(page).to have_content(item_2.title)
+			expect(page).to have_content(item_3.title)
+			expect(page).to_not have_content(item_4.title)
+			expect(page).to_not have_content(item_5.title)
+			expect(page).to_not have_content(item_6.title)
 		end
 
-    within "#item-index" do
-      expect(page).to_not have_content(item_5.title)
-			expect(page).to have_css("#store_items_for_sale", :count => store.items.count) # this test will change with the implementation of pagination
+    within ".item-index" do
+			expect(page).to have_content(item_1.title)
+			expect(page).to have_content(item_2.title)
+			expect(page).to have_content(item_3.title)
+      expect(page).to_not have_content(item_4.title)
+			expect(page).to_not have_content(item_5.title)
+			expect(page).to_not have_content(item_6.title)
     end
 	end
 end
