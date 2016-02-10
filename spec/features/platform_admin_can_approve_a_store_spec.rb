@@ -20,17 +20,9 @@ RSpec.feature "platform admin visits dashboard and sees pending stores" do
 		end
 
 		expect(current_path).to eq(platform_admin_dashboard_index_path)
-    save_and_open_page
     expect(page).to have_content("Store #{store.title} has been successfully created and approved")
 		within("#active-stores") do
 			expect(page).to have_content("#{store.title}")
 		end
   end
 end
-# As a platform admin,
-# when I login,
-# I am directed to my dashboard,
-# and I see a list of pending stores,
-# and when I click on approve,
-# I see a flash notice that the store has been successfully created,
-# and the store is now visible in the live stores section.
