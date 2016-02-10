@@ -1,6 +1,6 @@
 <div class="col s9 m9 l9" id="" >
   <% @items.each do |item| %>
-    <div class="card col s4 m4 l4 center">
+    <div class="card col s4 m4 l4 center <%= "item_#{item.id}" %>">
       <div class="card-content">
         <div class="card-image">
           <img src='<%= item.image_url %>' id="card-image"> <!-- replace with item image -->
