@@ -22,7 +22,7 @@ RSpec.feature "store and store's admin' exist" do
 
     visit store_dashboard_index_path(store_1.slug)
 
-    expect(page).to have_content(store_1.title)
+    expect(page).to have_content("#{store_1.title} Dashboard" )
 
     visit store_dashboard_index_path(store_2.slug)
 
@@ -48,11 +48,11 @@ RSpec.feature "store and store's admin' exist" do
 
     visit store_dashboard_index_path(store_1.slug)
 
-    expect(page).to have_content(store_1.title)
+    expect(page).to have_content("#{store_1.title} Dashboard")
 
     visit store_dashboard_index_path(store_2.slug)
 
-    expect(page).to have_content(store_2.title)
+    expect(page).to have_content("#{store_2.title} Dashboard")
   end
 
 end
