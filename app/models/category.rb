@@ -2,7 +2,7 @@ class Category < ActiveRecord::Base
 	before_save :generate_slug
 	has_many :items
 	has_many :order_items, through: :items
-	# validates :title, presence: true, uniqueness: true
+	validates :title, presence: true, uniqueness: true
 
 	def to_param
     title.parameterize
