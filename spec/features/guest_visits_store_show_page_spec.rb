@@ -32,5 +32,10 @@ RSpec.feature "guest visits store show page" do
 			expect(page).to_not have_content(item_5.title)
 			expect(page).to_not have_content(item_6.title)
     end
+		expect(page).to have_content("My Cart: 0")
+
+		first(:button, "Add To Cart").click
+
+		expect(page).to have_content("My Cart: 1")
 	end
 end
