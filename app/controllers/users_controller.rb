@@ -18,7 +18,6 @@ class UsersController < ApplicationController
   def show
     if current_user
       @user = current_user
-      redirect_to store_admin_dashboard_path if @user.store_admin?
     else
       flash[:error] = {message: "Must be signed in to see dashboard.", color: "red"}
       redirect_to root_path

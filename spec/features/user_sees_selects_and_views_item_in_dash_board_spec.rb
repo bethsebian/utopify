@@ -27,9 +27,8 @@ RSpec.feature "logged in user visits item show page" do
     end
 
     expect(page).to have_content("My Cart: 1")
-    expect(page).to have_content("Logged in as #{user.first_name}")
 
-    click_on("Logged in as #{user.first_name}")
+    click_on("My Dashboard")
 
     expect(current_path).to eq(dashboard_path)
     # expect(current_path).to eq(store_item_path(item_1.store.slug, item_1.slug))
