@@ -1,8 +1,3 @@
-# As a user,
-# when I go to a store page,
-# the path is ‘/stores/store-slug’,
-# I see all the items sold by that store.
-
 require 'rails_helper'
 
 RSpec.feature "logged in user goes to show page" do
