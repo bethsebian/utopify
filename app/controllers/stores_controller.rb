@@ -54,13 +54,7 @@ class StoresController < ApplicationController
     store.update_attributes(store_params)
     store.status = params[:store][:status]
     if current_user.platform_admin? && store.save
-      if store.status == "active"
-        flash[:success] = {color: "white", message: "Store #{store.title} has been successfully created and approved"}
-      elsif store.status == "declined"
-        flash[:success] = {color: "white", message: "Store #{store.title} has been successfully declined"}
-      elsif store.status == "deactive"
-        flash[:success] = {color: "white", message: "Store #{store.title} has been successfully deactivated"}
-      end
+      flash[:success] = {color: "white", message: "Store #{store.title} is now #{store.status}"}
       redirect_to platform_admin_dashboard_index_path
     else
       flash[:error] = { color: "white", message: store.errors.full_messages.join(", ") }

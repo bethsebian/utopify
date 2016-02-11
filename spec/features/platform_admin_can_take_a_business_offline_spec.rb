@@ -20,7 +20,7 @@ RSpec.feature "platform admin visits dashboard" do
 		end
 
 		expect(current_path).to eq(platform_admin_dashboard_index_path)
-    expect(page).to have_content("Store #{store.title} has been successfully deactivated")
+    expect(page).to have_content("Store #{store.title} is now deactive")
 		within("#deactive-stores") do
 			expect(page).to have_content("#{store.title}")
 		end
