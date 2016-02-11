@@ -15,7 +15,7 @@
         <%= f.label :image_url, "Image Url:" %>
         <%= f.text_field :image_url %>
 
-        <%= f.collection_select :category, current_user.store.categories.uniq, :id, :title, {}, {class: "browser-default"} %><br>
+        <%= f.collection_select :category, Category.all, :id, :title, {}, {class: "browser-default"} %><br>
 
         <%= f.submit "Submit", class: "waves-effect waves-light btn"%>
       <% end %>

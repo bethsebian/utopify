@@ -30,9 +30,9 @@ class ApplicationController < ActionController::Base
     render file: "/public/404" unless current_user
   end
 
-  # def store_admin?
-  #   current_user && "business_admin".in?(current_user.roles.pluck(:name))
-  # end
+  def store_admin?
+    current_user && "business_admin".in?(current_user.roles.pluck(:name))
+  end
 
   def platform_admin?
     current_user && current_user.platform_admin?
@@ -44,7 +44,7 @@ class ApplicationController < ActionController::Base
 
   def authorize! # any user accessing any page to root unless authorized
     unless authorized?
-      redirect_to root_url
+      redirect_to '/404'
     end
   end
 

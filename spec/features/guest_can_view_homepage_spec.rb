@@ -32,8 +32,8 @@ RSpec.feature 'guest visits home page' do
 		expect(page).to have_content(item_10.title)
 		expect(page).to have_content(item_11.title)
 		expect(page).to have_content(item_12.title)
-		expect(page).to_not have_content(item_13.title)
-		expect(page).to_not have_content(item_14.title)
-		expect(page).to_not have_content(item_15.title)
+		expect(page).to have_content(item_13.title)
+		expect(page).to have_content(item_14.title)
+		expect(page).to have_content(item_15.title)
 	end
 end
