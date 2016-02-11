@@ -1,31 +1,79 @@
 require 'rails_helper'
+include ActionView::Helpers::NumberHelper
 
-RSpec.feature "user can view archived items in order history" do
-	scenario "but cannot add them to cart" do
+RSpec.feature "user visits dashboard page" do
+	scenario "and cannot add inactive item to cart" do
+    user = create(:user)
+		store= create(:store)
+		category_1 = create(:category)
+    item_1 = create(:item, store_id: store.id, category_id: category_1.id)
+    order_1 = create(:order, user_id: user.id, status: "ordered")
+    order_item_1 = create(:order_item, order_id: order_1.id, item_id: item_1.id, item_price: item_1.price)
+		order_1.total_price = order_item_1.item_price * order_item_1.item_quantity
+		order_1.save
 
-    category_1 = create(:category_with_items, items_count: 1)
-    category_2 = create(:category_with_items, items_count: 1)
-    category_3 = create(:category_with_items, items_count: 1)
-    category_4 = create(:category_with_items, items_count: 1)
+    visit root_path
+    click_on "Login"
 
-    item_1 = category_1.items.first
-    item_2 = category_2.items.first
-    item_3 = category_3.items.first
-    item_4 = category_4.items.first
+    fill_in "Username", :with => user.username
+    fill_in "Password", :with => "password"
+    click_on "Sign In"
+    expect(current_path).to eq(dashboard_path)
 
-    order_1 = create(:order)
-    order_2 = create(:order)
-    order_3 = create(:order)
-    order_4 = create(:order)
+    expect(page).to have_content(number_to_currency(order_1.total_price))
+    expect(page).to have_content(order_1.created_at.strftime("%B %e, %Y"))
+    expect(page).to have_content(order_1.id)
 
-    order_1.items << [item_4]
-    order_2.items << [item_4, item_3]
-    order_3.items << [item_4, item_3, item_2]
-    order_4.items << [item_4, item_3, item_2, item_1]
+    within("#user-orders-table") do
+      click_on 'view'
+    end
 
-    store = create(:store)
-    store.items << [item_4, item_3, item_2, item_1]
-end
+		click_on "#{order_item_1.item.title}"
+
+		item_1.active = false
+		item_1.save
+
+		expect(page).to have_content("My Cart: 0")
+		
+		click_on("Add To Cart")
+
+		expect(page).to have_content("My Cart: 0")
+  end
+
+	scenario "and can add active item to cart" do
+		user = create(:user)
+		store= create(:store)
+		category_1 = create(:category)
+		item_1 = create(:item, store_id: store.id, category_id: category_1.id)
+		order_1 = create(:order, user_id: user.id, status: "ordered")
+		order_item_1 = create(:order_item, order_id: order_1.id, item_id: item_1.id, item_price: item_1.price)
+		order_1.total_price = order_item_1.item_price * order_item_1.item_quantity
+		order_1.save
+
+		visit root_path
+		click_on "Login"
+
+		fill_in "Username", :with => user.username
+		fill_in "Password", :with => "password"
+		click_on "Sign In"
+		expect(current_path).to eq(dashboard_path)
+
+		expect(page).to have_content(number_to_currency(order_1.total_price))
+		expect(page).to have_content(order_1.created_at.strftime("%B %e, %Y"))
+		expect(page).to have_content(order_1.id)
+
+		within("#user-orders-table") do
+			click_on 'view'
+		end
+
+		click_on "#{order_item_1.item.title}"
+
+		expect(page).to have_content("My Cart: 0")
+
+		click_on("Add To Cart")
+
+		expect(page).to have_content("My Cart: 1")
+	end
 end
 
 # As a registered user,
