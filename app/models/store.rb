@@ -43,4 +43,8 @@ class Store < ActiveRecord::Base
   def self.pending_stores
     where(status: "pending")
   end
+
+  def self.deactive_stores
+    where(status: "deactive")
+  end
 end
