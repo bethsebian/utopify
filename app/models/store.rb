@@ -6,6 +6,8 @@ class Store < ActiveRecord::Base
   has_many :order_items, through: :items
   has_many :orders, through: :order_items
 
+  validates :title, presence: true, uniqueness: true
+
   def item_categories
     self.categories.uniq
   end
@@ -38,7 +40,7 @@ class Store < ActiveRecord::Base
     where(status: "declined")
   end
 
-  def self.pending_stores 
+  def self.pending_stores
     where(status: "pending")
   end
 end
