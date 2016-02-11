@@ -31,6 +31,8 @@ class StoresController < ApplicationController
     end
   end
 
+  private
+
   def store_params
     params.require(:store).permit(:title, :description, :image_url, :accreditations)
   end
