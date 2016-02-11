@@ -11,8 +11,6 @@ class StoresController < ApplicationController
 
   def create
     @store = current_user.stores.create(store_params)
-    @store.status = "pending"
-    @store.save
     flash[:notice] = {color: "green", message: "#{@store.title} has been submitted for review."}
     redirect_to root_path
   end
