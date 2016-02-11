@@ -30,7 +30,15 @@ class Store < ActiveRecord::Base
     self.orders.where(status: "pending")
   end
 
-  def active_stores
-    @active_stores = Store.where(status: "active")
+  def self.active_stores
+    where(status: "active")
+  end
+
+  def self.declined_stores
+    where(status: "declined")
+  end
+
+  def self.pending_stores 
+    where(status: "pending")
   end
 end

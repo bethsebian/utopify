@@ -4,8 +4,7 @@ class PlatformAdmin::DashboardController < ApplicationController
 
   def index
     @categories = Category.all
-    @pending_stores = Store .where(status: "pending")
-    @active_stores = Store .where(status: "active")
-    @declined_stores = Store .where(status: "declined")
+    @stores = Store.all
   end
+
 end
