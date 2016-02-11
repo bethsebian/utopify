@@ -81,14 +81,6 @@ RSpec.feature "admin visits dashboard" do
 			expect(page).to have_content(store.completed_orders.first.user.username)
 		end
 
-#this test should test the hide/display buttons but I may have to etst that the classes or id's
-#are on the page before but not after clicking the button
-		# within(".store-pending-orders-table")	do
-		# 	expect(page).to have_content(store.pending_orders.first.total_price)
-		# 	click_on('Hide / Display')
-		# 	expect(page).to_not have_content(store.pending_orders.first.total_price)
-		# end
-
 		within(".store-items-dashboard-table") do
 			expect(page).to have_content(store.items.first.title)
 			expect(page).to have_content(store.items.second.description)

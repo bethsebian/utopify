@@ -11,13 +11,12 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @url = items_path
   end
 
   def create
-    item = Item.new(item_params)
-    item.store_id = current_user.store.id
-    item.price = params[:item][:price].to_i
-    item.category_id = params[:item][:category].to_i
+    item = current_user.store.items.new(item_params)
+    item.category_id = params["category"]
     if item.save
       flash[:success] = {color: "white", message: "Your item was successfully created"}
       redirect_to store_dashboard_index_path(current_user.store.slug)
@@ -53,6 +52,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:title, :description, :image_url)
+    params.require(:item).permit(:title, :description, :image_url, :price)
   end
 end

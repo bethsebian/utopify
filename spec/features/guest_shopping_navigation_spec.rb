@@ -82,7 +82,6 @@ RSpec.feature "guest visits item page for other items in item show page category
 
 		visit store_item_path(item_1.store.slug, item_1.slug)
 		expect(page).to have_content(item_1.title)
-		expect(current_path).to eq(store_item_path(store_1.slug, store_1.items[0].slug))
 
 		click_on 'Utopify'
 		expect(current_path).to eq(root_path)

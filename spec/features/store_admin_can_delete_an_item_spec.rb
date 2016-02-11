@@ -37,6 +37,7 @@ RSpec.feature "admin visits dashboard" do
 		expect(Item.where(store_id: store.id, active: true).count).to eq(1)
 		expect(Item.where(store_id: store.id, active: false).count).to eq(1)
 
+		expect(Item.where(description: item_1.description).count).to eq(1)
 		within(".store-items-dashboard-table") do
 			expect(page).to_not have_content(item_1.description)
 		end

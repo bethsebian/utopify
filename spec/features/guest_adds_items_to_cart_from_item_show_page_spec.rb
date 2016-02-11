@@ -1,5 +1,4 @@
 require 'rails_helper'
-# do the same from the categories show page.
 
 RSpec.feature "guest visits item show page" do
 	scenario "clicks add to cart button and sees cart updated" do
@@ -27,10 +26,3 @@ RSpec.feature "guest visits item show page" do
     expect(page).to have_content("My Cart: 1")
   end
 end
-
-# As a guest/user,
-# when I visit item show page, and
-# then cart quantity is 0, and
-# I click on “Add to Cart”,
-# then item is added to cart (count visible in corner), and
-# cart quantity updates to 1

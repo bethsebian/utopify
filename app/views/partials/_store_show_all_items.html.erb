@@ -3,7 +3,7 @@
     <div class="card col s4 m4 l4 center <%= "item_#{item.id}" %>">
       <div class="card-content">
         <div class="card-image">
-          <img src='<%= item.image_url %>' id="card-image"> <!-- replace with item image -->
+          <img src='<%= item.image_url %>' id="card-image">
           <span class="card-title-alt"><%= link_to item.title, store_item_path(item.store.slug, item.slug) %></span>
         </div>
         <div id="card-store-title">

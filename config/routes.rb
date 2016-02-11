@@ -24,5 +24,8 @@ Rails.application.routes.draw do
 
   namespace :platform_admin do
     resources :dashboard, only: [:index]
+    scope ":store_slug" do
+      resources :items, only: [:new, :create]
+    end
   end
 end

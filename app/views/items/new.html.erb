@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col s12 m12 l12" id= "new-item-form">
       <h2>Fill in data to create a new item</h2>
-      <%= form_for @item do |f| %>
+      <%= form_for @item, url: @url  do |f| %>
         <%= f.label :title, "Title:" %>
         <%= f.text_field :title %>
 
@@ -15,7 +15,7 @@
         <%= f.label :image_url, "Image Url:" %>
         <%= f.text_field :image_url %>
 
-        <%= f.collection_select :category, current_user.store.categories.uniq, :id, :title, {}, {class: "browser-default"} %><br>
+        <%= f.collection_select :category, Category.all, :id, :title, {}, {class: "browser-default"} %><br>
 
         <%= f.submit "Submit", class: "waves-effect waves-light btn"%>
       <% end %>
