@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature "guest visits store show page" do
-	scenario "and sees top items and item details" do
+RSpec.feature "guest visits stores" do
+	scenario "and adds items to cart" do
 		store_1 = Store.create(title: "test", accreditations: ["Hurray"])
 		store_2 = Store.create(title: "bad store", accreditations: ["booooo"])
     store_3 = Store.create(title: "third store", accreditations: ["people like us"])
@@ -16,12 +16,21 @@ RSpec.feature "guest visits store show page" do
     expect(page).to have_content("My Cart: 0")
 
     first(:link, store_1.title).click
+
+    expect(current_path).to eq(store_path(store_1.slug))
+
     first(:button, "Add To Cart").click
     click_on("Utopify")
     first(:link, store_2.title).click
+
+    expect(current_path).to eq(store_path(store_2.slug))
+
     first(:button, "Add To Cart").click
     click_on("Utopify")
     first(:link, store_3.title).click
+
+    expect(current_path).to eq(store_path(store_3.slug))
+
     first(:button, "Add To Cart").click
 
     expect(page).to have_content("My Cart: 3")
