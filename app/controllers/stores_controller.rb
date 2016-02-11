@@ -31,6 +31,8 @@ class StoresController < ApplicationController
     end
   end
 
+  private
+
   def store_params
     params.require(:store).permit(:title, :description, :image_url, :accreditations)
   end
@@ -56,6 +58,8 @@ class StoresController < ApplicationController
         flash[:success] = {color: "white", message: "Store #{store.title} has been successfully created and approved"}
       elsif store.status == "declined"
         flash[:success] = {color: "white", message: "Store #{store.title} has been successfully declined"}
+      elsif store.status == "deactive"
+        flash[:success] = {color: "white", message: "Store #{store.title} has been successfully deactivated"}
       end
       redirect_to platform_admin_dashboard_index_path
     else
