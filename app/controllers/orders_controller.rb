@@ -14,7 +14,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-
     @order = current_user.orders.create(status: "ordered",
                                         total_price: @cart.total_price)
     add_items_to_order
@@ -24,8 +23,8 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:id]) if current_user.admin?
-    @order = current_user.orders.find(params[:id]) if !current_user.admin?
+    @order = Order.find(params[:id]) if !current_user.store_admin?
+    @order = current_user.orders.find(params[:id]) if current_user.default?
     @items = @order.order_items
   end
 
