@@ -7,6 +7,7 @@ class PlatformAdmin::ItemsController < PlatformAdminController
 
 	def create
     item = Item.new(item_params)
+		item.category_id = params["category"]
     item.store = Store.find_by_slug(params[:store_slug])
     if item.save
       flash[:success] = {color: "white", message: "Your item was successfully created"}
