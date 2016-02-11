@@ -16,12 +16,28 @@ class UsersController < ApplicationController
   end
 
   def show
-    if session[:user_id]
-      @user = User.find(session[:user_id])
+    if current_user
+      @user = current_user
       redirect_to store_admin_dashboard_path if @user.store_admin?
     else
       flash[:error] = {message: "Must be signed in to see dashboard.", color: "red"}
-      redirect_to items_path
+      redirect_to root_path
+    end
+  end
+
+  def edit
+    @user = User.find_by(id: params[:id])
+  end
+
+  def update
+    user = User.find_by(id: params[:id])
+    user.update_attributes(set_user)
+    if user.save
+      flash[:success] = {message: "Your user info has been updated", color: "white"}
+      redirect_to dashboard_path
+    else
+      flash[:error] = {message: user.errors.full_messages.join(", "), color: "red"}
+      redirect_to action: "edit"
     end
   end
 

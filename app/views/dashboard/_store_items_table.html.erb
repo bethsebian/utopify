@@ -8,7 +8,8 @@
         <td>Decsription</td>
         <td>Price</td>
         <td>Category</td>
-        <td><%= link_to "Add an item", new_item_path %></td>
+        <td><%= link_to "Add New Item", new_item_path %></td>
+        <td></td>
       </tr>
     </thead>
     <tbody>
@@ -18,8 +19,8 @@
         <td><%= item.description %></td>
         <td><%= item.price %></td>
         <td><%= item.category.title %></td>
+        <td><%= link_to "Edit", edit_item_path(item) %></td>
         <td><%= button_to "Delete", store_item_path(@store.slug, item.slug), method: :delete %></td>
-        <!-- <td><%= button_to "Deactivate", store_item_path(@store.slug, item.slug), method: :patch, params: { new_status: false } %></td> -->
       </tr>
       <% end %>
       <tr>

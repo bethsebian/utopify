@@ -6,11 +6,11 @@
           <img src='<%= item.image_url %>' id="card-image"> <!-- replace with item image -->
           <span class="card-title-alt"><%= link_to item.title, store_item_path(item.store.slug, item.slug) %></span>
         </div>
-          <div id="card-store-title">
-            <%= link_to item.store.title, store_path(item.store.slug) %>
-            <br>
-            <p id="card-item-price"><%= number_to_currency(item.price) %></p>
-          </div>
+        <div id="card-store-title">
+          <%= link_to item.store.title, store_path(item.store.slug) %>
+          <br>
+          <p id="card-item-price"><%= number_to_currency(item.price) %></p>
+        </div>
 
 
         <div class="card-action">
@@ -24,4 +24,3 @@
     </div>
   <% end %>
 </div>
-

@@ -17,15 +17,14 @@ class OrdersController < ApplicationController
     @order = current_user.orders.create(status: "ordered",
                                         total_price: @cart.total_price)
     add_items_to_order
-    flash[:order_success] = {color: 'green', message: "Order was successfully placed"}
-    set_doomsday_flash_message
-    redirect_to orders_path
+    flash[:order_success] = {color: 'green', message: "Order was successfully placed."}
     session[:cart] = {}
+    redirect_to '/dashboard'
   end
 
   def show
-    @order = Order.find(params[:id]) if current_user.admin?
-    @order = current_user.orders.find(params[:id]) if !current_user.admin?
+    @order = Order.find(params[:id]) if current_user.store_admin?
+    @order = current_user.orders.find(params[:id]) if current_user.default?
     @items = @order.order_items
   end
 

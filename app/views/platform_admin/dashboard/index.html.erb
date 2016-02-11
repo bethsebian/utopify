@@ -4,89 +4,21 @@
 <hr><br><br>
 
 <div class="container">
-<!-- Sitewide Sales Sumary Data -->
-      <h4>Site-wide Sales Summary Data</h4>
-      <a class="btn platform-admin-tables">Hide / Display</a>
-      <table class="bordered highlight responsive-table">
-        <thead>
-          <tr>
-            <th data-field="total-sales">Total Sales</th>
-              <th data-field="category-sales">Category 1 Sales</th>
-              <th data-field="current-month">Current Month Sales</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>$398.76</td>
-            <td>$42.87</td>
-            <td>$234,231.87</td>
-          </tr>
-        </tbody>
-      </table><br><br>
-    <!-- Pending Stores -->
-      <h4>Pending Stores</h4>
-      <a class="btn platform-admin-tables">Hide / Display</a>
-      <table class="bordered highlight responsive-table">
-        <thead>
-          <tr>
-              <th data-field="title">Store Title</th>
-              <th data-field="owner">Owner</th>
-              <th data-field="description">Description</th>
-              <th data-field="accreditation">Accreditation</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Jeffs Store</td>
-            <td>Jeff Johnson</td>
-            <td>We sell stuff to people</td>
-            <td>Maybe a dropdown list of accredidations?</td>
-          </tr>
-          <tr>
-            <td>Harry's Cool Store</td>
-            <td>Harry Hudini</td>
-            <td>We sell stuff to people</td>
-            <td>Maybe a dropdown list of accredidations?</td>
-          </tr>
-          <tr>
-            <td>Jon's Even Cooler Store</td>
-            <td>Jon</td>
-            <td>We sell stuff to people</td>
-            <td>Maybe a dropdown list of accredidations?</td>
-          </tr>
-        </tbody>
-      </table><br><br>
-      <!-- all other stores -->
-      <h4>All Stores</h4>
-      <a class="btn platform-admin-tables">Hide / Display</a>
-      <table class="bordered highlight responsive-table">
-        <thead>
-          <tr>
-              <th data-field="title">Store Title</th>
-              <th data-field="owner">Owner</th>
-              <th data-field="description">Description</th>
-              <th data-field="status">Active / Declined / Closed</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Jeffs Store</td>
-            <td>Jeff Johnson</td>
-            <td>We sell stuff to people</td>
-            <td>Active</td>
-          </tr>
-          <tr>
-            <td>Harry's Cool Store</td>
-            <td>Harry Hudini</td>
-            <td>We sell stuff to people</td>
-            <td>Active</td>
-          </tr>
-          <tr>
-            <td>Jon's Even Cooler Store</td>
-            <td>Jon Guy</td>
-            <td>We sell stuff to people</td>
-            <td>Active</td>
-          </tr>
-        </tbody>
-      </table><br><br>
+  <h4>Site-wide Sales Summary Data</h4>
+  <%= render partial: 'sales_data_table' %>
+
+  <h4>Pending Stores</h4>
+  <%= render partial: 'pending_stores_table' %>
+
+  <h4>Active Stores</h4>
+  <%= render partial: 'active_stores_table' %>
+
+  <h4>Deactive Stores</h4>
+  <%= render partial: 'deactive_stores_table' %>
+
+  <h4>Declined Stores</h4>
+  <%= render partial: 'declined_stores_table' %>
+
+  <h4>All Categories</h4>
+  <%= render partial: 'categories_table' %>
 </div>

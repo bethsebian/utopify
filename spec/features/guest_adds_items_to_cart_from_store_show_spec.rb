@@ -11,8 +11,7 @@ RSpec.feature "guest visits store page" do
 
     expect(page).to have_content("My Cart: 0")
 
-    first('.card-action').click_on('Add To Cart')
+		first(:button, "Add To Cart").click
     expect(page).to have_content("My Cart: 1")
-		expect(page).to have_content("My Cart: 3")
   end
 end

@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
 
     elsif @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
-      flash[:success] = {color: 'green', message: "Logged in as #{@user.first_name}"}
+      flash[:success] = {color: 'white', message: "Logged in as #{@user.first_name}"}
       redirect_to dashboard_path
     else
       flash[:error] = {color: 'orange', message: "Username or password incorrect."}

@@ -62,7 +62,7 @@ class Seed
       store = Store.create!(
         title: Faker::Company.name,
         description: Faker::Lorem.sentence(1),
-        status: "active",
+        status: ["active", "pending", "inactive", "declined"].sample(1)[0],
         image_url: "http://lorempixel.com/300/300/abstract/#{(i/2)}/",
         accreditations: ["National Audubon Society"],
         user_id: store_admin.id

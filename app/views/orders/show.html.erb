@@ -17,12 +17,11 @@
       	<%= render partial: "order_items", collection: @items, as: :order_item %>
       </tbody>
       </table>
-
       <div class="right-align">
-      		<h4>Order Created On: <%= @order.created_at %></h4>
+      		<h4>Order Created On: <%= @order.created_at.strftime("%B %e, %Y") %></h4>
           <h4><%= @order.status.capitalize %>
             <% if @order.status == "completed" || @order.status == "cancelled" %>
-             (Updated At: <%= @order.updated_at %>)
+             (Updated At: <%= @order.updated_at.strftime("%B %e, %Y") %>)
           <% end %>
           </h4>
       		<h4>Total Price: <%=number_to_currency(@order.total_price)%></h4>
@@ -30,3 +29,4 @@
     </div>
   </div>
 </div>
+<%= link_to "Return to Dashboard", dashboard_path %>
