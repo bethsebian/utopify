@@ -65,6 +65,5 @@ RSpec.feature "platform admin visits dashboard clicks link to edit a category" d
     	click_on "Submit"
     end
 		expect(current_path).to eq(edit_category_path(category_1.slug))
-
   end
 end
