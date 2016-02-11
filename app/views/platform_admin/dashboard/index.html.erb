@@ -5,133 +5,20 @@
 
 <div class="container">
   <h4>Site-wide Sales Summary Data</h4>
-  <a class="btn platform-admin-tables">Hide / Display</a>
-  <table class="bordered highlight responsive-table">
-    <thead>
-      <tr>
-        <th data-field="total-sales">Total Sales</th>
-          <th data-field="category-sales">Category 1 Sales</th>
-          <th data-field="current-month">Current Month Sales</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>$398.76</td>
-        <td>$42.87</td>
-        <td>$234,231.87</td>
-      </tr>
-    </tbody>
-  </table><br><br>
+  <%= render partial: 'sales_data_table' %>
 
-<!-- Pending Stores -->
   <h4>Pending Stores</h4>
-  <a class="btn platform-admin-tables">Hide / Display</a>
-  <table class="bordered highlight responsive-table" id="pending-stores">
-    <thead>
-      <tr>
-        <th data-field="title">Store Title</th>
-        <th data-field="description">Description</th>
-        <th data-field="status">Status</th>
-        <th data-field="owner">Owner</th>
-        <th data-field="image_url">Image Url</th>
-        <th data-field="accreditation">Accreditations</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @pending_stores.each do |store| %>
-      <tr>
-        <td><%= store.title %></td>
-        <td><%= store.description %></td>
-        <td><%= store.status %></td>
-        <td><%= store.user.username %></td>
-        <td><%= store.image_url %></td>
-        <td><%= store.accreditations.first %></td>
-        <td><%= link_to "Approve", store_path(store.slug, params:
-                                              {store: {title: store.title,
-                                                       description: store.description,
-                                                       image_url: store.image_url,
-                                                       accreditations: store.accreditations,
-                                                       status: "active"
-                                                       }}), method: "patch" %></td>
-        <td><%= link_to "Decline", store_path(store.slug, params:
-                                              {store: {title: store.title,
-                                                       description: store.description,
-                                                       image_url: store.image_url,
-                                                       accreditations: store.accreditations,
-                                                       status: "declined"
-                                                       }}), method: "patch" %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table><br><br>
+  <%= render partial: 'pending_stores_table' %>
 
-  <!-- Active stores -->
   <h4>Active Stores</h4>
-  <a class="btn platform-admin-tables">Hide / Display</a>
-  <table class="bordered highlight responsive-table" id="active-stores">
-    <thead>
-      <tr>
-        <th data-field="title">Store Title</th>
-        <th data-field="description">Description</th>
-        <th data-field="status">Status</th>
-        <th data-field="owner">Owner</th>
-        <th data-field="accreditation">Accreditations</th>
-        <th data-field="image_url">Image Url</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @active_stores.each do |store| %>
-      <tr>
-        <td><%= store.title %></td>
-        <td><%= store.description %></td>
-        <td><%= store.status %></td>
-        <td><%= store.user.username %></td>
-        <td><%= store.accreditations.first %></td>
-        <td><%= store.image_url %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table><br><br>
+  <%= render partial: 'active_stores_table' %>
+
+  <h4>Deactive Stores</h4>
+  <%= render partial: 'deactive_stores_table' %>
 
   <h4>Declined Stores</h4>
-  <a class="btn platform-admin-tables">Hide / Display</a>
-  <table class="bordered highlight responsive-table" id="declined-stores">
-    <thead>
-      <tr>
-        <th data-field="title">Store Title</th>
-        <th data-field="description">Description</th>
-        <th data-field="status">Status</th>
-        <th data-field="owner">Owner</th>
-        <th data-field="accreditation">Accreditations</th>
-        <th data-field="image_url">Image Url</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @declined_stores.each do |store| %>
-      <tr>
-        <td><%= store.title %></td>
-        <td><%= store.description %></td>
-        <td><%= store.status %></td>
-        <td><%= store.user.username %></td>
-        <td><%= store.accreditations.first %></td>
-        <td><%= store.image_url %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table><br><br>
+  <%= render partial: 'declined_stores_table' %>
 
   <h4>All Categories</h4>
-  <a class="btn platform-admin-tables">Hide / Display</a>
-  <table class="bordered highlight responsive-table" id="all-categories">
-    <% @categories.each do |category| %>
-    <tbody>
-      <tr>
-        <td><%= category.title %></td>
-        <td><%= link_to "Edit", edit_category_path(category.slug) %></td>
-      </tr>
-    </tbody>
-    <% end %>
-  </table>
-  <br>
-  <br>
+  <%= render partial: 'categories_table' %>
 </div>

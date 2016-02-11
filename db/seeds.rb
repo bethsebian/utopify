@@ -95,6 +95,17 @@ class Seed
     end
   end
 
+  def generate_josh
+    customer = User.create!(
+      first_name: "Josh",
+      password: "password",
+      username: "jmejia",
+      last_name: "Mejia",
+      role: 0.to_i
+    )
+    puts "Customer Josh Mejia created!"
+  end
+
   def generate_orders
     customers = User.where(role: 0)
     customers.each do |customer|

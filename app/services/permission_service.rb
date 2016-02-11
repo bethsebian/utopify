@@ -34,7 +34,7 @@ class PermissionService
     return true if controller == "orders" && action.in?(%w(index create show update))
     return true if controller == "sessions" && action.in?(%w(new create destroy))
     return true if controller == "stores" && action.in?(%w(show new create update))
-    return true if controller == "users" && action.in?(%w(new create show))
+    return true if controller == "users" && action.in?(%w(new create show edit update))
   end
 
   def store_admin_permissions
@@ -45,8 +45,8 @@ class PermissionService
     return true if controller == "items" && action.in?(%w(index show new create edit update destroy))
     return true if controller == "orders" && action.in?(%w(index create show update))
     return true if controller == "sessions" && action.in?(%w(new create destroy))
-    return true if controller == "stores" && action.in?(%w(show new create update))
-    return true if controller == "users" && action.in?(%w(new create show))
+    return true if controller == "stores" && action.in?(%w(show new create edit update))
+    return true if controller == "users" && action.in?(%w(new create show edit update))
   end
 
   def global_admin_permissions
@@ -57,6 +57,6 @@ class PermissionService
     return true if controller == "orders" && action.in?(%w(index create show))
     return true if controller == "sessions" && action.in?(%w(new create destroy))
     return true if controller == "stores" && action.in?(%w(show new create))
-    return true if controller == "users" && action.in?(%w(new create show))
+    return true if controller == "users" && action.in?(%w(new create show edit update))
   end
 end

@@ -1,0 +1,13 @@
+<a class="btn platform-admin-tables">Hide / Display</a>
+<table class="bordered highlight responsive-table" id="all-categories">
+  <% @categories.each do |category| %>
+  <tbody>
+    <tr>
+      <td><%= category.title %></td>
+      <td><%= link_to "Edit", edit_category_path(category.slug) %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
+<br>
+<br>

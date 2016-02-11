@@ -25,6 +25,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find_by(id: params[:id])
+  end
+
+  def update
+    user = User.find_by(id: params[:id])
+    user.update_attributes(set_user)
+    if user.save
+      flash[:success] = {message: "Your user info has been updated", color: "white"}
+      redirect_to dashboard_path
+    else
+      flash[:error] = {message: user.errors.full_messages.join(", "), color: "red"}
+      redirect_to action: "edit"
+    end
+  end
+
   private
 
   def set_user

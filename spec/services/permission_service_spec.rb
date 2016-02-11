@@ -137,7 +137,7 @@ RSpec.feature "Permission Service determines all users' activities" do
 	it "can edit an item (items#update)" do
 	end
 
-	it "can access the page with all their orders (orders#index)" #won't need do
+	it "can access the page with all their orders (orders#index)" do #won't need do
 	end
 
 	it "can create an order (orders#create)" do
