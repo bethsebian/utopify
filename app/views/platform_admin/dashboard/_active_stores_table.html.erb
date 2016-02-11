@@ -1,0 +1,25 @@
+<a class="btn platform-admin-tables">Hide / Display</a>
+<table class="bordered highlight responsive-table" id="active-stores">
+  <thead>
+    <tr>
+      <th data-field="title">Store Title</th>
+      <th data-field="description">Description</th>
+      <th data-field="status">Status</th>
+      <th data-field="owner">Owner</th>
+      <th data-field="accreditation">Accreditations</th>
+      <th data-field="image_url">Image Url</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @stores.active_stores.each do |store| %>
+    <tr>
+      <td><%= store.title %></td>
+      <td><%= store.description %></td>
+      <td><%= store.status %></td>
+      <td><%= store.user.username %></td>
+      <td><%= store.accreditations.first %></td>
+      <td><%= store.image_url %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table><br><br>

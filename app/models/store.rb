@@ -29,4 +29,16 @@ class Store < ActiveRecord::Base
   def pending_orders
     self.orders.where(status: "pending")
   end
+
+  def self.active_stores
+    where(status: "active")
+  end
+
+  def self.declined_stores
+    where(status: "declined")
+  end
+
+  def self.pending_stores 
+    where(status: "pending")
+  end
 end
