@@ -6,8 +6,10 @@ class Cart
 	end
 
 	def add_item(item_id)
-    contents[item_id.to_s] ||=0
-    contents[item_id.to_s] += 1
+		if Item.find_by(id: item_id).active?
+      contents[item_id.to_s] ||=0
+      contents[item_id.to_s] += 1
+	  end
   end
 
 	def count_of
