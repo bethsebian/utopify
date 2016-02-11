@@ -80,7 +80,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @stores.each do |store| %>
+      <% @stores.active_stores.each do |store| %>
       <tr>
         <td><%= store.title %></td>
         <td><%= store.description %></td>
@@ -107,7 +107,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @declined_stores.each do |store| %>
+      <% @stores.declined_stores.each do |store| %>
       <tr>
         <td><%= store.title %></td>
         <td><%= store.description %></td>
