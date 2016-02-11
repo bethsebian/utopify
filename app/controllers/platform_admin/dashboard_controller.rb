@@ -6,5 +6,6 @@ class PlatformAdmin::DashboardController < ApplicationController
     @categories = Category.all
     @pending_stores = Store .where(status: "pending")
     @active_stores = Store .where(status: "active")
+    @declined_stores = Store .where(status: "declined")
   end
 end

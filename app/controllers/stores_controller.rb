@@ -22,9 +22,13 @@ class StoresController < ApplicationController
   def update
     store = Store.find_by(slug: params[:slug])
     store.update_attributes(store_params)
-    store.status = "active"
+    store.status = params[:store][:status]
     if current_user.platform_admin? && store.save
-      flash[:success] = {color: "white", message: "Store #{store.title} has been successfully created and approved"}
+      if store.status == "active"
+        flash[:success] = {color: "white", message: "Store #{store.title} has been successfully created and approved"}
+      elsif store.status == "declined"
+        flash[:success] = {color: "white", message: "Store #{store.title} has been successfully declined"}
+      end
       redirect_to platform_admin_dashboard_index_path
     else
       flash[:error] = { color: "white", message: store.errors.full_messages.join(", ") }
