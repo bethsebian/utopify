@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col s12 m12 l12" id= "new-item-form">
       <h2>Fill in data to create a new item</h2>
-      <%= form_for @item do |f| %>
+      <%= form_for @item, url: @url  do |f| %>
         <%= f.label :title, "Title:" %>
         <%= f.text_field :title %>
 

@@ -129,39 +129,6 @@ RSpec.feature "Permission Service determines all users' activities" do
 	end
 
 	it "can create a new item (items#create)" do
-		approved = [store_admin, platform_admin]
-		approved.each_with_index do |user, index|
-			ApplicationController.any_instance.stub(:current_user).and_return(user)
-			visit new_store_item_path(store.slug)
-			expect(current_path).to eq(new_store_item_path(store.slug))
-
-			within("#new-item-form") do
-				fill_in "Title", with: "New Item #{index}"
-				fill_in "Description", with: "New description"
-				fill_in "Image Url", with: "https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwi33_2fiezKAhVnuYMKHXjtANkQjRwIAw&url=http%3A%2F%2Fjosephcphillips.com%2F2015%2F07%2Fof-course-bill-cosby-is-guilty%2F&psig=AFQjCNEMITizMWYxf5CZgZDU6BWWlr6a6w&ust=1455155083470723	"
-				fill_in "Price", with: 567
-				click_on "Submit"
-			end
-
-			expect(page).to have_content("Your item was successfully created")
-		end
-
-		not_approved = [registered_user]
-		not_approved.each do |user|
-			ApplicationController.any_instance.stub(:current_user).and_return(user)
-			visit new_store_item_path(store.slug)
-			# expect(current_path).to eq(new_store_item_path(store.slug))
-			#
-			# within("#new-item-form") do
-			# 	fill_in "Title", with: "New Item"
-			# 	fill_in "Description", with: "New description"
-			# 	fill_in "Image Url", with: "https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwi33_2fiezKAhVnuYMKHXjtANkQjRwIAw&url=http%3A%2F%2Fjosephcphillips.com%2F2015%2F07%2Fof-course-bill-cosby-is-guilty%2F&psig=AFQjCNEMITizMWYxf5CZgZDU6BWWlr6a6w&ust=1455155083470723	"
-			# 	fill_in "Price", with: 567
-			# 	click_on "Submit"
-			# end
-			#
-			# expect(page).to_not have_content("Your item was successfully created")
-		end
 	end
 end
 

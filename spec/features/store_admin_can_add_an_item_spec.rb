@@ -37,7 +37,8 @@ RSpec.feature "admin visits dashboard clicks link to add a new item" do
 			fill_in "Price", with: 567
     	click_on "Submit"
     end
-		expect(current_path).to eq(new_store_item_path(store.slug))
+
+		expect(current_path).to eq(store_dashboard_index_path(store.slug))
 
 		expect(page).to have_content("Your item was successfully created")
   end
