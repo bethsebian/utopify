@@ -1,19 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe "Permission Service determines all users' activities" do
-	attr_reader :registerd_user, :store_admin, :platform_admin, :store, :item
+	attr_reader :registered_user, :store_admin, :platform_admin, :store, :item
 
 	before(:all) do
-		@registered_user 	= create(:user)
-		@store_admin 			= create(:user, role: 1)
-		@platform_admin 	= create(:user, role: 2)
+		# binding.pry
+		@registered_user 	= create(:user, username: "registered_user")
+		@store_admin 			= create(:user, role: 1, username: "store_admin")
+		@platform_admin 	= create(:user, role: 2, username: "platform_admin")
 		@category 				= create(:category_with_items, items_count: 1)
 		@item 						= @category.items.first
 		@store 						= create(:store)
 		@store.items << @item
 	end
-
-	describe "initialized in before(:all)" do
 
 	  it "can access the homepage (home#index)" do
 			approved = [registered_user, store_admin, platform_admin]
@@ -23,7 +22,6 @@ RSpec.describe "Permission Service determines all users' activities" do
 				expect(current_path).to eq root_path
 			end
 		end
-	end
 end
 	  # it "can add an item to a cart (cart_items#create)" do
 		# 	visit store_item_path(store.slug, item.slug)
