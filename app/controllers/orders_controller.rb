@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:id]) if !current_user.store_admin?
+    @order = Order.find(params[:id]) if current_user.store_admin?
     @order = current_user.orders.find(params[:id]) if current_user.default?
     @items = @order.order_items
   end
