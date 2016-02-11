@@ -4,6 +4,8 @@
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <% if current_user && current_user.store_admin? %>
         <li id="nav-li"> <%= link_to "Store Dashboard", store_dashboard_index_path(current_user.store.slug) %></li>
+      <% elsif current_user && current_user.platform_admin? %>
+        <li id="nav-li"> <%= link_to "Site Dashboard", platform_admin_dashboard_index_path %></li>
       <% end %>
       <% if current_user %>
         <li id="nav-li"> <%= link_to "My Dashboard", dashboard_path %></li>
