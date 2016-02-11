@@ -1,3 +1,5 @@
+require 'faker'
+
 class Seed
   def self.start
     seed = Seed.new
