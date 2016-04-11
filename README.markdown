@@ -1,9 +1,9 @@
 ## Utopify
 
 ### Authors
-[Beth Sebian](https://github.com/bethsebian)
-[Lenny Meyerson](https://github.com/theobtuseautodidact)
-[Justin Pease](https://github.com/Jpease1020)
+[Beth Sebian](https://github.com/bethsebian)  
+[Lenny Meyerson](https://github.com/theobtuseautodidact)  
+[Justin Pease](https://github.com/Jpease1020)  
 
 ### The Project
 In this project, we converted a single-tenancy store into a multi-tenancy store.
