@@ -2,7 +2,7 @@ require 'rails_helper'
 include ActionView::Helpers::NumberHelper
 
 RSpec.feature "user visits dashboard page" do
-	scenario "user sees thier orders in the orders table" do
+  scenario "user sees thier orders in the orders table" do
     user = create(:user)
     order_1 = create(:order, user_id: user.id, status: "pending")
     visit root_path

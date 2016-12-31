@@ -1,13 +1,13 @@
 require 'rails_helper'
 
 RSpec.feature "store admin visits dashboard" do
-	scenario "clicks link to edit store info and edits the store info" do
+  scenario "clicks link to edit store info and edits the store info" do
     category_1 = create(:category_with_items, items_count: 1)
-		item_1 = category_1.items.first
+    item_1 = category_1.items.first
 
-		store_admin = create(:user, role: 1)
-		store = create(:store, user_id: store_admin.id)
-		user = create(:user, role: 0)
+    store_admin = create(:user, role: 1)
+    store = create(:store, user_id: store_admin.id)
+    user = create(:user, role: 0)
 
     visit login_path
     fill_in "Username", :with => store_admin.username
@@ -36,11 +36,11 @@ RSpec.feature "store admin visits dashboard" do
 
   scenario "clicks link to edit store info and edits the store info" do
     category_1 = create(:category_with_items, items_count: 1)
-		item_1 = category_1.items.first
+    item_1 = category_1.items.first
 
-		store_admin = create(:user, role: 1)
-		store = create(:store, user_id: store_admin.id)
-		user = create(:user, role: 0)
+    store_admin = create(:user, role: 1)
+    store = create(:store, user_id: store_admin.id)
+    user = create(:user, role: 0)
 
     visit login_path
     fill_in "Username", :with => store_admin.username

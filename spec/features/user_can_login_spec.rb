@@ -7,7 +7,7 @@
 require 'rails_helper'
 
 RSpec.feature "guest visits home page and clicks on the login button" do
-	scenario "user fills in proper info and is routed to their dashboard" do
+  scenario "user fills in proper info and is routed to their dashboard" do
     user = create(:user)
     visit root_path
     click_on "Login"

@@ -2,14 +2,14 @@ require 'rails_helper'
 include ActionView::Helpers::NumberHelper
 
 RSpec.feature "user visits dashboard page" do
-	scenario "user sees thier orders in the orders table" do
+  scenario "user sees thier orders in the orders table" do
     user = create(:user)
-		store= create(:store)
+    store= create(:store)
     item_1 = create(:item, store_id: store.id)
     order_1 = create(:order, user_id: user.id, status: "ordered")
     order_item_1 = create(:order_item, order_id: order_1.id, item_id: item_1.id, item_price: item_1.price)
-		order_1.total_price = order_item_1.item_price * order_item_1.item_quantity
-		order_1.save
+    order_1.total_price = order_item_1.item_price * order_item_1.item_quantity
+    order_1.save
 
     visit root_path
     click_on "Login"
@@ -33,7 +33,7 @@ RSpec.feature "user visits dashboard page" do
     expect(page).to have_content(order_1.created_at.strftime("%B %e, %Y"))
 
     expect(page).to have_content(item_1.title)
-		expect(page).to have_content(number_to_currency(order_item_1.item_price))
+    expect(page).to have_content(number_to_currency(order_item_1.item_price))
     expect(page).to have_content(number_to_currency(order_item_1.item_price * order_item_1.item_quantity))
   end
 end

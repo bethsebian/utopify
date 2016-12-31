@@ -13,14 +13,4 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
-
-
-  # config.before(:suite) do
-  #   begin
-  #     DatabaseCleaner.start
-  #     FactoryGirl.lint
-  #   ensure
-  #     DatabaseCleaner.clean
-  #   end
-  # end
 end

@@ -28,7 +28,3 @@ Utopify is a store for carbon-offsets and other environmentally-focused products
 * We ran out of time to install a jQuery filter in the display items section of the home page, so the site's entire 500+ items are displayed.
 * Controllers could be skinnier.
 * Various issues with our views: sizing of item cards needs to be consistent, etc.
-
-
-
-

@@ -1,17 +1,17 @@
 require 'rails_helper'
 
 RSpec.feature "user not logged in adds items to cart" do
-	scenario "clicks the checkout button and is taken to the login page" do
+  scenario "clicks the checkout button and is taken to the login page" do
     user = create(:user)
-		store = Store.create(title: "test", accreditations: ["Hurray"])
-		category_1 = create(:category)
-		item_1 = create(:item, category_id: category_1.id)
-		store.items << [item_1]
+    store = Store.create(title: "test", accreditations: ["Hurray"])
+    category_1 = create(:category)
+    item_1 = create(:item, category_id: category_1.id)
+    store.items << [item_1]
 
     visit store_path(store.slug)
     expect(page).to have_content("My Cart: 0")
 
-		first(:button, "Add To Cart").click
+    first(:button, "Add To Cart").click
     expect(page).to have_content("My Cart: 1")
     click_on("My Cart")
     expect(page).to have_content(item_1.title)
@@ -23,15 +23,15 @@ RSpec.feature "user not logged in adds items to cart" do
 
   scenario "clicks the checkout button, then logs in and can checkout" do
     user = create(:user)
-		store = Store.create(title: "test", accreditations: ["Hurray"])
-		category_1 = create(:category)
-		item_1 = create(:item, category_id: category_1.id)
-		store.items << [item_1]
+    store = Store.create(title: "test", accreditations: ["Hurray"])
+    category_1 = create(:category)
+    item_1 = create(:item, category_id: category_1.id)
+    store.items << [item_1]
 
     visit store_path(store.slug)
     expect(page).to have_content("My Cart: 0")
 
-		first(:button, "Add To Cart").click
+    first(:button, "Add To Cart").click
     expect(page).to have_content("My Cart: 1")
     click_on("My Cart")
     expect(page).to have_content(item_1.title)

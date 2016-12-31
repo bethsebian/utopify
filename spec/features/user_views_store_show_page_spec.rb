@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "logged in user goes to show page" do
-	scenario "and sees stores items" do
+  scenario "and sees stores items" do
     user = create(:user, role: 0)
     store = create(:store)
     item_1 = create(:item, store_id: store.id)
@@ -11,9 +11,9 @@ RSpec.feature "logged in user goes to show page" do
     visit root_path
     click_on "Login"
 
-		page.fill_in 'Username', with: user.username
-		page.fill_in 'Password', with: user.password
-		click_on "Sign In"
+    page.fill_in 'Username', with: user.username
+    page.fill_in 'Password', with: user.password
+    click_on "Sign In"
 
     visit store_path(store.slug)
 

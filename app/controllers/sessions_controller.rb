@@ -1,7 +1,5 @@
 class SessionsController < ApplicationController
-
   def new
-
   end
 
   def create
@@ -12,7 +10,6 @@ class SessionsController < ApplicationController
     elsif @user && @user.authenticate(params[:session][:password]) && @user.store_admin?
       session[:user_id] = @user.id
       redirect_to store_dashboard_index_path(@user.store.slug)
-
     elsif @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
       flash[:success] = {color: 'white', message: "Logged in as #{@user.first_name}"}
@@ -28,5 +25,4 @@ class SessionsController < ApplicationController
     flash[:notice] = {color: "white", message: "Goodbye"}
     redirect_to '/'
   end
-
 end

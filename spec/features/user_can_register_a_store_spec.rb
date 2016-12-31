@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "user can register a store" do
-	scenario "user clicks on 'register store' and can submit store info" do
+  scenario "user clicks on 'register store' and can submit store info" do
     user = create(:user)
 
     visit root_path

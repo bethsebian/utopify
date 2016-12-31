@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "guest visits home page" do
-	scenario "clicks link to create account" do
+  scenario "clicks link to create account" do
     visit root_path
     click_on "Create Account"
     expect(current_path).to eq("/users/new")
@@ -18,8 +18,8 @@ RSpec.feature "guest visits home page" do
     expect(page).to have_content("Logout")
   end
 
-	scenario "account creation fails without name" do
-		visit root_path
+  scenario "account creation fails without name" do
+    visit root_path
     click_on "Create Account"
     expect(current_path).to eq("/users/new")
 
@@ -35,10 +35,10 @@ RSpec.feature "guest visits home page" do
     expect(page).to have_content("Last name can't be blank")
   end
 
-	scenario "account creation fails without unique username" do
-		value = "pete"
-		user = create(:user, username: value)
-		visit root_path
+  scenario "account creation fails without unique username" do
+    value = "pete"
+    user = create(:user, username: value)
+    visit root_path
     click_on "Create Account"
     expect(current_path).to eq("/users/new")
 

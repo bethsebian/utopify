@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "logged in user clicks on the logout button" do
-	scenario "is routed to the root page" do
+  scenario "is routed to the root page" do
     user = create(:user)
     visit root_path
     click_on "Login"
